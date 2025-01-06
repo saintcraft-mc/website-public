@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saintcraft - Christian Minecraft Server</title>
+
+    <meta name="title" content="Saintcraft - Christian & Catholic Minecraft Server">
+    <meta name="description" content="Looking for a Christian Minecraft Server or Catholic Minecraft Server? Saintcraft offers Christ-centered gameplay, Bible-inspired builds, and a welcoming faith-based community for all believers. Join us today!">
+    <meta name="keywords" content="Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server, Top Christian Minecraft Server, Faith-Based Minecraft Server, Christian Gaming Server, Catholic Gaming Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Bible Minecraft Server, Christian Minecraft Community, Catholic Minecraft Community, Minecraft for Christians, Faith-Focused Minecraft, Christian Multiplayer Minecraft, Worship and Play Minecraft, Christian-Friendly Minecraft Server, Christian Survival Minecraft, Catholic-Friendly Minecraft Server, Bible Study in Minecraft, Virtual Faith Minecraft Server, Christian Gaming Network, Catholic Gaming Community, Faithful Minecraft Gamers, Worship and Build Christian Minecraft, Christ-Centered Gaming Experience, Catholic-Friendly Gaming Server, Bible-Inspired Minecraft Builds, Christian Fellowship Minecraft Server">
+    <meta name="author" content="Saintcraft Christian Minecraft Server">
+    <meta name="theme-color" content="#2f508c">
+    <link rel="canonical" href="http://saintcraft.us">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://saintcraft.us">
+    <meta property="og:title" content="Saintcraft - Christian & Catholic Minecraft Server">
+    <meta property="og:description" content="Join the best Christian and Catholic Minecraft Server! Faith-based gaming, Bible-inspired builds, and a Christ-centered community await at Saintcraft.">
+    <meta property="og:image" content="/media/ver1.png">
+    <meta property="og:locale" content="en_US">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://saintcraft.us">
+    <meta property="twitter:title" content="Saintcraft - Christian & Catholic Minecraft Server">
+    <meta property="twitter:description" content="Experience the best Christian and Catholic Minecraft Server! Join Saintcraft for Bible-based builds, Christ-centered gameplay, and a welcoming faith community.">
+    <meta property="twitter:image" content="/media/ver1.png">
+
+    <link rel="icon" type="image/png" href="media/favicon.png">
+    <link rel="stylesheet" href="media/style.css">
+    <link href="http://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <nav class="desktop_navbar">
+      <a href="#"><img class="desktop_navbar_logo_img" src="media/logo_small.png" alt="logo"></a>
+      <a href="#discord" class="desktop_navbar_link scroll">Discord</a>
+      <a href="http://shop.saintcraft.us" class="desktop_navbar_link">Webshop</a>
+      <a href="http://dynmap.saintcraft.us" class="desktop_navbar_link">Map</a>
+      <!--<a href="#about" class="desktop_navbar_link scroll">About Us</a>-->
+      <div class="desktop_navbar_link2_div">
+          <a href="#join" class="desktop_navbar_link2 scroll">Join Us!</a>
+      </div>
+    </nav>
+    <div class="mobile_navbar">
+      <a href="#" class="mobile_navbar_logo_img_a"><img class="mobile_navbar_logo_img" src="media/logo_small.png" alt="logo"></a>
+      <div id="mobile_navbar_links">
+        <a class="mobile_navbar_link scroll" onclick="mobile_navbar_link_hider()" href="#discord">Discord</a>
+          <a class="mobile_navbar_link" onclick="mobile_navbar_link_hider()" href="http://shop.saintcraft.us">Webshop</a>
+          <a class="mobile_navbar_link" onclick="mobile_navbar_link_hider()" href="http://dynmap.saintcraft.us">Map</a>
+          <!--<a class="mobile_navbar_link scroll" onclick="mobile_navbar_link_hider()" href="#about">About Us</a>-->
+          <a class="mobile_navbar_link scroll" onclick="mobile_navbar_link_hider()" href="#join">Join Us</a>
+        </div>
+        <div class="icon" onclick="mobile_navbar_link_hider()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <script>
+            function mobile_navbar_link_hider() {
+            var x = document.getElementById("mobile_navbar_links");
+            if (x.style.display === "flex") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "flex";
+            }
+            } 
+        </script>
+    </div>
+    <div class="mainflex">
+      <div class="main1">
+        <a class="main1_logo_a" href="#">
+          <img class="main1_logo" src="media/logo.png" alt="logo">
+        </a>
+        <div id="slogan-container" style="margin-top: -70px;"></div>
+
+        <p style="font-size: 18px; color: #ffffff; max-width: 800px; margin: 20px auto; text-align: center;">
+          Saintcraft is a welcoming Christian Minecraft Server where players of all ages can enjoy Christ-centered gameplay, Bible-inspired builds, and a supportive faith-based community. Whether you're looking for a Catholic Minecraft Server or a general Christian-focused experience, we offer a family-friendly environment for spiritual growth and fellowship.
+        </p>
+
+        <div class="main1_ipcopier_div">
+          <button class="main1_ipcopier" onclick="copyText()" type="button">
+            <span class="main1_ipcopier_text1">play.saintcraft.us</span>
+            <br>
+            <span class="main1_ipcopier_text2">Click to copy</span>
+          </button>
+          <script>
+            function copyText() {
+                navigator.clipboard.writeText
+            ("play.saintcraft.us");
+                }
+            $(document).ready(function() {
+            $('.main1_ipcopier').click(function() {
+                var popup = $('<div>', { class: 'main1_popup' })
+                .append($('<h3 class="copy_confirm">').text('Copied IP to clipboard'))
+                $(this).after(popup);
+                setTimeout(function() {
+                popup.remove();
+                }, 1000);
+            });
+            });
+        </script>
+        </div>
+        <a href="#more" class="scroll">
+          <img alt="downarrow" class="main1_downarrow" src="media/downarrow.png">
+        </a>
+        <script>
+          const scrollLinks = document.querySelectorAll('.scroll');
+          scrollLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+              event.preventDefault();
+              const target = document.querySelector(link.getAttribute('href'));
+              const offsetTop = target.offsetTop;
+              window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+              });
+            });
+          });
+        </script>
+      </div>
+      <div id="more"></div>
+      <div class="main2">
+        <a class="headline">What we have</a>
+        <div class="main2_features_div">
+            <div class="main2_feature">
+                <img class="main2_feature_img" alt="Modern Economy" src="media/economy.jpg">
+                <a class="main2_feature_headline">Unique Economy</a>
+                <a class="main2_feature_text">A modern, item-based economy designed exclusively for Saintcraft.</a>
+            </div>
+            <div class="main2_feature">
+                <img class="main2_feature_img" alt="Custom Plugins" src="media/mods.jpg">
+                <a class="main2_feature_headline">Custom Plugins</a>
+                <a class="main2_feature_text">Experience features developed in-house for a one-of-a-kind gameplay.</a>
+            </div>
+            <div class="main2_feature">
+                <img class="main2_feature_img" alt="Terrain Generation" src="media/terrain.jpg">
+                <a class="main2_feature_headline">Beautiful Terrain</a>
+                <a class="main2_feature_text">Explore grand biomes with stunning, custom terrain generation.</a>
+            </div>
+            <div class="main2_feature">
+                <img class="main2_feature_img" alt="Community Focus" src="media/players.jpg">
+                <a class="main2_feature_headline">Strong Community</a>
+                <a class="main2_feature_text">Join a cozy, supportive, and active Christian community.</a>
+            </div>
+            <div class="main2_feature">
+                <img class="main2_feature_img" alt="Faith-Based Gameplay" src="media/faith.jpg">
+                <a class="main2_feature_headline">Faith Foundation</a>
+                <a class="main2_feature_text">A faith-centered server rooted in strong Christian values.</a>
+            </div>
+        </div>
+    </div>
+      <div id="discord"></div>
+      <div class="main4">
+        <a class="headline">Join Our Discord</a>
+        <div class="main4_dc_div">
+            <div class="main4_dc_description_div">
+                <div class="main4_dc_icon" style="text-align: center; margin-top: 15px; margin-bottom: 15px;">
+                    <img src="media/discord.webp" alt="Discord Icon" height="80" style="display: inline-block;">
+                </div>
+                <a class="main4_dc_description">
+                    ・Chat directly with the Minecraft server<br> 
+                    ・Get real-time updates and announcements<br> 
+                    ・Vote on new features and improvements<br> 
+                    ・Engage with the Saintcraft community<br> 
+                    ・Share ideas and collaborate on updates<br>
+                    ・Talk to the owners and influence decisions<br><br>
+                    &amp; so much more!
+                </a>
+                <a href="http://discord.saintcraft.us" class="main4_dc_button_a">
+                    <div class="main4_dc_button">Join Now</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+      <div id="join"></div>
+      <div class="main3">
+        <h3 class="headline">Join The Best Christian Minecraft Server</h3>
+        <div class="main3_join_div_div">
+          <div class="main3_join_div">
+            <a class="main3_join_title">Java</a>
+            <div class="main3_join_content_div">
+              <div class="main3_join_categories">
+                <a>IP:</a>
+                <a>Version:</a>
+              </div>
+              <div class="main3_join_values">
+                <a>play.saintcraft.us</a>
+                <a>1.21.3+</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <footer class="copyright_div">
+      <a href="http://saintcraft.us" class="copyright">Saintcraft (.us | .net) 2024 - 2025 - Edited by @sabrinica</a>&nbsp;- Original by&nbsp;<a href="http://github.com/FQQD/MCServer-Web-Template" class="copyright">FQQD</a>
+    </footer>
+  </body>
+  <script>
+    // Array of slogans
+    const slogans = [
+        '<a>Faith,<br>crafted</a> <a class="main1_actcent">block by block</a><a>.</a>',
+        '<a>Build,<br>believe</a> <a class="main1_actcent">together in faith</a><a>.</a>',
+        '<a>Craft,<br>create</a> <a class="main1_actcent">a world of worship</a><a>.</a>',
+        '<a>Faith,<br>meets</a> <a class="main1_actcent">endless possibilities</a><a>.</a>',
+        '<a>Play,<br>pray</a> <a class="main1_actcent">and grow together</a><a>.</a>',
+        '<a>Community,<br>crafted</a> <a class="main1_actcent">on faith and fun</a><a>.</a>',
+        '<a>Worship,<br>build</a> <a class="main1_actcent">and explore together</a><a>.</a>',
+        '<a>Blocks,<br>of faith</a> <a class="main1_actcent">built for believers</a><a>.</a>',
+        '<a>Faith,<br>takes shape</a> <a class="main1_actcent">one block at a time</a><a>.</a>',
+        '<a>Connect,<br>create</a> <a class="main1_actcent">with Christ at the center</a><a>.</a>',
+        '<a>Faith,<br>reborn</a> <a class="main1_actcent">in every crafted block</a><a>.</a>',
+        '<a>Explore,<br>together</a> <a class="main1_actcent">in faith and fellowship</a><a>.</a>',
+        '<a>Pray,<br>play</a> <a class="main1_actcent">and build a community</a><a>.</a>',
+        '<a>Hearts,<br>crafted</a> <a class="main1_actcent">in blocks of hope</a><a>.</a>'
+    ];
+
+    // Get random slogan
+    const randomSlogan = slogans[Math.floor(Math.random() * slogans.length)];
+
+    // Display slogan in container
+    document.getElementById('slogan-container').innerHTML = `<div class="main1_description">${randomSlogan}</div>`;
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Saintcraft - Christian Minecraft Server",
+    "url": "http://saintcraft.us",
+    "logo": "http://saintcraft.us/media/logo.png",
+    "description": "Saintcraft is the leading Christian Minecraft Server offering a Christ-centered experience, Bible-inspired builds, and a welcoming faith-based community for all believers. Perfect for those looking for a Catholic Minecraft Server or a Christian gaming environment.",
+    "sameAs": [
+      "http://discord.saintcraft.us",
+      "http://shop.saintcraft.us",
+      "http://dynmap.saintcraft.us"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@saintcraft.us",
+      "contactType": "customer support"
+    },
+    "keywords": "Christian Minecraft Server, Catholic Minecraft Server, Best Christian Minecraft Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Faith-Based Gaming"
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "http://saintcraft.us",
+    "name": "Saintcraft - Christian Minecraft Server",
+    "description": "Join Saintcraft, the best Christian Minecraft Server, for faith-based gameplay, Bible-inspired builds, and a Christ-centered gaming community. Perfect for Catholic Minecraft players and Christian gamers seeking a family-friendly Minecraft environment.",
+    "alternateName": "Catholic Minecraft Server | Faith-Based Minecraft Gaming",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "http://saintcraft.us/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Saintcraft?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Saintcraft is a Christian Minecraft Server providing faith-centered gameplay, Bible-inspired builds, and a supportive faith-based community. It is also perfect for Catholic players seeking a Christ-centered Minecraft experience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I join the Saintcraft Minecraft server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To join the Saintcraft Minecraft server, use the IP address play.saintcraft.us on Minecraft Java Edition version 1.21.3 or higher."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Saintcraft suitable for Catholics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Saintcraft is designed for all Christians, including Catholics. The server fosters a Christ-centered community with Bible-inspired builds and faith-focused gameplay."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Saintcraft have custom features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Saintcraft offers unique features such as custom plugins, a modern item-based economy, stunning terrain generation, and Bible-inspired builds tailored for Christian gamers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Saintcraft family-friendly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! Saintcraft is a family-friendly Minecraft server, offering a safe and welcoming environment for players of all ages."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Service",
+    "name": "Saintcraft Minecraft Server",
+    "description": "Faith-based Minecraft server designed for Christians and Catholics, offering Christ-centered gameplay, Bible-inspired builds, and a welcoming, family-friendly community.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Saintcraft",
+      "url": "http://saintcraft.us"
+    },
+    "areaServed": "Worldwide",
+    "serviceType": "Christian Minecraft Server | Catholic Minecraft Server"
+  }
+  </script>
+</html>
