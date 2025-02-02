@@ -40,6 +40,7 @@ Written by @sabrinica for Saintcraft
         .product-icon {
             width: 40px;
             height: auto;
+            image-rendering: pixelated;
         }
 
         .filter-group {
@@ -66,6 +67,43 @@ Written by @sabrinica for Saintcraft
             .mobile-sidebar {
                 display: block;
             }
+        }
+
+        .enchanted {
+            position: relative;
+            display: inline-block;
+        }
+
+        .enchanted::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('shop_textures/glint_overlay.png') repeat-x;
+            opacity: 0.6; /* Adjust opacity for the glint effect */
+            animation: glint 2s linear infinite;
+            pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
+            mask-image: var(--item-image); /* Use the item image as a mask */
+            mask-size: cover; /* Ensure the mask covers the entire image */
+            mask-repeat: no-repeat;
+        }
+
+        @keyframes glint {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        .product-icon-container {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
         }
     </style>
 </head>
@@ -240,6 +278,9 @@ Written by @sabrinica for Saintcraft
 
                 document.getElementById("wallet-display").style.display = "block";
                 document.getElementById("bal-display").textContent = wallet;
+                if (wallet.toString().split(".")[1].length === 1) {
+                    document.getElementById("bal-display").textContent = wallet.toFixed(2);
+                }
             } else {
                 // Failed wallet retrieval
                 //console.error("Wallet retrieval failed!");
@@ -308,43 +349,80 @@ Written by @sabrinica for Saintcraft
         }
 
         function populateTable(products) {
-            productTableBody.innerHTML = "";
-            products.forEach(product => {
-                const { id, name, price, seller, type, amount } = product;
-                const row = document.createElement("tr");
+    productTableBody.innerHTML = ""; // Clear the table body
 
-                const imageCell = document.createElement("td");
-                const image = document.createElement("img");
-                image.src = `shop_textures/${type.split(":")[1]}.png`;
-                image.alt = name;
-                image.className = "product-icon";
-                imageCell.appendChild(image);
-                row.appendChild(imageCell);
+    products.forEach(product => {
+        const { id, name, price, seller, type, amount, enchantments } = product;
+        const row = document.createElement("tr");
 
-                const idCell = document.createElement("td");
-                idCell.textContent = id;
-                row.appendChild(idCell);
+        // Image Cell with Glint Effect
+        const imageCell = document.createElement("td");
+        const imageContainer = document.createElement("div");
+        imageContainer.className = "product-icon-container"; // Container for the image and glint
 
-                const nameCell = document.createElement("td");
-                nameCell.textContent = name;
-                row.appendChild(nameCell);
+        const image = document.createElement("img");
+        image.src = `shop_textures/${type.split(":")[1]}.png`;
+        image.alt = name;
+        image.className = "product-icon";
+        imageContainer.appendChild(image);
 
-                const amountCell = document.createElement("td");
-                amountCell.textContent = amount;
-                row.appendChild(amountCell);
-
-                const priceCell = document.createElement("td");
-                priceCell.textContent = `$${price}`;
-                row.appendChild(priceCell);
-
-                const sellerCell = document.createElement("td");
-                sellerCell.textContent = seller;
-                row.appendChild(sellerCell);
-
-                row.addEventListener("click", () => openModal(product));
-                productTableBody.appendChild(row);
-            });
+        // Add glint overlay if the item is enchanted
+        if (enchantments && enchantments.trim() !== "") {
+            imageContainer.classList.add("enchanted");
+            // Set the mask image dynamically
+            imageContainer.style.setProperty("--item-image", `url('shop_textures/${type.split(":")[1]}.png')`);
         }
+
+        imageCell.appendChild(imageContainer);
+        row.appendChild(imageCell);
+
+        // ID Cell
+        const idCell = document.createElement("td");
+        idCell.textContent = id;
+        row.appendChild(idCell);
+
+        // Name Cell (with enchantments if applicable)
+        const nameCell = document.createElement("td");
+        const display_name = name.replace(/\b\w/g, l => l.toUpperCase()); // Capitalize first letters
+        nameCell.textContent = display_name;
+
+        if (enchantments && enchantments.trim() !== "") {
+            nameCell.appendChild(document.createElement("br")); // Add a line break
+            const enchantmentsSpan = document.createElement("span");
+            enchantmentsSpan.textContent = enchantments
+                .replace(/^-/, "") // Remove leading hyphen
+                .replace(/\b\w/g, l => l.toUpperCase()) // Capitalize first letters
+                .replace(/-/g, ", "); // Replace hyphens with commas
+            enchantmentsSpan.style.color = "purple"; // Style enchantments text
+            // make enchantments bold
+            enchantmentsSpan.style.fontWeight = "bold";
+            nameCell.appendChild(enchantmentsSpan);
+        }
+
+        row.appendChild(nameCell);
+
+        // Amount Cell
+        const amountCell = document.createElement("td");
+        amountCell.textContent = amount;
+        row.appendChild(amountCell);
+
+        // Price Cell
+        const priceCell = document.createElement("td");
+        priceCell.textContent = `$${price}`;
+        row.appendChild(priceCell);
+
+        // Seller Cell
+        const sellerCell = document.createElement("td");
+        sellerCell.textContent = seller;
+        row.appendChild(sellerCell);
+
+        // Add click event to open modal
+        row.addEventListener("click", () => openModal(product));
+
+        // Append the row to the table body
+        productTableBody.appendChild(row);
+    });
+}
 
         function openModal(product) {
             document.getElementById("modalProductImage").src = `shop_textures/${product.type.split(":")[1]}.png`;
@@ -460,7 +538,7 @@ Written by @sabrinica for Saintcraft
 
         searchBar.addEventListener("input", applyFilters);
 
-        setInterval(checkWallet, 15000);
+        //setInterval(checkWallet, 120000);
 
         fetchProducts();
         updateUI();
