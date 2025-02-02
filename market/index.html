@@ -208,7 +208,7 @@ Written by @sabrinica for Saintcraft
     </div>
 
     <script>
-        const API_URL = "http://194.140.197.79:41789/marketList?callback=callback";
+        const API_URL = "https://api.saintcraft.us/marketList?callback=callback";
 
         let allProducts = [];
         const productTableBody = document.getElementById("product-table-body");
@@ -371,7 +371,7 @@ Written by @sabrinica for Saintcraft
             }
             const buyer = localStorage.getItem("username");
             const code = localStorage.getItem("code");
-            const API_PURCHASE_URL = `http://194.140.197.79:41789/purchase/${seller}&${id}-${buyer}~${code}?callback=purchaseCallback`;
+            const API_PURCHASE_URL = `https://api.saintcraft.us/purchase/${seller}&${id}-${buyer}~${code}?callback=purchaseCallback`;
 
             const script = document.createElement("script");
             script.src = API_PURCHASE_URL;
@@ -400,7 +400,7 @@ Written by @sabrinica for Saintcraft
         }
 
         function retrieveWallet(username, password) {
-            const API_WALLET_URL = `http://194.140.197.79:41789/wallet/${username}&${password}?callback=walletCallback`;
+            const API_WALLET_URL = `https://api.saintcraft.us/wallet/${username}&${password}?callback=walletCallback`;
 
             const script = document.createElement("script");
             script.src = API_WALLET_URL;
@@ -408,7 +408,7 @@ Written by @sabrinica for Saintcraft
         }
 
         function login(username, password) {
-            const API_LOGIN_URL = `http://194.140.197.79:41789/login/${username}&${password}?callback=loginCallback`;
+            const API_LOGIN_URL = `https://api.saintcraft.us/login/${username}&${password}?callback=loginCallback`;
 
             const script = document.createElement("script");
             script.src = API_LOGIN_URL;
