@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saintcraft Virtual Map</title>
+  <style>
+    /* Reset margins and paddings, and set full height */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    /* Header (nav bar) styles */
+    .header {
+      width: 100%;
+      height: 60px; /* Adjust height as needed */
+      background-color: #ffffff;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    /* Left side: Logo */
+    .header .left img {
+      height: 59px; /* Adjust logo size as needed */
+    }
+
+    /* Right side: Name and profile picture */
+    .header .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .right .name {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    .header .right .pfp {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Iframe container fills remaining space */
+    .iframe-container {
+      width: 100%;
+      height: calc(100% - 60px); /* Total height minus header height */
+    }
+
+    .iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with logo on the left and name+pfp on the right -->
+  <div class="header">
+    <div class="left">
+      <img src="vm_1.png" alt="Logo" />
+    </div>
+    <!--<div class="right">
+      <span class="name">Your Name</span>
+      <img class="pfp" src="pfp.jpg" alt="Profile Picture" />
+    </div>-->
+  </div>
+
+  <!-- Full screen iframe container -->
+  <div class="iframe-container">
+    <iframe src="http://194.140.197.79:8080"></iframe>
+  </div>
+</body>
+</html>
