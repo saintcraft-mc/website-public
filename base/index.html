@@ -310,6 +310,9 @@
                 <a class="nav-link scrollto" href="#item-1-5">Teleportation</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link scrollto" href="#waypoints">Waypoints</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link scrollto" href="#item-1-8">Server Map</a>
               </li>
               <li class="nav-item">
@@ -699,6 +702,86 @@
 </ul>
 
           </section>
+
+          <section class="docs-section" id="waypoints">
+            <h2 class="section-heading">Waypoint Networks</h2>
+            <p><strong>Waypoint Networks</strong> allow players to create and use fast-travel systems across the world. These networks are player-built and customizable, making them ideal for connecting cities, resource areas, shops, or even elevator systems within large builds.</p>
+          
+            <br>
+            <h4>Creating a Waypoint Network</h4>
+            <ul>
+              <li>
+                Use <code>/waypoint create &lt;name&gt;</code> to start a new network.
+                <ul>
+                  <li>Once started, you can place waypoint signs to define travel points.</li>
+                  <li>Each sign must follow this format:
+                    <ul>
+                      <li>Line 1: <code>[Waypoint]</code></li>
+                      <li>Line 2: Price to unlock that specific waypoint</li>
+                      <li>Line 3: Waypoint name (shown in the travel menu)</li>
+                      <li>Line 4: Automatically displays your network name</li>
+                    </ul>
+                  </li>
+                  <li>Here’s what the sign should look like while you’re writing it:</li>
+                  <img src="sign_write.png" alt="Sign Input Example" class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+                  <li>And this is how it looks once it's placed correctly and the network is complete:</li>
+                  <img src="sign_done.png" alt="Valid Waypoint Sign" class="mb-3 img-fluid img-thumbnail" data-action="zoom">
+                  <li>Finish building your network with <code>/waypoint done</code>.</li>
+                </ul>
+              </li>
+            </ul>
+          
+            <br>
+            <h4>Using a Waypoint Network</h4>
+            <ul>
+              <li>
+                Players must unlock <strong>all</strong> waypoints in a network before they can travel within it.
+                <ul>
+                  <li>To unlock, right-click the waypoint sign and pay the listed price (one-time fee per sign).</li>
+                  <li>Once unlocked, right-click any sign in the network to open the travel menu.</li>
+                  <li>Select a destination and pay the calculated travel fee to teleport.</li>
+                </ul>
+              </li>
+              <li>Network owners can use their own waypoints for free.</li>
+            </ul>
+          
+            <br>
+            <h4>Rules and Limitations</h4>
+            <ul>
+              <li>All waypoints must be within <strong>200 blocks</strong> of another waypoint in the same network.</li>
+              <li>If a waypoint sign is broken, it is <strong>removed from the network</strong>.</li>
+              <li>Waypoint signs are protected from editing, but not from being destroyed—build with care.</li>
+            </ul>
+          
+            <br>
+            <h4>Managing Your Network</h4>
+            <ul>
+              <li><code>/waypoint list</code> – View your existing networks</li>
+              <li><code>/waypoint edit &lt;name&gt;</code> – Add new waypoints to a network</li>
+              <li><code>/waypoint delete &lt;name&gt;</code> – Permanently remove a network</li>
+              <li><code>/waypoint bank</code> – Check or withdraw your network earnings</li>
+            </ul>
+          
+            <br>
+            <h4>Suggested Uses</h4>
+            <ul>
+              <li>Metro lines between districts</li>
+              <li>Elevators in tall buildings</li>
+              <li>Bus stop-style travel across cities</li>
+              <li>Shortcuts through mountains, oceans, or caves</li>
+              <li>Links between public builds, shops, and player homes</li>
+            </ul>
+          
+            <br>
+            <h4>Tips for Success</h4>
+            <ul>
+              <li>Build in areas players frequently visit</li>
+              <li>Keep prices fair and networks easy to understand</li>
+              <li>Use “hub” locations to connect multiple routes</li>
+              <li>Clear signage and smart layout make your network more appealing</li>
+            </ul>
+          </section>
+          
 
           <section class="docs-section" id="item-1-8">
             <h2 class="section-heading">Server Map</h2>
