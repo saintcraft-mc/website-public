@@ -301,7 +301,7 @@
                 <a class="nav-link scrollto" href="#item-1-2">Market</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link scrollto" href="#item-1-3">Wanted Levels</a>
+                <a class="nav-link scrollto" href="#ore-banking">Ore Banking</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link scrollto" href="#item-1-4">Lands / Claims</a>
@@ -486,9 +486,6 @@
                 <strong>Claim:</strong> Land chunks that you can own to protect your area from other players. Use the <code>/claim</code> command to claim land.
               </li>
               <li>
-                <strong>Wanted Level:</strong> A system that tracks how much you are wanted by the law. Your wanted level increases when you kill players or break laws. Check it using the <code>/wanted</code> command.
-              </li>
-              <li>
                 <strong>Credits:</strong> The server's currency, earned by playing the game. Use Credits to purchase items from the Market or NPCs.
               </li>
               <li>
@@ -613,21 +610,23 @@
             <!--<img src="assets/images/placeholder.jpg" alt="Image" class="mb-3 img-fluid img-thumbnail" data-action="zoom">-->
           </section>
 
-
-          <section class="docs-section" id="item-1-3">
-            <h2 class="section-heading">Wanted Levels</h2>
-            <p>Instead of a traditional "Jail" or "Prison" system, the Overworld uses a <strong>Wanted System</strong>. When a player commits a crime, they may gain a <strong>wanted level</strong> along with a corresponding <strong>bounty</strong>. This bounty can be paid by the wanted player at the <strong>Sheriff NPC</strong> located at Spawn. Once the bounty is paid, the player’s wanted level is removed. Wanted levels do not decrease over time and remain until they are paid off.</p>
-
-<p>If a player with a wanted level is killed or arrested, the bounty will be automatically deducted from their <strong>bank account</strong>. If the wanted player lacks sufficient funds to cover the entire bounty, they will be sent to jail for <strong>1 second per CR$</strong> of unpaid bounty.</p>
-
-<p>Before being sent to jail, the player must appear before <strong>Judge Judy</strong>, where they can plead <em>guilty</em> or <em>not guilty</em>. The outcome depends on the player's wanted level, criminal record, and honesty. Based on these factors, the jail sentence may be <strong>reduced or increased</strong>.</p>
-<p><strong>What constitutes a crime and increases a wanted level?</strong></p>
-<ul>
-  <li><strong>Griefing or stealing</strong> in a non-RP (roleplay) Lore manner.</li>
-  <li><strong>Killing another player.</strong></li>
-  <li><strong>50% chance</strong> of gaining a wanted level when killing a villager.</li>
-  <li><strong>35% chance</strong> of gaining a wanted level when killing a wandering trader.</li>
-</ul>
+          <section class="docs-section" id="ore-banking">
+            <h2 class="section-heading">Ore Banking</h2>
+            <p>The <strong>Ore Bank</strong> is a unique investment system on Saintcraft that allows players to deposit their mined ores and earn passive income over time. By locking copper, lapis, or diamond into the Ore Bank, players can receive CR$ payouts based on the amount deposited and the length of the lock period.</p>
+          
+            <p>There are three available lock periods: 1 day, 7 days, and 14 days. The longer the lock period, the higher the payout. For example, copper earns up to $5 per unit over 14 days, lapis earns up to $16 per unit, and diamond earns up to $50 per unit. This system rewards players for long-term commitment and strategic resource management.</p>
+          
+            <p>The Ore Bank includes a flexible package system, allowing players to maintain up to 20 active deposits at once, with a combined total cap of 64 ores. Players can track their deposits, check current rewards, and claim matured payouts directly in-game through an intuitive GUI or by using specific commands.</p>
+          
+            <p>Players can interact with the Ore Bank using the following commands:</p>
+            <ul>
+              <li><code>/ore deposit</code> – Deposit ores you are holding to start earning payouts.</li>
+              <li><code>/ore claim</code> – View and claim rewards from matured deposits.</li>
+              <li><code>/ore receipt</code> – Generate a written receipt showing your active deposits.</li>
+              <li><code>/ore help</code> – Access the in-game help menu to learn about the system and check payout rates.</li>
+            </ul>
+          
+            <p>Unlike previous systems, the Ore Bank is designed as a permanent feature on Saintcraft. It is fully integrated with Minecraft gameplay, balances risk and reward, and provides players with meaningful economic progression. Whether you are a casual miner or a dedicated investor, the Ore Bank offers a rewarding experience for all.</p>
           </section>
 
           <section class="docs-section" id="item-1-4">
