@@ -328,6 +328,9 @@
             <a class="nav-link scrollto" href="#section-2">Items / Recipes</a>
             <ul class="nav flex-column mt-2 lvl2">
               <li class="nav-item">
+                <a class="nav-link scrollto" href="#enchantments">Enchantments+</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link scrollto" href="#item-2-1">Vanilla+ Recipes</a>
                 <ul class="nav flex-column mt-1 lvl3">
                   <li class="nav-item section-child">
@@ -888,6 +891,194 @@
           </header>
 
           <hr>
+
+          <section class="docs-section" id="enchantments">
+            <h2 class="section-heading">Enchantments+</h2>
+            <p><strong>New enchantments</strong> expand the gameplay by adding unique effects to armor, weapons, tools, bows, and fishing rods. These enchantments are highly customizable and can be configured or disabled in the server’s enchantment config files.</p>
+            
+            <br>
+            <h4>Armor Enchantments</h4>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Applies To</th>
+                    <th>Conflicts With</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Aquaman</td><td>Grants Water Breathing effect.</td><td>Helmet</td><td>-</td></tr>
+                  <tr><td>Bunny Hop</td><td>Grants Jump Boost effect.</td><td>Boots</td><td>-</td></tr>
+                  <tr><td>Cold Steel</td><td>Applies Mining Fatigue effect to the attacker.</td><td>Chestplate</td><td>-</td></tr>
+                  <tr><td>Darkness Cloak</td><td>Applies Darkness effect to the attacker.</td><td>Chestplate</td><td>-</td></tr>
+                  <tr><td>Elemental Protection</td><td>Reduces Poison, Magic, Wither, Lightning, Freeze damage.</td><td>All Armor</td><td>-</td></tr>
+                  <tr><td>Flame Walker</td><td>Creates magma blocks when walking over lava; immune to magma damage.</td><td>Boots</td><td>Frost Walker</td></tr>
+                  <tr><td>Fire Shield</td><td>Ignites the attacker.</td><td>Chestplate</td><td>-</td></tr>
+                  <tr><td>Ice Shield</td><td>Freezes and slows the attacker.</td><td>Chestplate</td><td>-</td></tr>
+                  <tr><td>Hardened</td><td>Grants Damage Resistance on receiving damage.</td><td>Chestplate</td><td>-</td></tr>
+                  <tr><td>Night Vision</td><td>Grants Night Vision effect.</td><td>Helmet</td><td>-</td></tr>
+                  <tr><td>Rebound</td><td>Acts like landing on a slime block.</td><td>Boots</td><td>Feather Falling</td></tr>
+                  <tr><td>Regrowth</td><td>Restores hearts over time.</td><td>Chestplate</td><td>-</td></tr>
+                  <tr><td>Saturation</td><td>Restores food and saturation over time.</td><td>Helmet</td><td>-</td></tr>
+                  <tr><td>Self-Destruction</td><td>Creates explosion on death.</td><td>Chestplate</td><td>-</td></tr>
+                  <tr><td>Sonic</td><td>Grants Speed effect.</td><td>Boots</td><td>-</td></tr>
+                  <tr><td>Stopping Force</td><td>Reduces knockback.</td><td>Leggings</td><td>-</td></tr>
+                  <tr><td>Treasure Hunter</td><td>Chance to find more loot in chests.</td><td>Helmet</td><td>-</td></tr>
+                </tbody>
+              </table>
+            </div>
+          
+            <br>
+            <h4>Bow Enchantments</h4>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Applies To</th>
+                    <th>Conflicts With</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Bomber</td><td>Launches TNT instead of an Arrow.</td><td>Bows, Crossbows</td><td>Power, Punch, Flame, Flare, Ender Bow, Ghast</td></tr>
+                  <tr><td>Ender Bow</td><td>Launches Ender Pearl instead of an Arrow.</td><td>Bows, Crossbows</td><td>Ghast, Bomber, Flare</td></tr>
+                  <tr><td>Ghast</td><td>Launches Fireball instead of an Arrow.</td><td>Bows, Crossbows</td><td>Ender Bow, Bomber, Flare</td></tr>
+                  <tr><td>Flare</td><td>Creates a torch where arrow lands.</td><td>Bows, Crossbows</td><td>-</td></tr>
+                  <tr><td>Sniper</td><td>Increases projectile speed.</td><td>Bows, Crossbows</td><td>-</td></tr>
+                  <tr><td>Hover</td><td>Launches arrow with Levitation effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Lingering</td><td>Makes tipped arrows generate lingering effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Confusing Arrows</td><td>Launches arrow with Nausea effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Dragonfire Arrows</td><td>Launches arrow with Dragon Breath effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Darkness Arrows</td><td>Launches arrow with Darkness effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Electrified Arrows</td><td>Launches arrow with Lightning effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Explosive Arrows</td><td>Launches arrow with Explosion effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Poisoned Arrows</td><td>Launches arrow with Poison effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Vampiric Arrows</td><td>Restores health on hit.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                  <tr><td>Withered Arrows</td><td>Launches arrow with Wither effect.</td><td>Bows, Crossbows</td><td>Ender Bow, Ghast, Bomber</td></tr>
+                </tbody>
+              </table>
+            </div>
+          
+            <br>
+            <h4>Tool Enchantments</h4>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Applies To</th>
+                    <th>Conflicts With</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Blast Mining</td><td>Creates explosion to mine blocks in area.</td><td>Pickaxes</td><td>Tunnel, Veinminer</td></tr>
+                  <tr><td>Divine Touch</td><td>Mines a Spawner with its Entity Type.</td><td>Pickaxes</td><td>Smelter</td></tr>
+                  <tr><td>Haste</td><td>Grants Haste effect on block break.</td><td>Tools</td><td>-</td></tr>
+                  <tr><td>Lucky Miner</td><td>Increases XP from mined blocks.</td><td>Pickaxes</td><td>-</td></tr>
+                  <tr><td>Replanter</td><td>Automatically replants crops.</td><td>Hoes</td><td>-</td></tr>
+                  <tr><td>Silk Chest</td><td>Saves chest contents on break.</td><td>Axes</td><td>-</td></tr>
+                  <tr><td>Smelter</td><td>Smelts drops into materials.</td><td>Tools</td><td>Silk Touch, Divine Touch</td></tr>
+                  <tr><td>Telekinesis</td><td>Moves block loot to inventory.</td><td>Tools</td><td>-</td></tr>
+                  <tr><td>Tunnel</td><td>Mines 1x2/2x2/3x3 area.</td><td>Pickaxes, Shovels</td><td>Veinminer, Blast Mining</td></tr>
+                  <tr><td>Veinminer</td><td>Mines entire ore vein.</td><td>Pickaxes</td><td>Tunnel, Blast Mining</td></tr>
+                </tbody>
+              </table>
+            </div>
+          
+            <br>
+            <h4>Fishing Enchantments</h4>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Applies To</th>
+                    <th>Conflicts With</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Auto Reel</td><td>Automatically reels on bite.</td><td>Fishing Rod</td><td>-</td></tr>
+                  <tr><td>Double Catch</td><td>Doubles caught items.</td><td>Fishing Rod</td><td>-</td></tr>
+                  <tr><td>Seasoned Angler</td><td>Increases XP from fishing.</td><td>Fishing Rod</td><td>-</td></tr>
+                  <tr><td>Survivalist</td><td>Automatically cooks raw fish.</td><td>Fishing Rod</td><td>-</td></tr>
+                  <tr><td>River Master</td><td>Increases casting distance.</td><td>Fishing Rod</td><td>-</td></tr>
+                  <tr><td>Curse of Drowned</td><td>Chance to fish up a Drowned Zombie.</td><td>Fishing Rod</td><td>-</td></tr>
+                </tbody>
+              </table>
+            </div>
+          
+            <br>
+            <h4>Weapon Enchantments</h4>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Applies To</th>
+                    <th>Conflicts With</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Bane of Netherspawn</td><td>Extra damage to nether mobs.</td><td>Swords, Axes</td><td>Sharpness, Bane of Arthropods, Smite, Village Defender</td></tr>
+                  <tr><td>Blindness</td><td>Applies Blindness effect.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Confusion</td><td>Applies Nausea effect.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Cure</td><td>Cures Zombified Piglins and Zombie Villagers.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Curse of Death</td><td>Chance to die after killing a player.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Cutter</td><td>Reduces durability, unequips enemy armor.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Decapitator</td><td>Drops enemy head on kill.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Double Strike</td><td>Inflicts double damage.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Exhaust</td><td>Applies Hunger effect.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Exp Hunter</td><td>Increases XP from mobs.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Ice Aspect</td><td>Applies Slowness effect.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Infernus</td><td>Launches flaming Trident.</td><td>Tridents</td><td>-</td></tr>
+                  <tr><td>Nimble</td><td>Moves mob loot to inventory.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Paralyze</td><td>Applies Mining Fatigue.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Rage</td><td>Grants Strength effect on hit.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Rocket</td><td>Launches enemy into the air.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Scavenger</td><td>Extra loot from mobs.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Surprise</td><td>Applies random effect.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Swiper</td><td>Steals player's XP on hit.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Temper</td><td>More damage as hearts are lost.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Thrifty</td><td>Chance to get mob Spawn Egg.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Thunder</td><td>Summons Lightning on hit.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Vampire</td><td>Regains health on hit.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Venom</td><td>Applies Poison effect.</td><td>Swords, Axes</td><td>-</td></tr>
+                  <tr><td>Village Defender</td><td>More damage to Pillagers.</td><td>Swords, Axes</td><td>Sharpness, Smite, Bane of Arthropods, Bane of Netherspawn</td></tr>
+                  <tr><td>Wither</td><td>Applies Wither effect.</td><td>Swords, Axes</td><td>-</td></tr>
+                </tbody>
+              </table>
+            </div>
+          
+            <br>
+            <h4>Universal Enchantments</h4>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Applies To</th>
+                    <th>Conflicts With</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Restore</td><td>Item loses enchant, resets durability when broken.</td><td>All Items</td><td>-</td></tr>
+                  <tr><td>Soulbound</td><td>Prevents item from dropping on death.</td><td>All Items</td><td>Curse of Vanishing</td></tr>
+                  <tr><td>Curse of Breaking</td><td>Extra durability loss.</td><td>All Items</td><td>Unbreaking</td></tr>
+                  <tr><td>Curse of Mediocrity</td><td>Chance to disenchant dropped items.</td><td>Tools, Weapons</td><td>-</td></tr>
+                  <tr><td>Curse of Misfortune</td><td>No drop/loot from mobs or blocks.</td><td>Tools, Weapons</td><td>Fortune, Looting</td></tr>
+                  <tr><td>Curse of Fragility</td><td>Prevents grindstone or anvil use.</td><td>All Items</td><td>-</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          
 
           <section class="docs-section" id="item-2-1">
             <h2 class="section-heading">Vanilla+ Recipes</h2>
