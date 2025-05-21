@@ -1,81 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Saintcraft Virtual Map</title>
-  <style>
-    /* Reset margins and paddings, and set full height */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartlands Cartography Bureau - Aether Mapping System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" />
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #1557b0;
+            --surface: #fff;
+            --on-surface: #202124;
+            --on-surface-variant: #5f6368;
+            --error: #d93025;
+            --warning: #e37400;
+        }
 
-    /* Header (nav bar) styles */
-    .header {
-      width: 100%;
-      height: 60px; /* Adjust height as needed */
-      background-color: #ffffff;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      box-sizing: border-box;
-    }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--on-surface);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Left side: Logo */
-    .header .left img {
-      height: 59px; /* Adjust logo size as needed */
-    }
+        .navbar {
+            background: var(--surface);
+            box-shadow: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+            padding: 8px 24px;
+            height: 64px;
+        }
 
-    /* Right side: Name and profile picture */
-    .header .right {
-      display: flex;
-      align-items: center;
-    }
+        .navbar-brand {
+            font-family: 'Google Sans', sans-serif;
+            color: var(--on-surface) !important;
+            font-size: 22px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .header .right .name {
-      margin-right: 10px;
-      font-size: 18px;
-    }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+            vertical-align: middle;
+        }
 
-    .header .right .pfp {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
 
-    /* Iframe container fills remaining space */
-    .iframe-container {
-      width: 100%;
-      height: calc(100% - 60px); /* Total height minus header height */
-    }
+        .search-container {
+            max-width: 720px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
 
-    .iframe-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+        .search-box {
+            width: 100%;
+            padding: 16px 24px;
+            border: 1px solid #dadce0;
+            border-radius: 24px;
+            font-size: 16px;
+            color: var(--on-surface);
+            background: var(--surface);
+            box-shadow: 0 1px 3px rgba(60,64,67,0.3);
+            transition: box-shadow 0.2s;
+        }
+
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 1px 6px rgba(60,64,67,0.3);
+        }
+
+        .official-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 12px;
+            background: #e8f0fe;
+            color: var(--primary);
+            border-radius: 16px;
+            font-family: 'Google Sans', sans-serif;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .map-card {
+            background: var(--surface);
+            border-radius: 8px;
+            border: 1px solid #dadce0;
+            overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .map-card:hover {
+            box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            transform: translateY(-1px);
+        }
+
+        .map-preview {
+            width: 100%;
+            height: 160px;
+            background: #f1f3f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #dadce0;
+        }
+
+        .map-preview .material-symbols-outlined {
+            font-size: 48px;
+            color: var(--on-surface-variant);
+        }
+
+        .map-content {
+            padding: 16px;
+        }
+
+        .map-title {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 18px;
+            color: var(--on-surface);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .map-description {
+            font-size: 14px;
+            color: var(--on-surface-variant);
+            margin-bottom: 16px;
+        }
+
+        .map-metadata {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--on-surface-variant);
+            padding-top: 12px;
+            border-top: 1px solid #dadce0;
+        }
+
+        .metadata-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-badge.safe {
+            background: #e6f4ea;
+            color: #137333;
+        }
+
+        .status-badge.warning {
+            background: #fef7e0;
+            color: var(--warning);
+        }
+
+        .footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid #dadce0;
+            text-align: center;
+            color: var(--on-surface-variant);
+            font-size: 12px;
+        }
+
+        .powered-by {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            color: var(--on-surface-variant);
+        }
+
+        .aether-logo {
+            height: 20px;
+            opacity: 0.87;
+        }
+
+        .worlds-section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-family: 'Google Sans', sans-serif;
+            color: var(--on-surface);
+            font-size: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #dadce0;
+        }
+
+        .nations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .nation-card {
+            background: var(--surface);
+            border-radius: 8px;
+            border: 1px solid #dadce0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nation-card:hover {
+            box-shadow: 0 1px 3px rgba(60,64,67,0.3);
+        }
+
+        .nation-card.expanded {
+            grid-column: 1 / -1;
+        }
+
+        .nation-header {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .nation-card.expanded .nation-header {
+            border-bottom-color: #dadce0;
+        }
+
+        .nation-title {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 16px;
+            color: var(--on-surface);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nation-content {
+            display: none;
+            padding: 16px;
+            background: #f8f9fa;
+        }
+
+        .nation-card.expanded .nation-content {
+            display: block;
+        }
+
+        .nation-details {
+            padding: 16px;
+        }
+
+        .nation-description {
+            font-size: 14px;
+            color: var(--on-surface-variant);
+            margin-bottom: 16px;
+        }
+
+        .nation-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--on-surface-variant);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 32px;
+            color: var(--on-surface-variant);
+            font-size: 14px;
+        }
+
+        .world-label {
+            font-size: 12px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header with logo on the left and name+pfp on the right -->
-  <div class="header">
-    <div class="left">
-      <img src="vm_1.png" alt="Logo" />
-    </div>
-    <!--<div class="right">
-      <span class="name">Your Name</span>
-      <img class="pfp" src="pfp.jpg" alt="Profile Picture" />
-    </div>-->
-  </div>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                Saintcraft Mapping System
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <span class="material-symbols-outlined">help</span>
+                <span class="material-symbols-outlined">account_circle</span>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Full screen iframe container -->
-  <div class="iframe-container">
-    <iframe src="https://map-resolve.annabel-sandford09.workers.dev/"></iframe>
-  </div>
+    <div class="main-container">
+        <div class="search-container">
+            <div class="official-badge">
+                <span class="material-symbols-outlined">verified</span>
+                Official Aether Navigation Resource
+            </div>
+            <input type="text" class="search-box" placeholder="Search across the Aether universe" onkeyup="searchContent(this.value)">
+        </div>
+
+        <div class="worlds-section">
+            <h2 class="section-title">Primary Realms</h2>
+            <div class="map-grid">
+                <div class="map-card" onclick="goToMap('heartlands')">
+                    <div class="map-preview">
+                        <span class="material-symbols-outlined">map</span>
+                    </div>
+                    <div class="map-content">
+                        <div class="map-title">
+                            <span class="material-symbols-outlined">location_city</span>
+                            The Heartlands
+                        </div>
+                        <div class="map-description">
+                            The central realm of the Aether universe and the primary world of our civilization. Home to sprawling cities, advanced infrastructure, and the seat of the unified government. A testament to human achievement and progress, featuring modern architecture seamlessly integrated with natural landscapes.
+                        </div>
+                        <div class="map-metadata">
+                            <div class="metadata-item">
+                                <span class="material-symbols-outlined">location_on</span>
+                                Primary World
+                            </div>
+                            <div class="status-badge safe">
+                                <span class="material-symbols-outlined">verified_user</span>
+                                Core Territory
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-card" onclick="goToMap('emberwild')">
+                    <div class="map-preview">
+                        <span class="material-symbols-outlined">terrain</span>
+                    </div>
+                    <div class="map-content">
+                        <div class="map-title">
+                            <span class="material-symbols-outlined">landscape</span>
+                            Emberwild (Bedrock Realm)
+                        </div>
+                        <div class="map-description">
+                            A rugged frontier world within the Aether universe, built upon the ancient Bedrock foundation. Known for its challenging terrain, rich mineral deposits, and untamed wilderness. This realm offers unique opportunities for resourceful explorers and hardy settlers seeking to expand humanity's reach.
+                        </div>
+                        <div class="map-metadata">
+                            <div class="metadata-item">
+                                <span class="material-symbols-outlined">location_on</span>
+                                Bedrock World
+                            </div>
+                            <div class="status-badge warning">
+                                <span class="material-symbols-outlined">warning</span>
+                                Frontier Zone
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nations-section">
+            <h2 class="section-title">Nations & Territories</h2>
+            <div class="nations-grid">
+                <div class="nation-card" data-world="heartlands" onclick="toggleNation(this)">
+                    <div class="nation-header">
+                        <div class="nation-title">
+                            Celestia
+                        </div>
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </div>
+                    <div class="nation-content">
+                        <div class="nation-details">
+                            <div class="world-label">
+                                <span class="material-symbols-outlined" style="font-size: 14px;">public</span>
+                                Located in: Heartlands (Central Region, 0,0)
+                            </div>
+                            <div class="nation-description">
+                                The founding nation of the Heartlands, Celestia stands as a testament to architectural brilliance and ecological transformation. Originally built in a desert, this metropolis has been transformed into a verdant oasis. The City of Solenne, its capital, showcases a unique blend of 1980's aesthetics and Art Deco grandeur, with towering skyscrapers rising above Mediterranean-inspired streets and gardens.
+                            </div>
+                            <div class="nation-stats">
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">location_city</span>
+                                    Capital: City of Solenne
+                                </div>
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">architecture</span>
+                                    Style: Art Deco
+                                </div>
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">park</span>
+                                    Terrain: Transformed Desert
+                                </div>
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">stars</span>
+                                    Status: Founding Nation
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nation-card" data-world="heartlands" onclick="toggleNation(this)">
+                    <div class="nation-header">
+                        <div class="nation-title">
+                            St. Thorlaksburg
+                        </div>
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </div>
+                    <div class="nation-content">
+                        <div class="nation-details">
+                            <div class="world-label">
+                                <span class="material-symbols-outlined" style="font-size: 14px;">public</span>
+                                Located in: Heartlands (Southern Region)
+                            </div>
+                            <div class="nation-description">
+                                Despite its troubled past, St. Thorlaksburg has found its purpose as a welcoming haven for newcomers to the Heartlands. This medieval settlement serves as a crucial starting point for fresh adventurers, offering resources and guidance to those beginning their journey in this realm. Its architecture and atmosphere remain true to medieval traditions.
+                            </div>
+                            <div class="nation-stats">
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">history_edu</span>
+                                    Style: Medieval
+                                </div>
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">groups</span>
+                                    Role: Starter Town
+                                </div>
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">south</span>
+                                    Location: South of 0,0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nation-card" data-world="heartlands" onclick="toggleNation(this)">
+                    <div class="nation-header">
+                        <div class="nation-title">
+                            Order of St. Joseph
+                        </div>
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </div>
+                    <div class="nation-content">
+                        <div class="nation-details">
+                            <div class="world-label">
+                                <span class="material-symbols-outlined" style="font-size: 14px;">public</span>
+                                Located in: Heartlands (Eastern Seas)
+                            </div>
+                            <div class="nation-description">
+                                East of Celestia, across the sea, stands the solemn city-state of St. Joseph, centered around the magnificent Lumen Patriacharum. This medieval realm, once vibrant under the leadership of Joseph, now stands as a quiet monument to its former glory. Following Joseph's departure to focus on life beyond Minecraft, the city-state has become a peaceful, if largely uninhabited, testament to its historical significance.
+                            </div>
+                            <div class="nation-stats">
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">church</span>
+                                    Landmark: Lumen Patriacharum
+                                </div>
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">architecture</span>
+                                    Style: Medieval
+                                </div>
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">east</span>
+                                    Location: East of Celestia
+                                </div>
+                                <div class="stat-item">
+                                    <span class="material-symbols-outlined">mood</span>
+                                    Status: Historical Site
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="no-results hidden">
+                No matching locations found
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="powered-by">
+                Powered by
+                <img src="https://placehold.co/100x20?text=AETHER+MAPS" alt="Aether Maps" class="aether-logo">
+            </div>
+            <div>Official Cartographic Resource of the Aether Universe</div>
+            <div>Department of Universal Cartography • Last Updated: Today</div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleNation(card) {
+            // Close all other cards
+            document.querySelectorAll('.nation-card').forEach(otherCard => {
+                if (otherCard !== card && otherCard.classList.contains('expanded')) {
+                    otherCard.classList.remove('expanded');
+                    otherCard.querySelector('.material-symbols-outlined:last-child').textContent = 'expand_more';
+                }
+            });
+
+            // Toggle the clicked card
+            card.classList.toggle('expanded');
+            const arrow = card.querySelector('.material-symbols-outlined:last-child');
+            arrow.textContent = card.classList.contains('expanded') ? 'expand_less' : 'expand_more';
+        }
+
+        function searchContent(query) {
+            query = query.toLowerCase();
+            const cards = document.querySelectorAll('.map-card, .nation-card');
+            const noResults = document.querySelector('.no-results');
+            let hasResults = false;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.map-title, .nation-title').textContent.toLowerCase();
+                const description = card.querySelector('.map-description, .nation-description').textContent.toLowerCase();
+                const worldLabel = card.querySelector('.world-label')?.textContent.toLowerCase() || '';
+                
+                if (title.includes(query) || description.includes(query) || worldLabel.includes(query)) {
+                    card.classList.remove('hidden');
+                    hasResults = true;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            noResults.classList.toggle('hidden', hasResults);
+        }
+
+        function goToMap(world) {
+            const urls = {
+                heartlands: "http://194.140.197.79:8123/?worldname=world&mapname=flat&zoom=2&x=289&y=64&z=19",
+                emberwild: "http://194.140.197.79:8123/?worldname=emberwild&mapname=flat&zoom=2&x=289&y=64&z=19"
+            };
+            window.location.href = urls[world];
+        }
+    </script>
 </body>
 </html>
