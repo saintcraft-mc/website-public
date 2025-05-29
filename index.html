@@ -82,9 +82,11 @@
         </a>
         <div id="slogan-container" style="margin-top: -70px;"></div>
 
-        <p style="font-size: 18px; color: #ffffff; max-width: 800px; margin: 20px auto; text-align: center;">
-          Saintcraft is a welcoming Christian Minecraft Server where players of all ages can enjoy Christ-centered gameplay, Bible-inspired builds, and a supportive faith-based community. Whether you're looking for a Catholic Minecraft Server or a general Christian-focused experience, we offer a family-friendly environment for spiritual growth and fellowship.
-        </p>
+        <div id="hero-content">
+          <p style="font-size: 18px; color: #ffffff; max-width: 800px; margin: 20px auto; text-align: center;">
+            Saintcraft is a welcoming Christian Minecraft Server where players of all ages can enjoy Christ-centered gameplay, Bible-inspired builds, and a supportive faith-based community. Whether you're looking for a Catholic Minecraft Server or a general Christian-focused experience, we offer a family-friendly environment for spiritual growth and fellowship.
+          </p>
+        </div>
 
         <div class="main1_ipcopier_div">
           <button class="main1_ipcopier" onclick="copyText()" type="button">
@@ -94,20 +96,27 @@
           </button>
           <script>
             function copyText() {
-                navigator.clipboard.writeText
-            ("play.saintcraft.us");
-                }
+              const urlParams = new URLSearchParams(window.location.search);
+              const ip = urlParams.has('catholicgg') ? "play.catholic.gg" : "play.saintcraft.us";
+              navigator.clipboard.writeText(ip);
+            }
             $(document).ready(function() {
-            $('.main1_ipcopier').click(function() {
+              // Check for catholicgg parameter
+              const urlParams = new URLSearchParams(window.location.search);
+              if (urlParams.has('catholicgg')) {
+                $('.main1_ipcopier_text1').text('play.catholic.gg');
+              }
+              
+              $('.main1_ipcopier').click(function() {
                 var popup = $('<div>', { class: 'main1_popup' })
-                .append($('<h3 class="copy_confirm">').text('Copied IP to clipboard'))
+                  .append($('<h3 class="copy_confirm">').text('Copied IP to clipboard'))
                 $(this).after(popup);
                 setTimeout(function() {
-                popup.remove();
+                  popup.remove();
                 }, 1000);
+              });
             });
-            });
-        </script>
+          </script>
         </div>
         <a href="#more" class="scroll">
           <img alt="downarrow" class="main1_downarrow" src="media/downarrow.png">
@@ -208,6 +217,77 @@
     </footer>
   </body>
   <script>
+    // Check for catholicgg parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('catholicgg')) {
+        console.log("Catholic.gg parameter detected");
+        // Replace hero content for Catholic.gg visitors
+        document.querySelector('.main1_logo').src = "media/logo.png";
+        document.querySelector('.main1_logo').style.opacity = "0.8";
+        
+        document.querySelector('.main1').insertAdjacentHTML('afterbegin', `
+            <div style="background-color: #2f508c; padding: 15px; margin: -20px -20px 20px -20px; text-align: center; border-bottom: 2px solid #ffffff33;">
+                <span style="color: #fff; font-size: 24px; font-weight: bold;">✝️ Community Announcement ✝️</span>
+            </div>
+        `);
+        
+        document.getElementById('slogan-container').innerHTML = `
+            <div class="main1_description" style="margin-bottom: 30px;">
+                <a style="color: #ffd700;">Welcome Home</a>
+                <br>
+                <a class="main1_actcent">Catholic.gg</a>
+                <br>
+                <a>Community</a>
+            </div>
+        `;
+        
+        document.getElementById('hero-content').innerHTML = `
+            <div style="background-color: #ffffff15; padding: 25px; border-radius: 10px; margin: 20px auto; max-width: 850px;">
+                <p style="font-size: 20px; color: #ffd700; margin: 0 0 20px 0; text-align: center; font-weight: bold;">
+                    Continuing Our Faith Journey Together
+                </p>
+                <p style="font-size: 18px; color: #ffffff; margin: 0 0 20px 0; text-align: center; line-height: 1.6;">
+                    We're blessed to announce that the Catholic.gg community is continuing their journey with Saintcraft! 
+                    Together, we're building a unified space where both communities can grow in faith and fellowship.
+                </p>
+                <p style="font-size: 18px; color: #ffffff; margin: 0 0 20px 0; text-align: center; line-height: 1.6;">
+                    To our Catholic.gg family: Your spiritual home continues here. The same values, friendships, and 
+                    faith-centered gameplay you cherish will flourish as we join in prayer and play together.
+                </p>
+                <div style="text-align: center; margin-top: 30px;">
+                    <div style="display: inline-block; background-color: #ffd700; padding: 15px 30px; border-radius: 5px; margin: 10px; color: #2f508c; font-weight: bold;">
+                        ✝️ United in Faith
+                    </div>
+                    <div style="display: inline-block; background-color: #ffd700; padding: 15px 30px; border-radius: 5px; margin: 10px; color: #2f508c; font-weight: bold;">
+                        🤝 Growing Together
+                    </div>
+                    <div style="display: inline-block; background-color: #ffd700; padding: 15px 30px; border-radius: 5px; margin: 10px; color: #2f508c; font-weight: bold;">
+                        ❤️ One Community
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background-color: #ffffff0f; border-radius: 8px;">
+                    <p style="font-size: 18px; color: #ffd700; margin: 0 0 15px 0;">
+                        🙏 Join Our Fellowship 🙏
+                    </p>
+                    <p style="font-size: 16px; color: #ffffff; margin: 0 0 20px 0;">
+                        Continue the journey with us on Discord - where faith and gaming unite:
+                    </p>
+                    <a href="http://discord.saintcraft.us" style="display: inline-block; background-color: #5865F2; padding: 12px 25px; border-radius: 5px; color: white; text-decoration: none; font-weight: bold;">
+                        Join Our Discord
+                    </a>
+                </div>
+            </div>
+        `;
+
+        document.querySelector('.main1_ipcopier_text1').textContent = "play.catholic.gg";
+        document.querySelector('.main1_ipcopier_text2').textContent = "Click to copy server IP";
+        
+        // Update the copy function for the new IP
+        window.copyText = function() {
+            navigator.clipboard.writeText("play.catholic.gg");
+        }
+    }
+
     // Array of slogans
     const slogans = [
         '<a>Faith,<br>crafted</a> <a class="main1_actcent">block by block</a><a>.</a>',
