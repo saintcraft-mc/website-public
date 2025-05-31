@@ -798,8 +798,54 @@ Written by @sabrinica for Saintcraft
       }
     }
 
+    @keyframes blinkLeft {
+      0%, 94%, 100% { opacity: 0; }
+      94.5% { opacity: 0.3; }
+      95% { opacity: 0.6; }
+      95.5% { opacity: 0.8; }
+      96%, 97% { opacity: 1; }
+      97.5% { opacity: 0.8; }
+      98% { opacity: 0.6; }
+      98.5% { opacity: 0.3; }
+    }
+
+    @keyframes blinkRight {
+      0%, 85%, 100% { opacity: 0; }
+      85.5% { opacity: 0.3; }
+      86% { opacity: 0.6; }
+      86.5% { opacity: 0.8; }
+      87%, 88% { opacity: 1; }
+      88.5% { opacity: 0.8; }
+      89% { opacity: 0.6; }
+      89.5% { opacity: 0.3; }
+    }
+
     .parallax-layer.foreground {
       animation: subtleFly 8s ease-in-out infinite;
+    }
+
+    .blink-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      will-change: opacity;
+    }
+
+    .blink-left {
+      background-image: url('bg_3_lb_1.png');
+      animation: blinkLeft var(--blink-duration-left, 4.8s) infinite;
+      animation-delay: var(--blink-delay-left, 1s);
+    }
+
+    .blink-right {
+      background-image: url('bg_3_rb_1.png');
+      animation: blinkRight var(--blink-duration-right, 4.8s) infinite;
+      animation-delay: var(--blink-delay-right, 2.4s);
     }
 
     .particle {
@@ -1034,8 +1080,11 @@ Written by @sabrinica for Saintcraft
     <!-- Middle Layer -->
     <div class="parallax-layer middle" style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('bg_2.png'); background-size:cover; background-position:center; transform:translateY(0); will-change:transform;"></div>
 
-    <!-- Foreground Layer -->
-    <div class="parallax-layer foreground" style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('bg_3.png'); background-size:cover; background-position:center; transform:translateY(0); will-change:transform;"></div>
+    <!-- Foreground Layer with Blinking -->
+    <div class="parallax-layer foreground" style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('bg_3.png'); background-size:cover; background-position:center; transform:translateY(0); will-change:transform;">
+      <div class="blink-overlay blink-left"></div>
+      <div class="blink-overlay blink-right"></div>
+    </div>
     
     <!-- Content Container -->
     <div class="container" style="position: relative; z-index: 4;">
@@ -1486,6 +1535,30 @@ Written by @sabrinica for Saintcraft
     });
     
     handleParallax();
+
+    // Random blink timing function
+    function updateBlinkTimings() {
+      const root = document.documentElement;
+      
+      // Random durations between 4 and 6 seconds
+      const durationLeft = 4 + Math.random() * 2;
+      const durationRight = 4 + Math.random() * 2;
+      
+      // Random delays between 0 and 2 seconds
+      const delayLeft = Math.random() * 2;
+      const delayRight = Math.random() * 2;
+      
+      root.style.setProperty('--blink-duration-left', `${durationLeft}s`);
+      root.style.setProperty('--blink-duration-right', `${durationRight}s`);
+      root.style.setProperty('--blink-delay-left', `${delayLeft}s`);
+      root.style.setProperty('--blink-delay-right', `${delayRight}s`);
+      
+      // Schedule next update
+      setTimeout(updateBlinkTimings, (Math.min(durationLeft, durationRight) + Math.min(delayLeft, delayRight)) * 1000);
+    }
+    
+    // Initial call
+    updateBlinkTimings();
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2Z7P99K4Z"></script>
   <script>
