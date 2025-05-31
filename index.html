@@ -780,6 +780,28 @@ Written by @sabrinica for Saintcraft
       100% { transform: translateY(0) translateX(0); }
     }
 
+    @keyframes subtleFly {
+      0% { 
+        transform: translateY(0) translateX(0) rotate(0.5deg);
+      }
+      25% {
+        transform: translateY(-8px) translateX(5px) rotate(-0.2deg);
+      }
+      50% {
+        transform: translateY(-12px) translateX(8px) rotate(0.3deg);
+      }
+      75% {
+        transform: translateY(-6px) translateX(3px) rotate(-0.4deg);
+      }
+      100% { 
+        transform: translateY(0) translateX(0) rotate(0.5deg);
+      }
+    }
+
+    .parallax-layer.foreground {
+      animation: subtleFly 8s ease-in-out infinite;
+    }
+
     .particle {
       position: absolute;
       width: 4px;
@@ -1422,6 +1444,8 @@ Written by @sabrinica for Saintcraft
       layers.forEach((layer) => {
         let speed = 0;
         let scale = 1;
+        let baseTransform = '';
+        
         if (layer.classList.contains('background')) {
           speed = 0.3;
           scale = 1.1;
@@ -1433,10 +1457,20 @@ Written by @sabrinica for Saintcraft
         else if (layer.classList.contains('foreground')) {
           speed = 0.1;
           scale = 1.02;
+          // Get the current animation transform
+          const computedStyle = window.getComputedStyle(layer);
+          const matrix = new DOMMatrix(computedStyle.transform);
+          baseTransform = `translateY(${matrix.m42}px) translateX(${matrix.m41}px) rotate(${Math.atan2(matrix.m21, matrix.m11)}rad)`;
         }
         
         const yPos = scrolled * speed;
-        layer.style.transform = `scale(${scale}) translateY(${yPos}px)`;
+        
+        if (layer.classList.contains('foreground')) {
+          // Combine parallax with animation
+          layer.style.transform = `scale(${scale}) translateY(${yPos}px) ${baseTransform}`;
+        } else {
+          layer.style.transform = `scale(${scale}) translateY(${yPos}px)`;
+        }
       });
     }
 
