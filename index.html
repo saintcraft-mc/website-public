@@ -1,35 +1,962 @@
+<!--
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡴⣶⣷⣦⣤⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣿⣿⣿⣿⣿⡎⠙⠻⢿⣶⣄⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣿⡿⢿⣿⠉⠀⠀⠀⠀⠉⠻⣿⣦⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣶⣿⣿⣿⣿⣿⣾⣿⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣦⡀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⠟⢻⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣷⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣥⡀⢸⣿⡿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣷⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣧⣸⣿⣧⠘⢿⣦⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⡇
+⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⡏⠻⣿⣄⠀⠙⢷⣄⠀⠀⠀⠀⠀⠀⣿⣿⣿
+⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⠁⠀⢹⣿⣿⣶⣦⣽⣳⠄⠀⠀⠀⠀⣿⣿⣿
+⠀⠀⠀⠀⠀⠀⣰⣿⣿⡿⣿⣿⣿⠀⠀⠈⣿⣷⡀⠉⠛⢿⣷⡀⠀⠀⢀⣿⣿⡿
+⠀⠀⠀⠀⠀⢠⣿⣿⠟⢁⣸⣿⣿⣀⣠⣾⣿⣿⣿⣦⡀⠀⠉⢹⠄⠀⣼⣿⣿⡇
+⠘⡄⠀⠀⠀⣼⣿⣿⣿⣿⣿⢿⣿⣿⠉⠉⠀⠀⠀⠉⠻⠀⠀⠐⠀⣼⣿⣿⡟⠀
+⠀⠘⢆⠀⠀⠘⠛⠋⠉⠀⠀⠀⢿⣿⡆⠀⠀⠀⠀⠀⠈⠀⠀⢀⣼⣿⣿⡟⠀⠀
+⠀⠀⠈⠳⣄⠀⠀⠀⠀⠀⠀⠀⠸⣿⡇⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⠋⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣶⣶⣾⣿⣾⣿⣿⣿⣿⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⣿⣿⡉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡟⠀⠀⠀⠀
+
+Written by @sabrinica for Saintcraft
+05/30/2025
+-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saintcraft - Christian Minecraft Server</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <meta name="title" content="Saintcraft - Christian & Catholic Minecraft Server">
-    <meta name="description" content="Looking for a Christian Minecraft Server or Catholic Minecraft Server? Saintcraft offers Christ-centered gameplay, Bible-inspired builds, and a welcoming faith-based community for all believers. Join us today!">
-    <meta name="keywords" content="Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server, Top Christian Minecraft Server, Faith-Based Minecraft Server, Christian Gaming Server, Catholic Gaming Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Bible Minecraft Server, Christian Minecraft Community, Catholic Minecraft Community, Minecraft for Christians, Faith-Focused Minecraft, Christian Multiplayer Minecraft, Worship and Play Minecraft, Christian-Friendly Minecraft Server, Christian Survival Minecraft, Catholic-Friendly Minecraft Server, Bible Study in Minecraft, Virtual Faith Minecraft Server, Christian Gaming Network, Catholic Gaming Community, Faithful Minecraft Gamers, Worship and Build Christian Minecraft, Christ-Centered Gaming Experience, Catholic-Friendly Gaming Server, Bible-Inspired Minecraft Builds, Christian Fellowship Minecraft Server">
-    <meta name="author" content="Saintcraft Christian Minecraft Server">
-    <meta name="theme-color" content="#2f508c">
-    <link rel="canonical" href="http://saintcraft.us">
+    body {
+      margin: 0;
+      font-family: 'Lexend', 'Segoe UI', sans-serif;
+      background: #f4f3ff;
+      overflow-x: hidden;
+    }
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="http://saintcraft.us">
-    <meta property="og:title" content="Saintcraft - Christian & Catholic Minecraft Server">
-    <meta property="og:description" content="Join the best Christian and Catholic Minecraft Server! Faith-based gaming, Bible-inspired builds, and a Christ-centered community await at Saintcraft.">
-    <meta property="og:image" content="/media/ver1.png">
-    <meta property="og:locale" content="en_US">
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="http://saintcraft.us">
-    <meta property="twitter:title" content="Saintcraft - Christian & Catholic Minecraft Server">
-    <meta property="twitter:description" content="Experience the best Christian and Catholic Minecraft Server! Join Saintcraft for Bible-based builds, Christ-centered gameplay, and a welcoming faith community.">
-    <meta property="twitter:image" content="/media/ver1.png">
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 1px solid #eee;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-    <link rel="icon" type="image/png" href="media/favicon.png">
-    <link rel="stylesheet" href="media/style.css">
-    <link href="http://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    .navbar.scrolled {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 16px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #7f56d9;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .button-society {
+      background: #7f56d9;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.3s ease,
+                  box-shadow 0.3s ease;
+    }
+
+    .button-society:hover {
+      transform: scale(1.05);
+      background: #6941c6;
+      box-shadow: 0 4px 20px rgba(127, 86, 217, 0.4);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      padding: 20px;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .mobile-menu-logo {
+      display: block;
+      width: 180px;
+      margin: 0 auto 40px;
+    }
+
+    .mobile-menu .button-society {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto 60px;
+      text-align: center;
+      padding: 15px 30px;
+      font-size: 16px;
+    }
+
+    .mobile-menu .nav-link {
+      display: block;
+      padding: 20px 0;
+      font-size: 18px;
+      color: #1a1523;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu .nav-link:hover {
+      color: #7f56d9;
+    }
+
+    .menu-button {
+      display: none;
+      background: none;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .menu-button span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin-bottom: 5px;
+      position: relative;
+      background: #333;
+      border-radius: 3px;
+      transform-origin: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu-button span:last-child {
+      margin-bottom: 0;
+    }
+
+    .menu-button.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+
+      .nav-left {
+        gap: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .logo img {
+        width: 100px;
+      }
+
+      .button-society {
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+
+      .navbar .button-society {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: transparent;
+      min-height: 460px;
+      margin-bottom: -100px;
+      padding-bottom: 240px;
+    }
+
+    .parallax-layer {
+      transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+      pointer-events: none;
+      height: 120%;
+      transform-origin: center top;
+      background-size: 110% auto;
+      background-position: center top;
+      will-change: transform;
+    }
+
+    .background { 
+      z-index: 1;
+      transform: scale(1.1);
+    }
+    .middle { 
+      z-index: 2;
+      transform: scale(1.05);
+    }
+    .foreground { 
+      z-index: 3;
+      transform: scale(1.02);
+    }
+
+    .server-info-wrapper {
+      position: relative;
+      background: transparent !important;
+      z-index: 5;
+    }
+
+    .server-info-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    .server-card {
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      background: rgba(42, 38, 68, 0.6) !important;
+      border: 2px solid rgba(127, 86, 217, 0.3) !important;
+      transform: translateY(0);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .server-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(127, 86, 217, 0.8) !important;
+      box-shadow: 0 12px 30px rgba(127, 86, 217, 0.2);
+    }
+
+    .server-card:nth-child(2) {
+      border-color: rgba(43, 182, 115, 0.3) !important;
+    }
+
+    .server-card:nth-child(2):hover {
+      border-color: rgba(43, 182, 115, 0.8) !important;
+      box-shadow: 0 12px 30px rgba(43, 182, 115, 0.2);
+    }
+
+    .server-emoji {
+      display: none;
+    }
+
+    .server-ip {
+      position: relative;
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .server-ip:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
+    }
+
+    .recognition-section {
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .recognition-tag {
+      color: #7f56d9;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .recognition-title {
+      font-size: clamp(24px, 4vw, 32px);
+      color: #1a1523;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .recognition-subtitle {
+      font-size: 14px;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .recognition-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #7f56d9;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      background: rgba(127, 86, 217, 0.1);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .recognition-link:hover {
+      background: rgba(127, 86, 217, 0.2);
+      transform: translateX(5px);
+    }
+
+    .recognition-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .recognition-link:hover svg {
+      transform: translateX(3px);
+    }
+
+    .server-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .server-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 20px;
+      }
+
+      .nav-left {
+        gap: 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .button-society {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      .mobile-menu .button-society {
+        margin: 20px;
+        text-align: center;
+        display: block;
+      }
+
+      .cards-grid {
+        padding: 20px 0;
+        margin: 0 auto;
+        justify-content: center;
+      }
+
+      .card {
+        margin: 0;
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .container {
+        padding: 0 15px;
+      }
+
+      .hero {
+        padding: 0px 15px 40px;
+      }
+
+      .promo-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .server-cards {
+        padding: 10px;
+      }
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.3s ease,
+                  background-color 0.3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .button:active {
+      transform: translateY(1px) scale(0.98);
+    }
+
+    .button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transition: transform 0.6s, opacity 0.6s;
+    }
+
+    .button:active::after {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+
+    .button-primary {
+      background: #7f56d9;
+      color: white;
+    }
+
+    .button-secondary {
+      background: #a5f28c;
+      color: black;
+    }
+
+    .section {
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(24px, 5vw, 32px);
+      margin-bottom: 40px;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .section-title.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .recognition-logo {
+      width: 120px;
+      height: 60px;
+      background: #f4f3ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .recognition-logo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(127, 86, 217, 0.15);
+    }
+
+    .recognition-link:hover {
+      color: #6941c6;
+      gap: 12px;
+    }
+
+    .recognition-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+
+    .recognition-link:hover::after {
+      width: 100%;
+    }
+
+    .server-ip:active {
+      transform: scale(0.95);
+    }
+
+    .copy-feedback {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translateX(-50%);
+      background: #2bb673;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .copy-feedback::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      transform: translateX(-50%) rotate(45deg);
+      width: 12px;
+      height: 12px;
+      background: #2bb673;
+      z-index: -1;
+    }
+
+    .copy-feedback.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .sparkle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes copySuccess {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .copy-success {
+      animation: copySuccess 0.4s ease;
+    }
+
+    @keyframes sparkle {
+      0% { 
+        transform: scale(0) rotate(0deg); 
+        opacity: 0; 
+      }
+      50% { 
+        transform: scale(1) rotate(180deg); 
+        opacity: 1; 
+      }
+      100% { 
+        transform: scale(0) rotate(360deg); 
+        opacity: 0; 
+      }
+    }
+
+    .sparkle {
+      position: absolute;
+      pointer-events: none;
+      background: #ffeb3b;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .lore-item {
+      position: relative;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: white !important;
+    }
+
+    .lore-item span {
+      color: #a5f28c !important;
+      transition: color 0.3s ease;
+    }
+
+    .lore-item:hover {
+      transform: translateX(10px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .lore-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 0;
+      background: #a5f28c;
+      transition: height 0.3s ease;
+    }
+
+    .lore-item:hover::before {
+      height: 80%;
+    }
+
+    .lore-item.active {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(10px);
+      color: #ffd700 !important;
+    }
+
+    .lore-item.active span {
+      color: #ffd700 !important;
+    }
+
+    .lore-item.active::before {
+      height: 80%;
+      background: #ffd700;
+    }
+
+    .parallax-container {
+      perspective: 1px;
+      perspective-origin: center;
+      transform-style: preserve-3d;
+    }
+
+    .parallax-layer {
+      transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-20px) translateX(10px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .wiki-section {
+      background: linear-gradient(135deg, #f0e7ff 0%, #e6f7ff 100%);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wiki-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .wiki-title {
+      font-size: clamp(20px, 3vw, 24px);
+      color: #2a1c64;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .wiki-description {
+      font-size: 16px;
+      color: #4a4a4a;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .wiki-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      color: #7f56d9;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(127, 86, 217, 0.15);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .wiki-link:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(127, 86, 217, 0.25);
+    }
+
+    .wiki-link svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .wiki-link:hover svg {
+      transform: rotate(15deg);
+    }
+
+    .floating-items {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floating-item {
+      position: absolute;
+      opacity: 0.5;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-item:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .floating-item:nth-child(2) { top: 60%; left: 85%; animation-delay: -1s; }
+    .floating-item:nth-child(3) { top: 25%; left: 70%; animation-delay: -2s; }
+    .floating-item:nth-child(4) { top: 75%; left: 25%; animation-delay: -3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .logo-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      background: white !important;
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particles::before,
+    .particles::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(127, 86, 217, 0.2);
+      border-radius: 50%;
+      animation: float-particle 8s infinite linear;
+    }
+
+    .particles::before {
+      left: 20%;
+      animation-delay: -4s;
+    }
+
+    .particles::after {
+      right: 20%;
+      animation-delay: -2s;
+    }
+
+    @keyframes float-particle {
+      0% {
+        top: 120%;
+        opacity: 0;
+        transform: translateX(0);
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        top: -20%;
+        opacity: 0;
+        transform: translateX(20px);
+      }
+    }
+
+    .wiki-link {
+      min-width: 200px;
+      justify-content: center;
+    }
+  </style>
+  <title>Saintcraft - Christian Minecraft Server</title>
+
+  <meta name="title" content="Saintcraft - Christian & Catholic Minecraft Server">
+  <meta name="description" content="Looking for a Christian Minecraft Server or Catholic Minecraft Server? Saintcraft offers Christ-centered gameplay, Bible-inspired builds, and a welcoming faith-based community for all believers. Join us today!">
+  <meta name="keywords" content="Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server, Top Christian Minecraft Server, Faith-Based Minecraft Server, Christian Gaming Server, Catholic Gaming Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Bible Minecraft Server, Christian Minecraft Community, Catholic Minecraft Community, Minecraft for Christians, Faith-Focused Minecraft, Christian Multiplayer Minecraft, Worship and Play Minecraft, Christian-Friendly Minecraft Server, Christian Survival Minecraft, Catholic-Friendly Minecraft Server, Bible Study in Minecraft, Virtual Faith Minecraft Server, Christian Gaming Network, Catholic Gaming Community, Faithful Minecraft Gamers, Worship and Build Christian Minecraft, Christ-Centered Gaming Experience, Catholic-Friendly Gaming Server, Bible-Inspired Minecraft Builds, Christian Fellowship Minecraft Server">
+  <meta name="author" content="Saintcraft Christian Minecraft Server">
+  <meta name="theme-color" content="#2f508c">
+  <link rel="canonical" href="http://saintcraft.us">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://saintcraft.us">
+  <meta property="og:title" content="Saintcraft - Christian & Catholic Minecraft Server">
+  <meta property="og:description" content="Join the best Christian and Catholic Minecraft Server! Faith-based gaming, Bible-inspired builds, and a Christ-centered community await at Saintcraft.">
+  <meta property="og:image" content="/media/ver1.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://saintcraft.us">
+  <meta property="twitter:title" content="Saintcraft - Christian & Catholic Minecraft Server">
+  <meta property="twitter:description" content="Experience the best Christian and Catholic Minecraft Server! Join Saintcraft for Bible-based builds, Christ-centered gameplay, and a welcoming faith community.">
+  <meta property="twitter:image" content="/media/ver1.png">
+  <link rel="icon" type="image/png" href="media/favicon.png">
     <script>
         if (window.location.protocol === "http:") {
             window.location.href = "https://" + window.location.host + window.location.pathname + window.location.search;
@@ -37,389 +964,604 @@
     </script>
 </head>
 <body>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <nav class="desktop_navbar">
-      <a href="#"><img class="desktop_navbar_logo_img" src="media/logo_small.png" alt="logo"></a>
-      <a href="#discord" class="desktop_navbar_link scroll">Discord</a>
-      <a href="http://shop.saintcraft.us" class="desktop_navbar_link">Ranks & Crates</a>
-      <a href="https://saintcraft.us/market" class="desktop_navbar_link">Market</a>
-      <a href="https://map.saintcraft.us" class="desktop_navbar_link">Map</a>
-      <a href="https://saintcraft.us/base" class="desktop_navbar_link">Knowledge Base</a>
-      <!--<a href="#about" class="desktop_navbar_link scroll">About Us</a>-->
-      <div class="desktop_navbar_link2_div">
-          <a href="#join" class="desktop_navbar_link2 scroll">Join Us!</a>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="nav-left">
+        <div class="logo"><img src="sc_wm_tra_6.png" style="width: 125px;"></div>
+        <div class="nav-links">
+          <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
+          <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
+          <a href="https://saintcraft.us/coming_soon.html" class="nav-link">NEWS</a>
+          <a href="https://saintcraft.us/coming_soon.html" class="nav-link">ACCOUNT</a>
+        </div>
       </div>
+      <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
+      <button class="menu-button" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="sc_wm_tra_6.png" alt="Saintcraft" style="width: 125px;">
+      <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+    </div>
+    <img style="display: none;" src="sc_wm_tra_6.png" alt="Saintcraft" class="mobile-menu-logo">
+    <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
+    <nav>
+      <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
+      <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
+      <a href="https://saintcraft.us/coming_soon.html" class="nav-link">NEWS</a>
+      <a href="https://saintcraft.us/coming_soon.html" class="nav-link">ACCOUNT</a>
     </nav>
-    <div class="mobile_navbar">
-      <a href="#" class="mobile_navbar_logo_img_a"><img class="mobile_navbar_logo_img" src="media/logo_small.png" alt="logo"></a>
-      <div id="mobile_navbar_links">
-        <a class="mobile_navbar_link scroll" onclick="mobile_navbar_link_hider()" href="#discord">Discord</a>
-          <a class="mobile_navbar_link" onclick="mobile_navbar_link_hider()" href="http://shop.saintcraft.us">Ranks & Crates</a>
-          <a class="mobile_navbar_link" onclick="mobile_navbar_link_hider()" href="https://saintcraft.us/market">Market</a>
-          <a class="mobile_navbar_link" onclick="mobile_navbar_link_hider()" href="https://map.saintcraft.us">Map</a>
-          <a class="mobile_navbar_link" onclick="mobile_navbar_link_hider()" href="https://saintcraft.us/base">Knowledge Base</a>
-          <!--<a class="mobile_navbar_link scroll" onclick="mobile_navbar_link_hider()" href="#about">About Us</a>-->
-          <a class="mobile_navbar_link scroll" onclick="mobile_navbar_link_hider()" href="#join">Join Us</a>
-        </div>
-        <div class="icon" onclick="mobile_navbar_link_hider()">
-            <i class="fa fa-bars"></i>
-        </div>
-        <script>
-            function mobile_navbar_link_hider() {
-            var x = document.getElementById("mobile_navbar_links");
-            if (x.style.display === "flex") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "flex";
-            }
-            } 
-        </script>
-    </div>
-    <div class="mainflex">
-      <div class="main1">
-        <a class="main1_logo_a" href="#">
-          <img class="main1_logo" src="media/logo.png" alt="logo">
-        </a>
-        <div id="slogan-container" style="margin-top: -70px;"></div>
+  </div>
 
-        <div id="hero-content">
-          <p style="font-size: 18px; color: #ffffff; max-width: 800px; margin: 20px auto; text-align: center;">
-            Saintcraft is a welcoming Christian Minecraft Server where players of all ages can enjoy Christ-centered gameplay, Bible-inspired builds, and a supportive faith-based community. Whether you're looking for a Catholic Minecraft Server or a general Christian-focused experience, we offer a family-friendly environment for spiritual growth and fellowship.
-          </p>
-        </div>
+  <div style=""></div>
 
-        <div class="main1_ipcopier_div">
-          <button class="main1_ipcopier" onclick="copyText()" type="button">
-            <span class="main1_ipcopier_text1">play.saintcraft.us</span>
-            <br>
-            <span class="main1_ipcopier_text2">Click to copy</span>
-          </button>
-          <script>
-            function copyText() {
-              const urlParams = new URLSearchParams(window.location.search);
-              const ip = urlParams.has('catholicgg') ? "play.catholic.gg" : "play.saintcraft.us";
-              navigator.clipboard.writeText(ip);
-            }
-            $(document).ready(function() {
-              // Check for catholicgg parameter
-              const urlParams = new URLSearchParams(window.location.search);
-              if (urlParams.has('catholicgg')) {
-                $('.main1_ipcopier_text1').text('play.catholic.gg');
-              }
-              
-              $('.main1_ipcopier').click(function() {
-                var popup = $('<div>', { class: 'main1_popup' })
-                  .append($('<h3 class="copy_confirm">').text('Copied IP to clipboard'))
-                $(this).after(popup);
-                setTimeout(function() {
-                  popup.remove();
-                }, 1000);
-              });
-            });
-          </script>
-        </div>
-        <a href="#more" class="scroll">
-          <img alt="downarrow" class="main1_downarrow" src="media/downarrow.png">
-        </a>
-        <script>
-          const scrollLinks = document.querySelectorAll('.scroll');
-          scrollLinks.forEach(function(link) {
-            link.addEventListener('click', function(event) {
-              event.preventDefault();
-              const target = document.querySelector(link.getAttribute('href'));
-              const offsetTop = target.offsetTop;
-              window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-              });
-            });
-          });
-        </script>
+  <!-- HERO AREA -->
+  <div class="hero" style="position: relative; overflow: hidden;">
+    <!-- Background Layer -->
+    <div class="parallax-layer background" style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('bg_1.png'); background-size:cover; background-position:center; transform:translateY(0); will-change:transform;"></div>
+    
+    <!-- Middle Layer -->
+    <div class="parallax-layer middle" style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('bg_2.png'); background-size:cover; background-position:center; transform:translateY(0); will-change:transform;"></div>
+
+    <!-- Foreground Layer -->
+    <div class="parallax-layer foreground" style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('bg_3.png'); background-size:cover; background-position:center; transform:translateY(0); will-change:transform;"></div>
+    
+    <!-- Content Container -->
+    <div class="container" style="position: relative; z-index: 4;">
+      <div style="width:100%; height:360px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+        <!-- Any content we may wanna add to overlay on the parallax effect -->
       </div>
-      <div id="more"></div>
-      <div class="main2">
-        <a class="headline">What we have</a>
-        <div class="main2_features_div">
-            <div class="main2_feature">
-                <img class="main2_feature_img" alt="Modern Economy" src="media/economy.jpg">
-                <a class="main2_feature_headline">Unique Economy</a>
-                <a class="main2_feature_text">A modern, item-based economy designed exclusively for Saintcraft.</a>
-            </div>
-            <div class="main2_feature">
-                <img class="main2_feature_img" alt="Custom Plugins" src="media/mods.jpg">
-                <a class="main2_feature_headline">Custom Plugins</a>
-                <a class="main2_feature_text">Experience features developed in-house for a one-of-a-kind gameplay.</a>
-            </div>
-            <div class="main2_feature">
-                <img class="main2_feature_img" alt="Terrain Generation" src="media/terrain.jpg">
-                <a class="main2_feature_headline">Beautiful Terrain</a>
-                <a class="main2_feature_text">Explore grand biomes with stunning, custom terrain generation.</a>
-            </div>
-            <div class="main2_feature">
-                <img class="main2_feature_img" alt="Community Focus" src="media/players.jpg">
-                <a class="main2_feature_headline">Strong Community</a>
-                <a class="main2_feature_text">Join a cozy, supportive, and active Christian community.</a>
-            </div>
-            <div class="main2_feature">
-                <img class="main2_feature_img" alt="Faith-Based Gameplay" src="media/faith.jpg">
-                <a class="main2_feature_headline">Faith Foundation</a>
-                <a class="main2_feature_text">A faith-centered server rooted in strong Christian values.</a>
-            </div>
-        </div>
     </div>
-      <div id="discord"></div>
-      <div class="main4">
-        <a class="headline">Join Our Discord</a>
-        <div class="main4_dc_div">
-            <div class="main4_dc_description_div">
-                <div class="main4_dc_icon" style="text-align: center; margin-top: 15px; margin-bottom: 15px;">
-                    <img src="media/discord.webp" alt="Discord Icon" height="80" style="display: inline-block;">
-                </div>
-                <a class="main4_dc_description">
-                    ・Chat directly with the Minecraft server<br> 
-                    ・Get real-time updates and announcements<br> 
-                    ・Vote on new features and improvements<br> 
-                    ・Engage with the Saintcraft community<br> 
-                    ・Share ideas and collaborate on updates<br>
-                    ・Talk to the owners and influence decisions<br><br>
-                    &amp; so much more!
-                </a>
-                <a href="http://discord.saintcraft.us" class="main4_dc_button_a">
-                    <div class="main4_dc_button">Join Now</div>
-                </a>
-            </div>
-        </div>
-    </div>
+  </div>
 
-      <div id="join"></div>
-      <div class="main3">
-        <h3 class="headline">Join The Best Christian Minecraft Server</h3>
-        <div class="main3_join_div_div">
-          <div class="main3_join_div">
-            <a class="main3_join_title">Java</a>
-            <div class="main3_join_content_div">
-              <div class="main3_join_categories">
-                <a>IP:</a>
-                <a>Version:</a>
+  <!-- SERVER INFO SECTION -->
+  <div class="server-info-wrapper">
+    <div class="container">
+      <div class="server-cards">
+        <!-- Java Server Card -->
+        <div class="server-card" style="padding:30px 24px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.4); text-align:center;">
+          <div style="font-size:14px; color:#a5f28c; letter-spacing:1px; margin-bottom:10px;">
+            ✨ JAVA SERVER
+          </div>
+          <div class="server-ip" data-ip="play.saintcraft.us" style="font-size:22px; font-weight:bold; color:white; margin-bottom:12px;">
+            play.saintcraft.us
+            <span class="copy-feedback">Copied! ✨</span>
+          </div>
+          <p style="font-size:13px; color:#c9c6e0;">For Minecraft Java Edition players</p>
+        </div>
+
+        <!-- Bedrock Server Card -->
+        <div class="server-card" style="padding:30px 24px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.4); text-align:center;">
+          <div style="font-size:14px; color:#96ffe4; letter-spacing:1px; margin-bottom:10px;">
+            🛡️ BEDROCK SERVER
+          </div>
+          <div class="server-ip" data-ip="bedrock.saintcraft.us" style="font-size:22px; font-weight:bold; color:white; margin-bottom:12px;">
+            bedrock.saintcraft.us
+            <span class="copy-feedback">Copied! ✨</span>
+          </div>
+          <p style="font-size:13px; color:#c9eae0;">Supports phones, consoles, and Windows 10</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOGNITION BANNER -->
+  <div class="recognition-section">
+    <div class="recognition-tag">RECOGNIZED EXCELLENCE</div>
+    <div class="recognition-title">Voted #1 Christian Minecraft Community*</div>
+    <div class="recognition-subtitle">*probably, somewhere, we think</div>
+    <!--<a href="https://saintcraft.us/press" class="recognition-link">
+      Read the press release
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+      </svg>
+    </a>-->
+  </div>
+
+    <!-- LORE SECTION -->
+    <div style="background: linear-gradient(135deg, #2a1c64 0%, #432b97 100%); padding: 80px 20px; position: relative; overflow: hidden;">
+        <!-- Decorative elements -->
+        <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.03); top: -100px; right: -100px;"></div>
+        <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.02); bottom: -50px; left: -50px;"></div>
+        
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px;">
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <div class="lore-item active" style="font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: transform 0.3s ease;" data-description="Explore two vast realms: The Heartlands (Java) and Emberwild (Bedrock). Each world offers unique challenges, untamed wilderness, and ancient mysteries waiting to be discovered. Chart your own path through these expansive territories!" data-image="a.png">
+                <span>🗺️</span> Explore Two Realms
               </div>
-              <div class="main3_join_values">
-                <a>play.saintcraft.us</a>
-                <a>1.21.4+</a>
+              <div class="lore-item" style="font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: transform 0.3s ease;" data-description="Found your own nation or join existing ones! Engage in diplomacy, forge alliances, establish trade routes, and if necessary, wage wars. Build your settlement from a humble outpost into a thriving civilization." data-image="b.png">
+                <span>👑</span> Build Your Nation
+              </div>
+              <div class="lore-item" style="font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: transform 0.3s ease;" data-description="Face off against custom bosses, discover new items, and encounter unique mobs. Master special enchantments, take on exciting jobs, and unlock powerful abilities. Every day brings new adventures and challenges!" data-image="c.png">
+                <span>⚔️</span> Epic Adventures
+              </div>
+              <div class="lore-item" style="font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: transform 0.3s ease;" data-description="Join the Saints' Circle on Discord - your gateway to our community! Participate in game & movie nights, and special events. Make friends, share stories, and be part of something bigger." data-image="d.png">
+                <span>🎮</span> Community Events
+              </div>
+              <div class="lore-item" style="font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: transform 0.3s ease;" data-description="Trade with other players in our dynamic economy. Establish shops, craft unique items, and become a master of your chosen profession. From farming to enchanting, there's a path for every player!" data-image="e.png">
+                <span>💎</span> Trade & Craft
+              </div>
+              <div class="lore-item" style="font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: transform 0.3s ease;" data-description="Experience a unique blend of gaming and faith. Join optional daily Bible nights, participate in faith discussions, or simply enjoy the friendly, welcoming atmosphere. At Saintcraft, everyone is welcome to play and grow together." data-image="f.png">
+                <span>✨</span> Faith & Fellowship
               </div>
             </div>
+          </div>
+    
+          <!-- Center Image Container -->
+          <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+            <div id="lore-image" style="width: 300px; height: 300px; border-radius: 20px; display: flex; align-items: center; justify-content: center; position: relative; transition: all 0.3s ease;">
+              <img src="a.png" alt="Lore Image" style="position: absolute; width: 100%; height: 100%; object-fit: cover; border-radius: 20px; opacity: 1; transition: opacity 0.3s ease;">
+              <div style="position: absolute; bottom: -20px; width: 90%; height: 40px; background: rgba(165, 242, 140, 0.2); filter: blur(20px);"></div>
+            </div>
+          </div>
+    
+          <!-- Right side description -->
+          <div style="flex: 1; min-width: 300px;">
+            <p id="lore-description" style="color: white; font-size: 18px; line-height: 1.6; transition: opacity 0.3s ease;">
+              Explore two vast realms: The Heartlands (Java) and Emberwild (Bedrock). Each world offers unique challenges, untamed wilderness, and ancient mysteries waiting to be discovered. Chart your own path through these expansive territories!
+            </p>
           </div>
         </div>
       </div>
 
+      <!-- WIKI SECTION -->
+  <div class="wiki-section">
+    <div class="floating-items">
+      <img src="ico_book.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+      <img src="ico_compass.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+      <img src="ico_potion.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+      <img src="ico_table.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+      <div class="particles"></div>
     </div>
-    <footer class="copyright_div">
-      <a href="http://saintcraft.us" class="copyright">Saintcraft (.us | .net) 2024 - 2025 - Edited by @sabrinica</a>&nbsp;- Original by&nbsp;<a href="http://github.com/FQQD/MCServer-Web-Template" class="copyright">FQQD</a>
-    </footer>
-  </body>
+    <div class="wiki-container">
+      <div class="wiki-title">Lost in our Custom World? 🗺️</div>
+      <div class="wiki-description">
+        From secret crafting recipes to hidden dungeons, custom enchantments to special items - 
+        we've got quite a few surprises up our sleeves! Don't worry though, we wrote everything down.
+        <br>
+        <em style="color: #666; font-size: 14px;">(We think... probably... mostly...)</em>
+      </div>
+      <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <a href="https://saintcraft.us/base/" class="wiki-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+          Explore Our Wiki
+        </a>
+        <a href="https://saintcraft.us/map/" class="wiki-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M8.161 2.58a1.875 1.875 0 011.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0121.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 01-1.676 0l-4.994-2.497a.375.375 0 00-.336 0l-3.868 1.935A1.875 1.875 0 012.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437zM9 6a.75.75 0 01.75.75V15a.75.75 0 01-1.5 0V6.75A.75.75 0 019 6zm6.75 3a.75.75 0 00-1.5 0v8.25a.75.75 0 001.5 0V9z" clip-rule="evenodd" />
+          </svg>
+          Explore The Map
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS SECTION -->
+  <section class="section" style="background:#f2f0ff;">
+    <div class="container">
+      <h2 class="section-title">News</h2>
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="card animate-in">
+          <div style="height:180px; background-image: url('thumbnail_a.webp'); background-size: cover; background-position: center;"></div>
+          <div style="padding:20px;">
+            <div style="color:#10b981; font-size:13px; font-weight:500;">05/31/2025</div>
+            <h3 style="font-size:20px; margin:10px 0 12px;">A New Threat Stirs in the Heartlands</h3>
+            <p style="font-size:14px; color:#333; line-height:1.5;">Details are under wraps, but expect ancient lore, brutal mechanics, and a boss fight (...)<br></p>
+            <a href="https://saintcraft.us/news/a_new_threat_stirs_in_the_heartlands.html" class="button button-primary" style="margin-top:15px;">READ MORE</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card animate-in" style="animation-delay: 0.2s;">
+          <div style="height:180px; background-image: url('thumbnail_b.webp'); background-size: cover; background-position: center;"></div>
+          <div style="padding:20px;">
+            <div style="color:#10b981; font-size:13px; font-weight:500;">05/30/2025</div>
+            <h3 style="font-size:20px; margin:10px 0 12px;">A New Chapter for Saintcraft's Vision</h3>
+            <p style="font-size:14px; color:#333; line-height:1.5;">Crosswalk Networks is our new umbrella; bringing together partnerships with clarity, purpose, and vision.</p>
+            <a href="https://saintcraft.us/news/a_new_chapter_for_saintcrafts_vision.html" class="button button-primary" style="margin-top:15px;">READ MORE</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card animate-in" style="animation-delay: 0.4s;">
+          <div style="height:180px; background-image: url('thumbnail_c.webp'); background-size: cover; background-position: center;"></div>
+          <div style="padding:20px;">
+            <div style="color:#10b981; font-size:13px; font-weight:500;">05/29/2025</div>
+            <h3 style="font-size:20px; margin:10px 0 12px;">Catholic.gg Joins Saintcraft</h3>
+            <p style="font-size:14px; color:#333; line-height:1.5;">A move to bring things under one roof as we grow. Same values, shared direction, better structure.<br></p>
+            <a href="https://saintcraft.us/news/catholicgg_joins_saintcraft.html" class="button button-primary" style="margin-top:15px;">READ MORE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY & CREATORS SECTION -->
+  <div style="background:#f6edff; padding:40px 20px;">
+    <div class="container">
+      <div class="server-cards">
+        <div class="card">
+          <div style="padding:30px;">
+            <div style="font-size:12px; color:#ec6f2f; font-weight:800; letter-spacing:1px;">DISCORD</div>
+            <h3 style="margin:10px 0 16px; font-size:24px; color:#2e2e2e;">Saints' Circle</h3>
+            <p style="font-size:14px; color:#444;">Join our vibrant Catholic gaming community! Share your faith, make friends, and participate in weekly prayer sessions and faith-focused events.</p>
+            <a href="https://discord.saintcraft.us" class="button button-primary" style="margin-top:20px;">JOIN NOW</a>
+          </div>
+        </div>
+        <div class="card">
+          <div style="padding:30px;">
+            <div style="font-size:12px; color:#00956d; font-weight:800; letter-spacing:1px;">MINISTRY</div>
+            <h3 style="margin:10px 0 16px; font-size:24px; color:#2e2e2e;">Digital Evangelization</h3>
+            <p style="font-size:14px; color:#444;">Help us spread the Gospel through gaming! Whether you're a priest, youth minister, or passionate Catholic, join our mission to evangelize in the digital space.</p>
+            <a href="https://discord.saintcraft.us" class="button button-primary" style="margin-top:20px;">GET INVOLVED</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGO SECTION -->
+  <div style="background: white; padding: 60px 20px;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+          <a href="https://saintcraft.us/about/" style="text-decoration: none;">
+            <div class="logo-container" style="background: #f4f4f4; height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer;">
+              <img src="saintcraft_logo_1.png" alt="Logo 1" style="max-width: 200px; max-height: 60px; object-fit: contain;">
+            </div>
+          </a>
+        </div>
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+          <a href="https://saintcraft.us/about/" style="text-decoration: none;">
+            <div class="logo-container" style="background: #f4f4f4; height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer;">
+              <img src="crn_logo.png" alt="Logo 2" style="max-width: 200px; max-height: 60px; object-fit: contain;">
+            </div>
+          </a>
+        </div>
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+          <a href="https://saintcraft.us/about/" style="text-decoration: none;">
+            <div class="logo-container" style="background: #f4f4f4; height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer;">
+              <img src="catholicgg_logo_1.png" alt="Logo 3" style="max-width: 200px; max-height: 60px; object-fit: contain;">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL FOOTER -->
+  <footer style="background:#e6d7ff; padding:40px 20px; text-align:center;">
+    <div class="container">
+      <hr style="width:60px; border:1px solid #7f56d9; margin:0 auto 20px;">
+      <p style="font-size:12px; color:#444;">© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
   <script>
-    // Check for catholicgg parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('catholicgg')) {
-        console.log("Catholic.gg parameter detected");
-        // Replace hero content for Catholic.gg visitors
-        document.querySelector('.main1_logo').src = "media/logo.png";
-        document.querySelector('.main1_logo').style.opacity = "0.8";
-        
-        document.querySelector('.main1').insertAdjacentHTML('afterbegin', `
-            <div style="background-color: #2f508c; padding: 15px; margin: -20px -20px 20px -20px; text-align: center; border-bottom: 2px solid #ffffff33;">
-                <span style="color: #fff; font-size: 24px; font-weight: bold;">✝️ Community Announcement ✝️</span>
-            </div>
-        `);
-        
-        document.getElementById('slogan-container').innerHTML = `
-            <div class="main1_description" style="margin-bottom: 30px;">
-                <a style="color: #ffd700;">Welcome Home</a>
-                <br>
-                <a class="main1_actcent">Catholic.gg</a>
-                <br>
-                <a>Community</a>
-            </div>
-        `;
-        
-        document.getElementById('hero-content').innerHTML = `
-            <div style="background-color: #ffffff15; padding: 25px; border-radius: 10px; margin: 20px auto; max-width: 850px;">
-                <p style="font-size: 20px; color: #ffd700; margin: 0 0 20px 0; text-align: center; font-weight: bold;">
-                    Continuing Our Faith Journey Together
-                </p>
-                <p style="font-size: 18px; color: #ffffff; margin: 0 0 20px 0; text-align: center; line-height: 1.6;">
-                    We're blessed to announce that the Catholic.gg community is continuing their journey with Saintcraft! 
-                    Together, we're building a unified space where both communities can grow in faith and fellowship.
-                </p>
-                <p style="font-size: 18px; color: #ffffff; margin: 0 0 20px 0; text-align: center; line-height: 1.6;">
-                    To our Catholic.gg family: Your spiritual home continues here. The same values, friendships, and 
-                    faith-centered gameplay you cherish will flourish as we join in prayer and play together.
-                </p>
-                <div style="text-align: center; margin-top: 30px;">
-                    <div style="display: inline-block; background-color: #ffd700; padding: 15px 30px; border-radius: 5px; margin: 10px; color: #2f508c; font-weight: bold;">
-                        ✝️ United in Faith
-                    </div>
-                    <div style="display: inline-block; background-color: #ffd700; padding: 15px 30px; border-radius: 5px; margin: 10px; color: #2f508c; font-weight: bold;">
-                        🤝 Growing Together
-                    </div>
-                    <div style="display: inline-block; background-color: #ffd700; padding: 15px 30px; border-radius: 5px; margin: 10px; color: #2f508c; font-weight: bold;">
-                        ❤️ One Community
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 30px; padding: 20px; background-color: #ffffff0f; border-radius: 8px;">
-                    <p style="font-size: 18px; color: #ffd700; margin: 0 0 15px 0;">
-                        🙏 Join Our Fellowship 🙏
-                    </p>
-                    <p style="font-size: 16px; color: #ffffff; margin: 0 0 20px 0;">
-                        Continue the journey with us on Discord - where faith and gaming unite:
-                    </p>
-                    <a href="http://discord.saintcraft.us" style="display: inline-block; background-color: #5865F2; padding: 12px 25px; border-radius: 5px; color: white; text-decoration: none; font-weight: bold;">
-                        Join Our Discord
-                    </a>
-                </div>
-            </div>
-        `;
-
-        document.querySelector('.main1_ipcopier_text1').textContent = "play.catholic.gg";
-        document.querySelector('.main1_ipcopier_text2').textContent = "Click to copy server IP";
-        
-        // Update the copy function for the new IP
-        window.copyText = function() {
-            navigator.clipboard.writeText("play.catholic.gg");
-        }
+    // Mobile menu functionality
+    const menuButton = document.querySelector('.menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const navbar = document.querySelector('.navbar');
+    
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('active');
+      menuButton.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     }
+    
+    menuButton.addEventListener('click', toggleMobileMenu);
+    mobileMenuClose.addEventListener('click', toggleMobileMenu);
 
-    // Array of slogans
-    const slogans = [
-        '<a>Faith,<br>crafted</a> <a class="main1_actcent">block by block</a><a>.</a>',
-        '<a>Build,<br>believe</a> <a class="main1_actcent">together in faith</a><a>.</a>',
-        '<a>Craft,<br>create</a> <a class="main1_actcent">a world of worship</a><a>.</a>',
-        '<a>Faith,<br>meets</a> <a class="main1_actcent">endless possibilities</a><a>.</a>',
-        '<a>Play,<br>pray</a> <a class="main1_actcent">and grow together</a><a>.</a>',
-        '<a>Community,<br>crafted</a> <a class="main1_actcent">on faith and fun</a><a>.</a>',
-        '<a>Worship,<br>build</a> <a class="main1_actcent">and explore together</a><a>.</a>',
-        '<a>Blocks,<br>of faith</a> <a class="main1_actcent">built for believers</a><a>.</a>',
-        '<a>Faith,<br>takes shape</a> <a class="main1_actcent">one block at a time</a><a>.</a>',
-        '<a>Connect,<br>create</a> <a class="main1_actcent">with Christ at the center</a><a>.</a>',
-        '<a>Faith,<br>reborn</a> <a class="main1_actcent">in every crafted block</a><a>.</a>',
-        '<a>Explore,<br>together</a> <a class="main1_actcent">in faith and fellowship</a><a>.</a>',
-        '<a>Pray,<br>play</a> <a class="main1_actcent">and build a community</a><a>.</a>',
-        '<a>Hearts,<br>crafted</a> <a class="main1_actcent">in blocks of hope</a><a>.</a>'
-    ];
-
-    // Get random slogan
-    const randomSlogan = slogans[Math.floor(Math.random() * slogans.length)];
-
-    // Display slogan in container
-    document.getElementById('slogan-container').innerHTML = `<div class="main1_description">${randomSlogan}</div>`;
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P2Z7P99K4Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-P2Z7P99K4Z');
-</script>
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": "Saintcraft - Christian Minecraft Server",
-    "url": "http://saintcraft.us",
-    "logo": "http://saintcraft.us/media/logo.png",
-    "description": "Saintcraft is the leading Christian Minecraft Server offering a Christ-centered experience, Bible-inspired builds, and a welcoming faith-based community for all believers. Perfect for those looking for a Catholic Minecraft Server or a Christian gaming environment.",
-    "sameAs": [
-      "http://discord.saintcraft.us",
-      "http://shop.saintcraft.us",
-      "http://map.saintcraft.us"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "contact@saintcraft.us",
-      "contactType": "customer support"
-    },
-    "keywords": "Christian Minecraft Server, Catholic Minecraft Server, Best Christian Minecraft Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Faith-Based Gaming"
-  }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "url": "http://saintcraft.us",
-    "name": "Saintcraft - Christian Minecraft Server",
-    "description": "Join Saintcraft, the best Christian Minecraft Server, for faith-based gameplay, Bible-inspired builds, and a Christ-centered gaming community. Perfect for Catholic Minecraft players and Christian gamers seeking a family-friendly Minecraft environment.",
-    "alternateName": "Catholic Minecraft Server | Faith-Based Minecraft Gaming",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "http://saintcraft.us/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is Saintcraft?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Saintcraft is a Christian Minecraft Server providing faith-centered gameplay, Bible-inspired builds, and a supportive faith-based community. It is also perfect for Catholic players seeking a Christ-centered Minecraft experience."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can I join the Saintcraft Minecraft server?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To join the Saintcraft Minecraft server, use the IP address play.saintcraft.us on Minecraft Java Edition version 1.21.3 or higher."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Saintcraft suitable for Catholics?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Saintcraft is designed for all Christians, including Catholics. The server fosters a Christ-centered community with Bible-inspired builds and faith-focused gameplay."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does Saintcraft have custom features?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Saintcraft offers unique features such as custom plugins, a modern item-based economy, stunning terrain generation, and Bible-inspired builds tailored for Christian gamers."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Saintcraft family-friendly?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely! Saintcraft is a family-friendly Minecraft server, offering a safe and welcoming environment for players of all ages."
-        }
+    // Navbar scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
       }
-    ]
-  }
+      
+      lastScroll = currentScroll;
+    });
+
+    // Intersection Observer for section titles
+    const sectionTitles = document.querySelectorAll('.section-title');
+    
+    const titleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    sectionTitles.forEach(title => titleObserver.observe(title));
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.menu-button') && 
+          !e.target.closest('.mobile-menu') && 
+          mobileMenu.classList.contains('active')) {
+        toggleMobileMenu();
+      }
+    });
+
+    // Prevent the initial animation on page load
+    window.addEventListener('load', () => {
+      mobileMenu.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    });
+
+    // Enhanced copy to clipboard functionality
+    document.querySelectorAll('.server-ip').forEach(ip => {
+      ip.addEventListener('click', async function(e) {
+        e.preventDefault();
+        const text = this.dataset.ip;
+        
+        try {
+        await navigator.clipboard.writeText(text);
+        
+        const feedback = this.querySelector('.copy-feedback');
+        feedback.classList.add('show');
+        this.classList.add('copy-success');
+        
+          const rect = this.getBoundingClientRect();
+          const sparkleCount = 12;
+          
+          for (let i = 0; i < sparkleCount; i++) {
+            setTimeout(() => {
+              const sparkle = document.createElement('div');
+              sparkle.className = 'sparkle';
+              
+              const size = Math.random() * 6 + 3;
+              sparkle.style.width = `${size}px`;
+              sparkle.style.height = `${size}px`;
+              
+              const angle = Math.random() * Math.PI * 2;
+              const distance = Math.random() * rect.width * 0.6;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              
+              const randomOffset = (Math.random() - 0.5) * 20;
+              const x = centerX + Math.cos(angle) * distance + randomOffset;
+              const y = centerY + Math.sin(angle) * distance + randomOffset;
+              
+              sparkle.style.left = `${x}px`;
+              sparkle.style.top = `${y}px`;
+              
+              const colors = ['#ffeb3b', '#ffd700', '#fff176', '#fff9c4'];
+              sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+              
+              const duration = 0.5 + Math.random() * 0.5;
+              sparkle.style.animation = `sparkle ${duration}s cubic-bezier(0.165, 0.84, 0.44, 1) forwards`;
+              
+              this.appendChild(sparkle);
+              
+              setTimeout(() => sparkle.remove(), duration * 1000);
+            }, i * 40);
+        }
+
+        setTimeout(() => {
+          feedback.classList.remove('show');
+          this.classList.remove('copy-success');
+        }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+
+    // Lore section interactivity
+    document.querySelectorAll('.lore-item').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.lore-item').forEach(i => i.classList.remove('active'));
+        
+        this.classList.add('active');
+      
+        const description = this.getAttribute('data-description');
+        const image = this.getAttribute('data-image');
+        
+        const descriptionElement = document.getElementById('lore-description');
+        descriptionElement.style.opacity = '0';
+        
+        const imageContainer = document.getElementById('lore-image');
+        const oldImage = imageContainer.querySelector('img');
+        const newImage = document.createElement('img');
+        
+        newImage.src = image;
+        newImage.alt = "Lore Image";
+        newImage.style.position = 'absolute';
+        newImage.style.width = '100%';
+        newImage.style.height = '100%';
+        newImage.style.objectFit = 'cover';
+        newImage.style.borderRadius = '20px';
+        newImage.style.opacity = '0';
+        newImage.style.transition = 'opacity 0.3s ease';
+        
+        imageContainer.appendChild(newImage);
+        
+        newImage.offsetHeight;
+        
+        newImage.style.opacity = '1';
+        
+        if (oldImage) {
+          oldImage.style.opacity = '0';
+          setTimeout(() => oldImage.remove(), 300);
+        }
+        
+        setTimeout(() => {
+          descriptionElement.textContent = description;
+          descriptionElement.style.opacity = '1';
+        }, 300);
+      });
+    });
+
+    const layers = document.querySelectorAll('.parallax-layer');
+    
+    function handleParallax() {
+      const scrolled = window.pageYOffset;
+      
+      layers.forEach((layer) => {
+        let speed = 0;
+        let scale = 1;
+        if (layer.classList.contains('background')) {
+          speed = 0.3;
+          scale = 1.1;
+        }
+        else if (layer.classList.contains('middle')) {
+          speed = 0.2;
+          scale = 1.05;
+        }
+        else if (layer.classList.contains('foreground')) {
+          speed = 0.1;
+          scale = 1.02;
+        }
+        
+        const yPos = scrolled * speed;
+        layer.style.transform = `scale(${scale}) translateY(${yPos}px)`;
+      });
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleParallax();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    
+    handleParallax();
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2Z7P99K4Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
   
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Service",
-    "name": "Saintcraft Minecraft Server",
-    "description": "Faith-based Minecraft server designed for Christians and Catholics, offering Christ-centered gameplay, Bible-inspired builds, and a welcoming, family-friendly community.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Saintcraft",
-      "url": "http://saintcraft.us"
-    },
-    "areaServed": "Worldwide",
-    "serviceType": "Christian Minecraft Server | Catholic Minecraft Server"
-  }
+    gtag('config', 'G-P2Z7P99K4Z');
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "Saintcraft - Christian Minecraft Server",
+      "url": "http://saintcraft.us",
+      "logo": "http://saintcraft.us/media/logo.png",
+      "description": "Saintcraft is the leading Christian Minecraft Server offering a Christ-centered experience, Bible-inspired builds, and a welcoming faith-based community for all believers. Perfect for those looking for a Catholic Minecraft Server or a Christian gaming environment.",
+      "sameAs": [
+        "http://discord.saintcraft.us",
+        "http://shop.saintcraft.us",
+        "http://map.saintcraft.us"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@saintcraft.us",
+        "contactType": "customer support"
+      },
+      "keywords": "Christian Minecraft Server, Catholic Minecraft Server, Best Christian Minecraft Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Faith-Based Gaming"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "http://saintcraft.us",
+      "name": "Saintcraft - Christian Minecraft Server",
+      "description": "Join Saintcraft, the best Christian Minecraft Server, for faith-based gameplay, Bible-inspired builds, and a Christ-centered gaming community. Perfect for Catholic Minecraft players and Christian gamers seeking a family-friendly Minecraft environment.",
+      "alternateName": "Catholic Minecraft Server | Faith-Based Minecraft Gaming",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://saintcraft.us/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Saintcraft?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Saintcraft is a Christian Minecraft Server providing faith-centered gameplay, Bible-inspired builds, and a supportive faith-based community. It is also perfect for Catholic players seeking a Christ-centered Minecraft experience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I join the Saintcraft Minecraft server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To join the Saintcraft Minecraft server, use the IP address play.saintcraft.us on Minecraft Java Edition version 1.21.3 or higher."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Saintcraft suitable for Catholics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Saintcraft is designed for all Christians, including Catholics. The server fosters a Christ-centered community with Bible-inspired builds and faith-focused gameplay."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Saintcraft have custom features?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Saintcraft offers unique features such as custom plugins, a modern item-based economy, stunning terrain generation, and Bible-inspired builds tailored for Christian gamers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Saintcraft family-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Saintcraft is a family-friendly Minecraft server, offering a safe and welcoming environment for players of all ages."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Service",
+      "name": "Saintcraft Minecraft Server",
+      "description": "Faith-based Minecraft server designed for Christians and Catholics, offering Christ-centered gameplay, Bible-inspired builds, and a welcoming, family-friendly community.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Saintcraft",
+        "url": "http://saintcraft.us"
+      },
+      "areaServed": "Worldwide",
+      "serviceType": "Christian Minecraft Server | Catholic Minecraft Server"
+    }
+    </script>
+</body>
 </html>
