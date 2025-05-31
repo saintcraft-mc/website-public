@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>About - Crosswalk Networks</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lexend', 'Segoe UI', sans-serif;
+      background: #f4f3ff;
+      color: #1a1523;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2000;
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 1px solid #eee;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 16px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 160px;
+      background: linear-gradient(135deg, #7f56d9 0%, #6941c6 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: visible;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .flying-fairy {
+      position: absolute;
+      width: 320px;
+      right: 10%;
+      top: 85%;
+      transform: translateY(-50%) scale(1.2);
+      animation: float 6s ease-in-out infinite;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(-50%) translateX(0) rotate(0deg) scale(1.2);
+      }
+      25% {
+        transform: translateY(-55%) translateX(-10px) rotate(-2deg) scale(1.2);
+      }
+      50% {
+        transform: translateY(-45%) translateX(0) rotate(0deg) scale(1.2);
+      }
+      75% {
+        transform: translateY(-55%) translateX(10px) rotate(2deg) scale(1.2);
+      }
+      100% {
+        transform: translateY(-50%) translateX(0) rotate(0deg) scale(1.2);
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 48px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* About Sections */
+    .section {
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+      margin-top: -50px;
+    }
+
+    .section-light {
+      background: white;
+    }
+
+    .section-dark {
+      background: #f6edff;
+      position: relative;
+      z-index: 1;
+      margin-top: -50px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #1a1523;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .mission-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .mission-card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #7f56d9;
+    }
+
+    .mission-card p {
+      color: #666;
+    }
+
+    .history-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .history-content p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .value-card {
+      background: #f6edff;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .value-card h3 {
+      color: #7f56d9;
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background: #e6d7ff;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+
+      .nav-left {
+        gap: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .mission-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flying-fairy {
+        width: 200px;
+        right: 5%;
+      }
+    }
+
+    /* Fairy container adjustments */
+    .fairy-container {
+      position: relative;
+      margin-top: -100px;
+      pointer-events: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="../sc_wm_tra_6.png" style="width: 125px;" alt="Crosswalk Networks">
+        </div>
+        <div class="nav-links">
+          <a href="https://saintcraft.us" class="nav-link">HOME</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">About Crosswalk Networks</h1>
+      </div>
+    </div>
+  </section>
+
+  <div class="fairy-container">
+    <img src="../artwork_wings_a.png" alt="Flying Fairy" class="flying-fairy">
+  </div>
+
+  <!-- History Section -->
+  <section class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Our Story</h2>
+      <div class="history-content">
+        <p>Crosswalk Networks was founded with a clear vision: to create a faith-driven digital ecosystem that embraces authenticity, creativity, and community. At its core is Saintcraft — the original project that began as a uniquely Christian Minecraft server, blending gameplay with faith in a way that felt natural, meaningful, and refreshingly real.</p>
+        
+        <p>Unlike many platforms that lean heavily into rigid filters and artificial tones, Saintcraft focused on fostering genuine connection and honest dialogue, while remaining rooted in Christian values — with a subtle nod to Catholic tradition. It quickly became a space where players could explore faith, build freely, and form lasting friendships without having to filter their personality.</p>
+        
+        <p>In 2024, Saintcraft integrated Catholic.gg — a smaller, now-defunct project — into its growing network. This led to the formation of Crosswalk Networks, a broader framework designed to support not only game servers, but educational tools, creative content, and digital ministry projects with a shared commitment to excellence and faith.</p>
+        
+        <p>Today, Crosswalk Networks continues to evolve. We remain committed to cultivating a space where faith and digital culture intersect — thoughtfully, authentically, and with room for people to be themselves. Our goal is to support communities that are both grounded in Christian principles and unafraid to engage with the world as it truly is.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Authenticity</h3>
+          <p>Being genuine in our faith and relationships</p>
+        </div>
+        <div class="value-card">
+          <h3>Innovation</h3>
+          <p>Creating meaningful digital experiences</p>
+        </div>
+        <div class="value-card">
+          <h3>Community</h3>
+          <p>Building bridges between faith and technology</p>
+        </div>
+        <div class="value-card">
+          <h3>Service</h3>
+          <p>Dedicated to serving God and others</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <hr style="width:60px; border:1px solid #7f56d9; margin:0 auto 20px;">
+      <p>© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html> 
