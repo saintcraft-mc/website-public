@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lexend', 'Segoe UI', sans-serif;
+      background: #f4f3ff;
+      color: #1a1523;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 1px solid #eee;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 16px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    /* Article Styles */
+    .article-header {
+      padding: 120px 0 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #7f56d9 0%, #6941c6 100%);
+      color: white;
+    }
+
+    .article-category {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .article-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .article-content {
+      padding: 60px 0;
+    }
+
+    .article-image {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .article-text {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #2d2d2d;
+    }
+
+    .article-text p {
+      margin-bottom: 24px;
+    }
+
+    .article-text h2 {
+      font-size: 28px;
+      margin: 40px 0 20px;
+      color: #1a1523;
+    }
+
+    .article-text h3 {
+      font-size: 24px;
+      margin: 32px 0 16px;
+      color: #1a1523;
+    }
+
+    .article-quote {
+      margin: 40px 0;
+      padding: 30px;
+      background: #f6edff;
+      border-left: 4px solid #7f56d9;
+      border-radius: 8px;
+      font-size: 20px;
+      font-style: italic;
+      color: #2a1c64;
+    }
+
+    .share-section {
+      margin: 60px 0;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .share-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #1a1523;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .share-button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .share-button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .share-twitter { background: #1DA1F2; }
+    .share-facebook { background: #4267B2; }
+    .share-reddit { background: #FF4500; }
+
+    /* Related Articles */
+    .related-articles {
+      padding: 60px 0;
+      background: #f6edff;
+    }
+
+    .related-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .related-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .related-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .related-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .related-content {
+      padding: 20px;
+    }
+
+    .related-date {
+      font-size: 14px;
+      color: #7f56d9;
+      margin-bottom: 8px;
+    }
+
+    .related-headline {
+      font-size: 18px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .related-excerpt {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .read-more {
+      color: #7f56d9;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer {
+      background: #e6d7ff;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #444;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+
+      .nav-left {
+        gap: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .article-header {
+        padding: 100px 0 30px;
+      }
+
+      .article-content {
+        padding: 40px 0;
+      }
+
+      .article-text {
+        font-size: 16px;
+      }
+
+      .article-quote {
+        font-size: 18px;
+        padding: 20px;
+      }
+
+      .share-buttons {
+        flex-direction: column;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <title>New Chapter Awaits - Saintcraft News</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="../sc_wm_tra_6.png" style="width: 125px;" alt="Saintcraft">
+        </div>
+        <div class="nav-links">
+          <a href="https://saintcraft.us" class="nav-link">HOME</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container">
+      <div class="article-category">NEWS</div>
+      <h1 class="article-title">New Roadmap</h1>
+      <div class="article-meta">
+        <span>August 25, 2025</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <main class="article-content">
+    <div class="container">
+      <img src="../thumbnail_d.webp" alt="The Road Ahead thumbnail" class="article-image">
+      
+      <div class="article-text">
+        <p>
+          As Saintcraft almost celebrates its first year, we’re looking forward with a clear plan. From stability updates to new systems, from festivals to a complete wiki rebuild — the road ahead is filled with changes that will make the server stronger, more fun, and more accessible than ever.
+        </p>
+  
+        <h2>🍂 Fall 2025 – Getting the Ground Ready</h2>
+        <p>
+          This season is all about polish: bug fixes, smoother performance, and stability. We’re also opening up <strong>Web Accounts</strong>. While many of you have seen the prototype web marketplace, the new system goes further — linking your profile, showing stats and balances, and giving you rewards even when you’re offline.
+        </p>
+  
+        <h2>❄️ Winter 2025 – Year One Anniversary 🎉</h2>
+        <p>
+          December marks Saintcraft’s first anniversary, and with it, a major update:
+        </p>
+        <ul>
+          <li>A refreshed <strong>economy and job system</strong></li>
+          <li>A <strong>Heartlands overhaul</strong> with better land claiming and expansion</li>
+          <li>New <strong>ores, mobs, and surprises</strong> across the world</li>
+          <li>An <strong>Anniversary Festival</strong> with exclusive rewards and events</li>
+          <li><strong>Web Accounts 2.0</strong> with achievements and marketplace previews</li>
+        </ul>
+  
+        <h2>🌸 Spring 2026 – New Frontiers</h2>
+        <p>
+          Spring is about expansion: new gear, weapons, and bosses — plus the full launch of the <strong>Marketplace</strong>, tied into Web Accounts so you can trade both in-game and online. Balancing updates will continue as the world grows.
+        </p>
+  
+        <h2>☀️ Summer 2026 – Festivals & Forward Steps</h2>
+        <p>
+          Summer brings another wave of seasonal content and a full <strong>Summer Festival</strong>. We’ll also carefully plan the jump to the latest Minecraft version. With so many plugins and custom systems, it takes time — but we’re porting as much as possible so Saintcraft stays accessible for future versions. Web Accounts will also level up with leaderboards, faction stats, and economy tracking.
+        </p>
+  
+        <h2>📖 A Wiki Reborn</h2>
+        <p>
+          Our wiki is being rebuilt from scratch. Expect clear guides, job info, crafting recipes, and player resources — everything you need to thrive in the new Saintcraft.
+        </p>
+  
+        <p>
+          From fall’s cleanup to summer’s celebrations, the year ahead is packed. Thank you for building this community with us — the journey is only beginning.
+        </p>
+      </div>
+  
+      <!-- Share Section -->
+      <div class="share-section">
+        <h3 class="share-title">Share this article</h3>
+        <div class="share-buttons">
+          <a href="#" class="share-button share-twitter">Twitter</a>
+          <a href="#" class="share-button share-facebook">Facebook</a>
+          <a href="#" class="share-button share-reddit">Reddit</a>
+        </div>
+      </div>
+    </div>
+  </main>  
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <hr style="width:60px; border:1px solid #7f56d9; margin:0 auto 20px;">
+      <p>© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Share buttons functionality
+    document.querySelectorAll('.share-button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+        let shareUrl;
+
+        if (button.classList.contains('share-twitter')) {
+          shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+        } else if (button.classList.contains('share-facebook')) {
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        } else if (button.classList.contains('share-reddit')) {
+          shareUrl = `https://reddit.com/submit?url=${url}&title=${title}`;
+        }
+
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+      });
+    });
+  </script>
+</body>
+</html> 
