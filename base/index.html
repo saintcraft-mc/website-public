@@ -329,6 +329,15 @@
       opacity: 0.95;
     }
 
+    .subcategory-header {
+      color: #fff;
+      font-weight: 600;
+      margin: 8px 0 6px 10px;
+      font-size: 14px;
+      padding: 4px 10px 4px 14px;
+      opacity: 0.85;
+    }
+
     .wiki-toggle {
       display: none;
       background: #7f56d9;
@@ -3068,10 +3077,180 @@
       },
 
       // Spawn NPC's
-      'merchant_nasir': { 
-        title: "Coming Soon :)", 
-        content: `Sorry, this page is not available yet.`, 
-        category: "Spawn NPC's" 
+      //'merchant_nasir': { 
+      //  title: "Coming Soon :)", 
+      //  content: `Sorry, this page is not available yet.`, 
+      //  category: "Spawn NPC's" 
+      //},
+
+      // Bosses → Titan of Ironfall
+      'boss_titan_ironfall': {
+        title: "Titan of Ironfall",
+        category: "Bosses",
+        content: `
+    <div class="wiki-section">
+      <h2 class="wiki-title">The Titan of Ironfall</h2>
+      <div class="wiki-content">
+        <p>
+          The Titan of Ironfall is a powerful boss that can be summoned using the Egg of the Titan. 
+          In the chronicles of the Heartlands, the Titan is whispered to be a construct born of collapsed 
+          star-iron and forbidden Ender alchemy. A living vault that guards the secret to boundless growth.
+        </p>
+
+        <div class="feature-box">
+          <h3 style="margin:0 0 10px 0; color:#2a1c64;">Stats</h3>
+          <ul style="margin:0 0 8px 20px; color:#666;">
+            <li>2000 Health</li>
+            <li>12–16 Damage</li>
+            <li>Movement Speed 0.35</li>
+          </ul>
+        </div>
+
+        <div class="feature-box" style="margin-top:16px;">
+          <h3 style="margin:0 0 10px 0; color:#2a1c64;">Drops</h3>
+          <ul style="margin:0 0 8px 20px; color:#666;">
+            <li>200 XP</li>
+            <li>100-200 Compressed Experience</li>
+            <li>1 Amulet of the Titan (random type)</li>
+            <li>40% chance of dropping a Titanpearl</li>
+          </ul>
+        </div>
+
+        <div class="note-box" style="margin-top:16px;">
+          <p>
+            The Titan’s armor plates are said to be etched with a language that predates 
+            villagers; a lattice of prayers and equations. When it roars, anvils crack in distant mineshafts.
+          </p>
+        </div>
+      </div>
+    </div>
+        `
+      },
+
+      
+
+      // Ironfall items consolidated on a single page under Items / Recipes
+      'ironfall': {
+        title: "Ironfall",
+        category: "Items / Recipes",
+        content: `
+    <div class="wiki-section">
+      <h2 class="wiki-title">Ironfall Items</h2>
+      <div class="wiki-content">
+        <p class="wiki-intro">
+          Relics and reagents tied to the Titan of Ironfall.
+        </p>
+
+        <h3 style="color:#2a1c64; margin:16px 0 8px 0;">Egg of the Titan</h3>
+        <p>
+          The Egg of the Titan is a legendary artifact said to hold the dormant spark of the Titan of Ironfall. It serves as both the vessel and the key to summoning the Titan itself.
+        </p>
+        <p>
+          Crafting such an artifact is no small feat: three ingots of Enderite, three blocks of Obsidian, and a single Ender Pearl are bound together with the Powdered Diamonds, forming a core that pulses faintly with otherworldly energy.
+        </p>
+        <div class="media-grid">
+          <div class="ironfall-img">
+            <img src="titan_egg.png" alt="Titan Egg Crafting Recipe" />
+          </div>
+        </div>
+        <div class="info-callout" style="margin:12px 0 20px 0;">
+          <p><br><br></p>
+        </div>
+
+        <h3 style="color:#2a1c64; margin:16px 0 8px 0;">Compressed Experience</h3>
+        <p>
+          Long ago, people discovered how to condense raw experience into a solid, crimson shard. Each shard contains exactly 1 XP point and can be consumed with a right-click. Stacks are unstable - using one will consume the entire stack at once.
+          <br><br>
+          Compressed Experience cannot be crafted. It is found only as a drop from the Titan of Ironfall and the Amulet of type Prosperity.
+        </p>
+        <ul style="margin:8px 0 20px 20px; color:#666;">
+          <li>1 XP per item</li>
+          <li>Right-click to consume</li>
+          <li>Stacks are consumed all at once</li>
+        </ul>
+        <div class="note-box" style="margin:0 0 20px 0;">
+          <p><br><br></p>
+        </div>
+
+        <h3 style="color:#2a1c64; margin:16px 0 8px 0;">Titanpearl</h3>
+        <p>
+          The Titanpearl is a mysterious relic said to carry a fragment of the Titan’s power. Legends describe it as a glowing orb that hums faintly, as though alive.
+          <br><br>
+          Right-clicking a block with the Titanpearl gives a 20% chance to replicate that block. Whether the attempt succeeds or fails, the Pearl always dissolves.
+          <br><br>
+          It cannot be crafted. During the battle with the Titan of Ironfall, there is a 40% chance of a Titanpearl dropping. Scholars believe its true purpose lies ahead, as it may one day be used as a crafting ingredient.
+        </p>
+        <ul style="margin:8px 0 20px 20px; color:#666;">
+          <li>Right-click a block to attempt replication (20% chance)</li>
+          <li>Always dissolves upon replication attempt</li>
+        </ul>
+        <div class="ironfall-img" style="margin:0 0 20px 0;">
+          <img src="itm_pearl.png" alt="Titanpearl" />
+        </div>
+        <div class="info-callout" style="margin:0 0 20px 0;">
+          <p><br><br></p>
+        </div>
+
+        <h3 style="color:#2a1c64; margin:16px 0 8px 0;">Amulet of the Titan</h3>
+        <p>
+          The Amulet of the Titan is a legendary relic said to have been worn by the Titan of Ironfall to shield and empower itself. When the Titan is defeated, one of these amulets may drop, each carrying a fragment of its ancient strength.
+          <br><br>There are four known types of Amulets, each with unique properties. Scholars of the Heartlands continue to study their secrets, speculating that the amulets may someday be combined into an even greater artifact. To activate their power, they must be held in the offhand.
+        </p>
+        <div class="ironfall-img" style="margin:8px 0 16px 0;">
+          <img src="itm_amulet.png" alt="Amulet of the Titan" />
+        </div>
+
+        <div class="feature-list" style="margin-top:12px;">
+          <div class="feature-item">
+            <h3>Endurance Amulet</h3>
+            <p>Grants the wearer’s armor 50% increased durability against damage.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Prosperity Amulet</h3>
+            <p>Doubles all experience gained from orbs picked up.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Magnetism+ Amulet</h3>
+            <p>Functions like a Diamond Magnet, but with a wider radius (9 blocks instead of 7).
+              <br>All XP collected is converted into Compressed Experience.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Dominance Amulet</h3>
+            <p>Increases the wearer’s outgoing damage by 20%.
+              <br>Wearer takes 20% less damage.
+              <br>On hit, there is a 5% chance to summon a thunderstrike on the target.</p>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:16px;">
+          <p><br><br></p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin: 12px 0 20px 0;
+      }
+      .ironfall-img {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+      }
+      .ironfall-img img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+      @media (max-width: 768px) {
+        .media-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+        `
       }
     };
 
@@ -3097,18 +3276,58 @@
         categoryHeader.className = 'category-header';
         categoryHeader.textContent = categoryName;
         nav.appendChild(categoryHeader);
-        
-        categories[categoryName].forEach(page => {
-        const link = document.createElement('a');
+
+        const pagesInCategory = categories[categoryName];
+
+        // Split pages: those without subcategory vs those with subcategory
+        const topLevelPages = [];
+        const subcategoryMap = {};
+        const subcategoryOrder = [];
+        pagesInCategory.forEach(page => {
+          if (!page.subcategory) {
+            topLevelPages.push(page);
+          } else {
+            if (!subcategoryMap[page.subcategory]) {
+              subcategoryMap[page.subcategory] = [];
+              subcategoryOrder.push(page.subcategory);
+            }
+            subcategoryMap[page.subcategory].push(page);
+          }
+        });
+
+        // Render pages without subcategory first
+        topLevelPages.forEach(page => {
+          const link = document.createElement('a');
           link.href = `#${page.key}`;
           link.textContent = page.title;
           link.style.cssText = 'display: block; padding: 6px 10px 6px 20px; margin-bottom: 4px; color: #f9fafb; text-decoration: none; border-radius: 4px; transition: background 0.3s ease; font-size: 14px;';
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
             location.hash = page.key;
-          loadPage();
+            loadPage();
+          });
+          nav.appendChild(link);
         });
-        nav.appendChild(link);
+
+        // Then render subcategories and their pages
+        subcategoryOrder.forEach(subName => {
+          const subHeader = document.createElement('div');
+          subHeader.className = 'subcategory-header';
+          subHeader.textContent = subName;
+          nav.appendChild(subHeader);
+
+          subcategoryMap[subName].forEach(page => {
+            const link = document.createElement('a');
+            link.href = `#${page.key}`;
+            link.textContent = page.title;
+            link.style.cssText = 'display: block; padding: 6px 10px 6px 28px; margin-bottom: 4px; color: #f9fafb; text-decoration: none; border-radius: 4px; transition: background 0.3s ease; font-size: 14px;';
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              location.hash = page.key;
+              loadPage();
+            });
+            nav.appendChild(link);
+          });
         });
       });
     }
@@ -3138,7 +3357,21 @@
         a.style.display = a.textContent.toLowerCase().includes(q) ? 'block' : 'none';
       });
       
-      // Show or hide headers depending on whether any of their items are visible
+      // Show or hide subcategory headers depending on whether any of their items are visible
+      document.querySelectorAll('#nav .subcategory-header').forEach(header => {
+        let next = header.nextElementSibling;
+        let anyVisible = false;
+        while (next && !next.classList.contains('subcategory-header') && !next.classList.contains('category-header')) {
+          if (next.tagName && next.tagName.toLowerCase() === 'a' && next.style.display !== 'none') {
+            anyVisible = true;
+            break;
+          }
+          next = next.nextElementSibling;
+        }
+        header.style.display = anyVisible ? 'block' : 'none';
+      });
+
+      // Show or hide category headers depending on whether any of their items are visible
       document.querySelectorAll('#nav .category-header').forEach(header => {
         let next = header.nextElementSibling;
         let anyVisible = false;
