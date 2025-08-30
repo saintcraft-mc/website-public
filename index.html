@@ -1125,6 +1125,51 @@ Written by @sabrinica for Saintcraft
       padding: 8px 12px; border-radius: 8px; font-size: 12px; text-decoration: none;
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
+    
+    /* Top redirect banner */
+    .top-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #7f56d9 0%, #5b39c5 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      min-height: 44px;
+      font-weight: 600;
+      font-size: 14px;
+      z-index: 1001;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+    .top-banner a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 700;
+    }
+    .top-banner .close-btn {
+      margin-left: 12px;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      cursor: pointer;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .top-banner .close-btn:hover {
+      background: rgba(255,255,255,0.28);
+    }
+    .banner-visible .navbar { top: 44px; }
   </style>
   <title>Saintcraft - Christian Minecraft Server</title>
 
@@ -1497,6 +1542,25 @@ Written by @sabrinica for Saintcraft
   <a href="#" id="consent-manage" class="consent-manage" aria-label="Manage cookie preferences">Manage cookies</a>
 
   <script>
+    // Show top banner when ?redir=catholicgg is present
+    (function() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('redir') === 'catholicgg') {
+          const banner = document.createElement('div');
+          banner.className = 'top-banner';
+          banner.innerHTML = '<span>Catholic.gg is now <strong>Saintcraft</strong>.</span> <a href="https://saintcraft.us/news/catholicgg_joins_saintcraft.html">Read the announcement</a> <button class="close-btn" aria-label="Close">×</button>';
+          document.body.classList.add('banner-visible');
+          document.body.appendChild(banner);
+          const close = banner.querySelector('.close-btn');
+          close?.addEventListener('click', function() {
+            banner.remove();
+            document.body.classList.remove('banner-visible');
+          });
+        }
+      } catch (e) {}
+    })();
+
     // Mobile menu functionality
     const menuButton = document.querySelector('.menu-button');
     const mobileMenu = document.querySelector('.mobile-menu');
