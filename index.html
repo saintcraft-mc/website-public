@@ -1546,7 +1546,7 @@ Written by @sabrinica for Saintcraft
     (function() {
       try {
         const params = new URLSearchParams(window.location.search);
-        if (params.get('redir') === 'catholicgg') {
+        if (params.has('catholicgg')) {
           const banner = document.createElement('div');
           banner.className = 'top-banner';
           banner.innerHTML = '<span>Catholic.gg is now <strong>Saintcraft</strong>.</span> <a href="https://saintcraft.us/news/catholicgg_joins_saintcraft.html">Read the announcement</a> <button class="close-btn" aria-label="Close">×</button>';
