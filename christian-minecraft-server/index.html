@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Minecraft Server — Saintcraft (Java & Bedrock)</title>
+  <meta name="title" content="Christian Minecraft Server — Saintcraft (Java & Bedrock)">
+  <meta name="description" content="Join Saintcraft, a Christian Minecraft server welcoming players on Java & Bedrock. Family‑friendly community, Bible‑inspired builds, custom features, and regular events.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://saintcraft.us/christian-minecraft-server/">
+  <link rel="alternate" hreflang="en" href="https://saintcraft.us/christian-minecraft-server/">
+  <link rel="alternate" hreflang="x-default" href="https://saintcraft.us/christian-minecraft-server/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saintcraft.us/christian-minecraft-server/">
+  <meta property="og:title" content="Christian Minecraft Server — Saintcraft (Java & Bedrock)">
+  <meta property="og:description" content="A Christian Minecraft server with a welcoming, family‑friendly community. Join on Java & Bedrock.">
+  <meta property="og:image" content="/media/ver1.png">
+  <meta property="og:site_name" content="Saintcraft">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Christian Minecraft Server — Saintcraft (Java & Bedrock)">
+  <meta name="twitter:description" content="Join Saintcraft: Christian Minecraft server for Java & Bedrock. Faith‑focused gameplay and friendly community.">
+  <meta name="twitter:image" content="/media/ver1.png">
+  <link rel="icon" type="image/png" href="/media/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { margin: 0; font-family: 'Lexend', 'Segoe UI', sans-serif; background: #f4f3ff; color: #1a1523; padding-top: 84px; }
+    @media (max-width: 768px) { body { padding-top: 72px; } }
+    body.banner-visible { padding-top: calc(84px + 44px); }
+    @media (max-width: 768px) { body.banner-visible { padding-top: calc(72px + 44px); } }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: white; padding: 15px 40px; border-bottom: 1px solid #eee; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .navbar.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .navbar-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .nav-left { display: flex; align-items: center; gap: 60px; }
+    .logo { display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .nav-links { display: flex; gap: 30px; font-size: 16px; }
+    .nav-link { text-decoration: none; color: #000; font-weight: 500; position: relative; transition: color 0.3s ease; }
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #7f56d9; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .button-society { background: #7f56d9; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease, box-shadow 0.3s ease; }
+    .button-society:hover { transform: scale(1.05); background: #6941c6; box-shadow: 0 4px 20px rgba(127, 86, 217, 0.4); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: white; padding: 20px; z-index: 999; opacity: 0; transition: opacity 0.3s ease; overflow-y: auto; }
+    .mobile-menu.active { display: block; opacity: 1; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+    .mobile-menu-close { background: none; border: none; padding: 8px; cursor: pointer; font-size: 24px; }
+    .mobile-menu-logo { display: block; width: 180px; margin: 0 auto 40px; }
+    .mobile-menu .button-society { display: block; width: 100%; max-width: 300px; margin: 0 auto 60px; text-align: center; padding: 15px 30px; font-size: 16px; }
+    .mobile-menu .nav-link { display: block; padding: 20px 0; font-size: 18px; color: #1a1523; text-decoration: none; text-align: center; font-weight: 500; transition: color 0.3s ease; }
+    .mobile-menu .nav-link:hover { color: #7f56d9; }
+    .menu-button { display: none; background: none; border: none; padding: 15px; cursor: pointer; position: relative; z-index: 1000; }
+    .menu-button span { display: block; width: 24px; height: 2px; margin-bottom: 5px; position: relative; background: #333; border-radius: 3px; transform-origin: center; transition: all 0.3s ease-in-out; }
+    .menu-button span:last-child { margin-bottom: 0; }
+    .menu-button.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-button.active span:nth-child(2) { opacity: 0; }
+    .menu-button.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 768px) {
+      .navbar { padding: 12px 20px; }
+      .nav-left { gap: 16px; }
+      .nav-links { display: none; }
+      .menu-button { display: block; }
+      .logo img { width: 100px; }
+      .button-society { font-size: 14px; padding: 10px 16px; }
+      .navbar .button-society { display: none; }
+    }
+    .section { padding: 80px 20px 40px; }
+    .hero-lite { padding-top: 40px; padding-bottom: 40px; background: linear-gradient(135deg, #2a1c64 0%, #432b97 100%); color: #fff; text-align: center; }
+    .hero-lite .lead { color: #e6e1fb; }
+    .hero-cta { margin-top: 16px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .section-title { text-align: center; font-size: clamp(28px, 5vw, 40px); margin-bottom: 16px; font-weight: 700; }
+    .lead { font-size: 18px; line-height: 1.7; color:#3a3350; max-width: 860px; margin: 0 auto; text-align: center; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 0; }
+    .card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; padding: 22px; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,0.08); }
+    .card-header { background: #fafafa; padding: 12px 16px; margin: -22px -22px 14px; border-bottom: 1px solid #eee; }
+    .card-title { font-size: 17px; font-weight: 800; color: #2a1c64; letter-spacing: 0.2px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; padding: 0; }
+    .feature-card { background: #fff; border-radius: 16px; padding: 18px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,0.08); }
+    .feature-top { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+    .feature-icon { width: 36px; height: 36px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; }
+    .feature-title { font-weight: 800; color: #2a1c64; font-size: 16px; }
+    .feature-desc { color: #4a4560; font-size: 14px; line-height: 1.6; }
+    .link-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .link-item { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #1a1523; background: #fafafa; transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+    .link-item:hover { background: #f0ecff; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+    .link-left { display: flex; align-items: center; gap: 12px; }
+    .link-icon { width: 36px; height: 36px; border-radius: 12px; background: #f2edff; display: inline-flex; align-items: center; justify-content: center; color: #7f56d9; }
+    .link-label { font-weight: 600; }
+    .chevron { color:#7f56d9; display:inline-flex; }
+    .card-header { background: linear-gradient(90deg, rgba(127,86,217,0.08), rgba(165,242,140,0.1)); padding: 14px 18px; margin: -24px -24px 16px; border-bottom: 1px solid #eee; }
+    .card-title { font-size: 18px; font-weight: 700; color: #2a1c64; }
+    .link-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .link-item { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 14px; border: 1px solid #eee; border-radius: 12px; text-decoration: none; color: #1a1523; background: #fff; transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+    .link-item:hover { background: #faf8ff; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+    .link-left { display: flex; align-items: center; gap: 12px; }
+    .link-icon { width: 36px; height: 36px; border-radius: 10px; background: #f2edff; display: inline-flex; align-items: center; justify-content: center; color: #7f56d9; }
+    .link-label { font-weight: 600; }
+    .badge { background: #eafbea; color: #137a4b; border: 1px solid #c9f1d9; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+    .button { display:inline-block; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background-color 0.3s ease; }
+    .button:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .button-primary { background: #7f56d9; color: white; }
+    .button-secondary { background: #a5f28c; color: black; }
+    .muted { color:#5a4f74; font-size:14px; }
+    .ip { font-weight:800; background:#f3f0ff; padding:3px 8px; border-radius:6px; }
+    /* Server cards theme to match homepage */
+    .server-info-wrapper { position: relative; background: transparent !important; }
+    .server-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; max-width: 900px; margin: 0 auto; }
+    .server-card { backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); background: rgba(42, 38, 68, 0.6) !important; border: 2px solid rgba(127, 86, 217, 0.3) !important; transform: translateY(0); transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.4); text-align:center; padding:30px 24px; }
+    .server-card:hover { transform: translateY(-8px); border-color: rgba(127, 86, 217, 0.8) !important; box-shadow: 0 12px 30px rgba(127, 86, 217, 0.2); }
+    .server-card:nth-child(2) { border-color: rgba(43, 182, 115, 0.3) !important; }
+    .server-card:nth-child(2):hover { border-color: rgba(43, 182, 115, 0.8) !important; box-shadow: 0 12px 30px rgba(43, 182, 115, 0.2); }
+    .server-ip { position: relative; display: inline-block; padding: 8px 16px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; cursor: pointer; color:#fff; }
+    footer { background:#e6d7ff; padding:40px 20px; text-align:center; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="nav-left">
+        <div class="logo"><img src="https://saintcraft.us/sc_wm_tra_6.png" style="width: 125px;"></div>
+        <div class="nav-links">
+          <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
+          <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
+          <a href="https://saintcraft.us/coming_soon.html" class="nav-link">NEWS</a>
+          <a href="https://saintcraft.us/coming_soon.html" class="nav-link">ACCOUNT</a>
+        </div>
+      </div>
+      <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
+      <button class="menu-button" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="https://saintcraft.us/sc_wm_tra_6.png" alt="Saintcraft" style="width: 125px;">
+      <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+    </div>
+    <img style="display: none;" src="https://saintcraft.us/sc_wm_tra_6.png" alt="Saintcraft" class="mobile-menu-logo">
+    <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
+    <nav>
+      <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
+      <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
+      <a href="https://saintcraft.us/coming_soon.html" class="nav-link">NEWS</a>
+      <a href="https://saintcraft.us/coming_soon.html" class="nav-link">ACCOUNT</a>
+    </nav>
+  </div>
+
+  <main id="main-content" role="main">
+    <section class="hero-lite">
+      <div class="container">
+        <h1 class="section-title" style="color:#fff;">Christian Minecraft Server — Saintcraft</h1>
+        <p class="lead">Friendly, faith‑focused survival for <strong>Java</strong> and <strong>Bedrock</strong> with economy, jobs, custom items, and beautiful terrain.</p>
+        <div class="hero-cta">
+          <a class="button button-primary" href="https://discord.saintcraft.us">Join our Discord</a>
+          <a class="button button-secondary" href="https://discord.saintcraft.us">Play on Saintcraft</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:40px;">
+      <div class="container server-info-wrapper">
+        <div class="server-cards">
+          <div class="server-card">
+            <div style="font-size:14px; color:#a5f28c; letter-spacing:1px; margin-bottom:10px;">✨ JAVA SERVER</div>
+            <div class="server-ip">play.saintcraft.us</div>
+            <p class="muted" style="color:#c9c6e0; margin-top:8px;">Works best on Minecraft Java 1.21.3+</p>
+          </div>
+          <div class="server-card">
+            <div style="font-size:14px; color:#96ffe4; letter-spacing:1px; margin-bottom:10px;">🛡️ BEDROCK SERVER</div>
+            <div class="server-ip">bedrock.saintcraft.us</div>
+            <p class="muted" style="color:#c9eae0; margin-top:8px;">Supports phones, consoles, and Windows</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <h2 class="section-title" style="font-size: clamp(22px, 4vw, 28px);">Why choose a Christian Minecraft server like Saintcraft?</h2>
+        <div class="feature-grid" style="max-width:1000px; margin: 0 auto;">
+          <div class="feature-card">
+            <div class="feature-top">
+              <span class="feature-icon" style="background:#eef2ff; color:#4f46e5;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 9.5-7 10-3.5-.5-7-5-7-10V6l7-4z"/></svg>
+              </span>
+              <span class="feature-title">Respectful & Safe</span>
+            </div>
+            <p class="feature-desc">Clear rules and moderation for wholesome, family‑friendly play.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-top">
+              <span class="feature-icon" style="background:#fff7ed; color:#ea580c;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </span>
+              <span class="feature-title">Community & Events</span>
+            </div>
+            <p class="feature-desc">Game nights, movie nights, and shared prayer intentions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-top">
+              <span class="feature-icon" style="background:#e8fff6; color:#2bb673;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5-5 5 5M12 5v14"/></svg>
+              </span>
+              <span class="feature-title">Fresh Survival</span>
+            </div>
+            <p class="feature-desc">Economy, jobs, and custom items keep gameplay engaging.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-top">
+              <span class="feature-icon" style="background:#f2edff; color:#7f56d9;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 13c1.66 0 3-1.34 3-3S9.66 7 8 7 5 8.34 5 10s1.34 3 3 3zm8 2c-2.33 0-7 1.17-7 3.5V21h14v-2.5c0-2.33-4.67-3.5-7-3.5zM8 15c-2.67 0-8 1.34-8 4v2h6v-2.5c0-1.4.9-2.6 2-3.21V15z"/></svg>
+              </span>
+              <span class="feature-title">Helpful Players</span>
+            </div>
+            <p class="feature-desc">Friendly people and staff ready to welcome and assist.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-top">
+              <span class="feature-icon" style="background:#e0f2fe; color:#0284c7;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v12H4zM8 18v2h8v-2"/></svg>
+              </span>
+              <span class="feature-title">Java & Bedrock</span>
+            </div>
+            <p class="feature-desc">Two optimized worlds under one Christ‑centered brand.</p>
+          </div>
+          <div class="feature-card" style="display:flex; flex-direction:column; justify-content:center;">
+            <div class="feature-top">
+              <span class="feature-icon" style="background:#eef2ff; color:#4f46e5;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5h-2v6h6v-2h-4V7z"/></svg>
+              </span>
+              <span class="feature-title">Get Started</span>
+            </div>
+            <p class="feature-desc">Hop into the community and start your adventure today.</p>
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="button button-primary" href="https://discord.saintcraft.us">Join our Discord</a>
+              <a class="button button-secondary" href="https://discord.saintcraft.us">Play on Saintcraft</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="cards-grid" style="max-width:900px; margin: 0 auto;">
+          <div class="card">
+            <div class="card-header"><h3 class="card-title">Quick Links</h3></div>
+            <ul class="link-list">
+              <li>
+                <a class="link-item" href="https://saintcraft.us/base/">
+                  <span class="link-left">
+                    <span class="link-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+                    </span>
+                    <span class="link-label">Explore the Wiki</span>
+                  </span>
+                  <span class="badge">Guides</span>
+                </a>
+              </li>
+              <li>
+                <a class="link-item" href="https://saintcraft.us/map/">
+                  <span class="link-left">
+                    <span class="link-icon" style="background:#e8fff6; color:#2bb673;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.161 2.58a1.875 1.875 0 011.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0121.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 01-1.676 0l-4.994-2.497a.375.375 0 00-.336 0l-3.868 1.935A1.875 1.875 0 012.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437zM9 6a.75.75 0 01.75.75V15a.75.75 0 01-1.5 0V6.75A.75.75 0 019 6zm6.75 3a.75.75 0 00-1.5 0v8.25a.75.75 0 001.5 0V9z" clip-rule="evenodd"/></svg>
+                    </span>
+                    <span class="link-label">View the Live Map</span>
+                  </span>
+                  <span class="badge">Realtime</span>
+                </a>
+              </li>
+              <li>
+                <a class="link-item" href="https://discord.saintcraft.us">
+                  <span class="link-left">
+                    <span class="link-icon" style="background:#eef2ff; color:#4f46e5;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.369A19.791 19.791 0 0016.558 3c-.2.352-.43.83-.589 1.205a18.235 18.235 0 00-4.938 0A12.3 12.3 0 0010.442 3c-1.4.255-2.744.71-4.117 1.369C3.113 7.204 2.44 9.96 2.654 12.68c1.7 1.269 3.35 2.044 4.958 2.554.4-.55.758-1.139 1.068-1.758a12.637 12.637 0 01-1.687-.644c.142-.104.282-.21.417-.318 3.24 1.516 6.742 1.516 9.958 0 .136.109.275.214.417.318-.536.243-1.103.463-1.687.644.31.62.668 1.208 1.068 1.758 1.607-.51 3.258-1.285 4.958-2.554.387-4.923-1.077-7.626-3.807-8.311zM8.68 12.347c-.967 0-1.758-.91-1.758-2.029 0-1.119.772-2.036 1.758-2.036.986 0 1.785.917 1.772 2.036 0 1.119-.786 2.03-1.772 2.03zm6.64 0c-.967 0-1.758-.91-1.758-2.029 0-1.119.772-2.036 1.758-2.036.986 0 1.785.917 1.772 2.036 0 1.119-.786 2.03-1.772 2.03z"/></svg>
+                    </span>
+                    <span class="link-label">Join our Discord</span>
+                  </span>
+                  <span class="badge">Community</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#e6d7ff; padding:40px 20px; text-align:center;">
+    <div class="container">
+      <hr style="width:60px; border:1px solid #7f56d9; margin:0 auto 20px;">
+      <p style="font-size:12px; color:#444;">© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const navbar = document.querySelector('.navbar');
+
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('active');
+      menuButton.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    menuButton?.addEventListener('click', toggleMobileMenu);
+    mobileMenuClose?.addEventListener('click', toggleMobileMenu);
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.menu-button') && !e.target.closest('.mobile-menu') && mobileMenu.classList.contains('active')) {
+        toggleMobileMenu();
+      }
+    });
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 20) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://saintcraft.us/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Christian Minecraft Server",
+        "item": "https://saintcraft.us/christian-minecraft-server/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Christian Minecraft Server — Saintcraft",
+    "url": "https://saintcraft.us/christian-minecraft-server/",
+    "isPartOf": { "@type": "WebSite", "name": "Saintcraft", "url": "https://saintcraft.us/" },
+    "description": "A Christian Minecraft server for Java & Bedrock players with family‑friendly gameplay and community events.",
+    "inLanguage": "en-US"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Saintcraft a Christian Minecraft server?",
+        "acceptedAnswer": {"@type":"Answer", "text":"Yes. Saintcraft welcomes Christians of all backgrounds and provides a respectful, family‑friendly server."}
+      },
+      {
+        "@type": "Question",
+        "name": "How do I join on Java and Bedrock?",
+        "acceptedAnswer": {"@type":"Answer", "text":"Java: play.saintcraft.us (1.21.3+ recommended). Bedrock: bedrock.saintcraft.us (phones, consoles, Windows)."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does the server have custom content?",
+        "acceptedAnswer": {"@type":"Answer", "text":"Yes—economy, jobs, unique items, and beautiful terrain. See our Wiki for details."}
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
+
+
