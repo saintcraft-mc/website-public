@@ -1002,6 +1002,129 @@ Written by @sabrinica for Saintcraft
       min-width: 200px;
       justify-content: center;
     }
+    
+    /* Privacy/Consent Banner */
+    .consent-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ffffff;
+      border-top: 1px solid #eee;
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.08);
+      z-index: 3000;
+      display: none;
+    }
+    
+    .consent-banner.show {
+      display: block;
+    }
+    
+    .consent-inner {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+    
+    .consent-text {
+      color: #1a1523;
+      font-size: 14px;
+      line-height: 1.5;
+      flex: 1 1 420px;
+    }
+    
+    .consent-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+    
+    .consent-link {
+      color: #7f56d9;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+      .consent-inner {
+        align-items: flex-start;
+      }
+      .consent-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+    
+    .consent-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 2999;
+      display: none;
+    }
+    .consent-overlay.show { display: block; }
+    
+    .consent-panel {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(720px, 92vw);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      z-index: 3001;
+      display: none;
+    }
+    .consent-panel.show { display: block; }
+    .consent-panel .panel-inner { padding: 20px; }
+    .consent-panel h3 { font-size: 20px; margin-bottom: 8px; color: #1a1523; }
+    .consent-panel p { font-size: 14px; color: #404040; margin-bottom: 16px; }
+    .consent-rows { display: grid; gap: 12px; margin: 16px 0; }
+    .consent-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    .consent-row .info { max-width: 80%; }
+    .consent-row .title { font-weight: 700; color: #1a1523; font-size: 14px; }
+    .consent-row .desc { font-size: 12px; color: #555; margin-top: 4px; }
+    
+    .switch {
+      position: relative; display: inline-block; width: 46px; height: 24px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+      background: #ddd; transition: .3s; border-radius: 999px;
+    }
+    .slider:before {
+      position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px;
+      background: white; transition: .3s; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    input:checked + .slider { background: #7f56d9; }
+    input:checked + .slider:before { transform: translateX(22px); }
+    input:disabled + .slider { background: #bbb; cursor: not-allowed; }
+    
+    .panel-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 8px; }
+    
+    .consent-manage {
+      position: fixed; left: 16px; bottom: 16px; z-index: 1001;
+      background: #ffffff; border: 1px solid #eee; color: #1a1523;
+      padding: 8px 12px; border-radius: 8px; font-size: 12px; text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
   </style>
   <title>Saintcraft - Christian Minecraft Server</title>
 
@@ -1320,6 +1443,58 @@ Written by @sabrinica for Saintcraft
       <p style="font-size:12px; color:#444;">© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
     </div>
   </footer>
+  
+  <!-- CONSENT BANNER -->
+  <div class="consent-banner" id="consent-banner">
+    <div class="container">
+      <div class="consent-inner">
+        <div class="consent-text">
+          We use optional analytics to understand how our site is used. We won't set
+          analytics cookies unless you choose to allow them. If you are under 16 in the EEA/UK, please ask a parent or guardian.
+          <a class="consent-link" href="https://saintcraft.us/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        </div>
+        <div class="consent-actions">
+          <button id="consent-reject" class="button button-primary">Reject all</button>
+          <button id="consent-manage-open" class="button button-secondary">Manage choices</button>
+          <button id="consent-accept" class="button button-primary">Accept all</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="consent-overlay" id="consent-overlay"></div>
+  <div class="consent-panel" id="consent-panel" role="dialog" aria-modal="true" aria-labelledby="consent-title">
+    <div class="panel-inner">
+      <h3 id="consent-title">Privacy preferences</h3>
+      <p>Choose which cookies we use. We always use essential cookies for security and basic functions. You can change your choice at any time.</p>
+      <div class="consent-rows">
+        <div class="consent-row">
+          <div class="info">
+            <div class="title">Essential</div>
+            <div class="desc">Required for core site functionality and security. Always on.</div>
+          </div>
+          <label class="switch" aria-label="Essential cookies always on">
+            <input type="checkbox" checked disabled>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="consent-row">
+          <div class="info">
+            <div class="title">Analytics</div>
+            <div class="desc">Helps us improve by collecting usage data. Optional.</div>
+          </div>
+          <label class="switch" aria-label="Toggle analytics cookies">
+            <input type="checkbox" id="toggle-analytics">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="panel-actions">
+        <button id="consent-save" class="button button-primary">Save choices</button>
+        <button id="consent-accept-all" class="button button-primary">Accept all</button>
+      </div>
+    </div>
+  </div>
+  <a href="#" id="consent-manage" class="consent-manage" aria-label="Manage cookie preferences">Manage cookies</a>
 
   <script>
     // Mobile menu functionality
@@ -1560,13 +1735,146 @@ Written by @sabrinica for Saintcraft
     // Initial call
     updateBlinkTimings();
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2Z7P99K4Z"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-P2Z7P99K4Z');
+    (function() {
+      const GA_ID = 'G-P2Z7P99K4Z';
+      const storageKey = 'sc_consent_v1';
+      const dntEnabled = (
+        navigator.doNotTrack === '1' ||
+        window.doNotTrack === '1' ||
+        navigator.msDoNotTrack === '1'
+      );
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+
+      // Default-deny consent (Consent Mode v2)
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+
+      function loadGA() {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: true });
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+
+      function getStoredChoice() {
+        try { return JSON.parse(localStorage.getItem(storageKey)); } catch (e) { return null; }
+      }
+      function setStoredChoice(obj) {
+        try { localStorage.setItem(storageKey, JSON.stringify(obj)); } catch (e) {}
+      }
+
+      function adjustForBanner() {
+        const banner = document.getElementById('consent-banner');
+        if (!banner) return;
+        if (banner.classList.contains('show')) {
+          const rect = banner.getBoundingClientRect();
+          document.body.style.paddingBottom = rect.height + 'px';
+        } else {
+          document.body.style.paddingBottom = '';
+        }
+      }
+      function showBanner() {
+        const banner = document.getElementById('consent-banner');
+        if (banner) {
+          banner.classList.add('show');
+          // Wait for layout to settle, then adjust padding
+          requestAnimationFrame(adjustForBanner);
+        }
+      }
+      function hideBanner() {
+        const banner = document.getElementById('consent-banner');
+        if (banner) {
+          banner.classList.remove('show');
+          adjustForBanner();
+        }
+      }
+
+      function applyChoice(choice) {
+        // choice shape: { analytics: boolean }
+        if (choice?.analytics) {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+          loadGA();
+        } else {
+          gtag('consent', 'update', { analytics_storage: 'denied' });
+        }
+      }
+
+      const choice = getStoredChoice();
+      if (dntEnabled) {
+        setStoredChoice({ analytics: false });
+        // Respect DNT: no banner, no analytics
+      } else if (choice) {
+        applyChoice(choice);
+      } else {
+        showBanner();
+      }
+
+      // Banner buttons
+      document.getElementById('consent-accept')?.addEventListener('click', function() {
+        const selected = { analytics: true };
+        setStoredChoice(selected);
+        applyChoice(selected);
+        hideBanner();
+      });
+      document.getElementById('consent-reject')?.addEventListener('click', function() {
+        const selected = { analytics: false };
+        setStoredChoice(selected);
+        applyChoice(selected);
+        hideBanner();
+      });
+      window.addEventListener('resize', adjustForBanner);
+      document.getElementById('consent-manage-open')?.addEventListener('click', function() {
+        document.getElementById('consent-overlay')?.classList.add('show');
+        document.getElementById('consent-panel')?.classList.add('show');
+      });
+
+      // Manage link
+      document.getElementById('consent-manage')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('consent-overlay')?.classList.add('show');
+        document.getElementById('consent-panel')?.classList.add('show');
+        const stored = getStoredChoice();
+        const toggle = document.getElementById('toggle-analytics');
+        if (toggle && stored) toggle.checked = !!stored.analytics;
+      });
+
+      // Panel actions
+      document.getElementById('consent-save')?.addEventListener('click', function() {
+        const toggle = document.getElementById('toggle-analytics');
+        const selected = { analytics: !!(toggle && toggle.checked) };
+        setStoredChoice(selected);
+        applyChoice(selected);
+        document.getElementById('consent-overlay')?.classList.remove('show');
+        document.getElementById('consent-panel')?.classList.remove('show');
+        hideBanner();
+      });
+      document.getElementById('consent-accept-all')?.addEventListener('click', function() {
+        const selected = { analytics: true };
+        setStoredChoice(selected);
+        applyChoice(selected);
+        document.getElementById('consent-overlay')?.classList.remove('show');
+        document.getElementById('consent-panel')?.classList.remove('show');
+        hideBanner();
+      });
+      document.getElementById('consent-overlay')?.addEventListener('click', function() {
+        document.getElementById('consent-overlay')?.classList.remove('show');
+        document.getElementById('consent-panel')?.classList.remove('show');
+      });
+    })();
   </script>
   <script type="application/ld+json">
     {
