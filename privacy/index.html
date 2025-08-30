@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Privacy & Cookies Policy - Saintcraft / Crosswalk Networks</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lexend', 'Segoe UI', sans-serif;
+      background: #f4f3ff;
+      color: #1a1523;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2000;
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 1px solid #eee;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 16px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 160px;
+      background: linear-gradient(135deg, #7f56d9 0%, #6941c6 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: visible;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .flying-fairy {
+      position: absolute;
+      width: 320px;
+      right: 10%;
+      top: 85%;
+      transform: translate(-5%, -50%) scale(1.15) rotate(-1deg);
+      animation: fairyFlight 12s ease-in-out infinite, twinkle 2.8s ease-in-out infinite;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+      z-index: 100;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    @keyframes fairyFlight {
+      0% {
+        transform: translate(-5%, -50%) translateX(0) translateY(0) rotate(-1deg) scale(1.15);
+      }
+      20% {
+        transform: translate(-5%, -50%) translateX(-16px) translateY(-14px) rotate(-3deg) scale(1.16);
+      }
+      40% {
+        transform: translate(-5%, -50%) translateX(8px) translateY(-4px) rotate(1.5deg) scale(1.17);
+      }
+      60% {
+        transform: translate(-5%, -50%) translateX(14px) translateY(10px) rotate(2.5deg) scale(1.14);
+      }
+      80% {
+        transform: translate(-5%, -50%) translateX(-10px) translateY(6px) rotate(-2deg) scale(1.16);
+      }
+      100% {
+        transform: translate(-5%, -50%) translateX(0) translateY(0) rotate(-1deg) scale(1.15);
+      }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.9; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flying-fairy { animation: none; }
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 48px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* About Sections */
+    .section {
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+      margin-top: -50px;
+    }
+
+    .section-light {
+      background: white;
+    }
+
+    .section-dark {
+      background: #f6edff;
+      position: relative;
+      z-index: 1;
+      margin-top: -50px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #1a1523;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .mission-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .mission-card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #7f56d9;
+    }
+
+    .mission-card p {
+      color: #666;
+    }
+
+    .history-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .history-content p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .value-card {
+      background: #f6edff;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .value-card h3 {
+      color: #7f56d9;
+      margin-bottom: 15px;
+    }
+
+    /* Policy content */
+    .policy {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .policy h3 { font-size: 22px; margin: 24px 0 12px; color: #1a1523; }
+    .policy h4 { font-size: 18px; margin: 18px 0 10px; color: #1f2937; }
+    .policy p { margin: 10px 0; color: #404040; }
+    .policy ul { padding-left: 20px; margin: 10px 0; }
+    .policy li { margin: 6px 0; color: #404040; }
+    .policy .note { font-size: 13px; color: #555; }
+    .policy a { color: #7f56d9; text-decoration: none; }
+    .policy a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      background: #e6d7ff;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+
+      .nav-left {
+        gap: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .mission-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flying-fairy {
+        width: 200px;
+        right: 5%;
+      }
+    }
+
+    /* Fairy container adjustments */
+    .fairy-container {
+      position: relative;
+      margin-top: -100px;
+      pointer-events: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="../sc_wm_tra_6.png" style="width: 125px;" alt="Crosswalk Networks">
+        </div>
+        <div class="nav-links">
+          <a href="https://saintcraft.us" class="nav-link">HOME</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Privacy & Cookies Policy</h1>
+      </div>
+    </div>
+  </section>
+
+  <div class="fairy-container">
+    <img src="../artwork_wings_a.png" alt="Flying Fairy" class="flying-fairy">
+  </div>
+
+  <!-- Policy Content -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="policy">
+        <p class="note">Effective date: 30 May 2025</p>
+        <p>Saintcraft is operated by Crosswalk Networks ("we", "us"). This Privacy & Cookies Policy explains how we collect, use, and protect your information when you visit our websites and play on our servers. We comply with the UK GDPR, EU GDPR, and the Privacy and Electronic Communications Regulations (PECR).</p>
+
+        <h3>Who we are</h3>
+        <p>Crosswalk Networks, United States. Contact: <a href="mailto:contact@saintcraft.us">contact@saintcraft.us</a></p>
+
+        <h3>What data we collect</h3>
+        <ul>
+          <li>Server logs: IP address, Minecraft username, connection timestamps, and basic device info for security and operations.</li>
+          <li>Website data: Essential cookies for security; optional analytics if you consent.</li>
+          <li>Community interactions: Messages or content you choose to submit (e.g., Discord).</li>
+        </ul>
+
+        <h3>Why we collect it (purposes) and legal bases</h3>
+        <ul>
+          <li>Provide and secure our services (legitimate interests; necessary for service).</li>
+          <li>Prevent abuse and enforce rules (legitimate interests).</li>
+          <li>Analytics to improve our sites and services (consent).</li>
+          <li>Communications you initiate (consent or legitimate interests, as applicable).</li>
+        </ul>
+
+        <h3>Cookies and consent</h3>
+        <p>We use essential cookies that are required for the site to function. We only set analytics cookies if you choose to allow them using the consent banner. You can change your choice any time through the “Manage cookies” link on our pages.</p>
+        <ul>
+          <li>Essential: security_storage, functionality_storage – always on.</li>
+          <li>Analytics: analytics_storage – only enabled if you consent.</li>
+        </ul>
+        <p>We respect your browser’s Do Not Track setting by treating it as a refusal for analytics cookies.</p>
+
+        <h3>Data retention</h3>
+        <p>We keep server logs for a period necessary for security and operations, typically up to 90 days unless needed longer for investigations. Analytics data is retained according to our analytics provider’s settings and only if you have consented.</p>
+
+        <h3>Sharing</h3>
+        <p>We do not sell your data. We may share limited information with service providers who help us operate our site and servers (e.g., hosting, analytics) under appropriate data protection agreements, and with authorities where required by law.</p>
+
+        <h3>International transfers</h3>
+        <p>We may process data in the United States and other countries. Where required, we use appropriate safeguards for international transfers (e.g., standard contractual clauses). For Australian users, transfers are handled in line with the Australian Privacy Principles (APP 8 – cross‑border disclosure).</p>
+
+        <h3>Your rights</h3>
+        <p>Depending on your location, you may have rights to access, rectify, erase, restrict, object, and data portability. You may also withdraw consent for analytics at any time.</p>
+        <p>If you make a request, we will respond within the timeframe required by law. To exercise your rights, email <a href="mailto:contact@saintcraft.us">contact@saintcraft.us</a>. We may need to verify your identity before completing your request.</p>
+
+        <h3>US state privacy notice (including California)</h3>
+        <p>For residents of California (CPRA) and other US states with privacy laws, you have additional rights, including:</p>
+        <ul>
+          <li>Right to know and access information about our collection, use, and disclosure of personal information.</li>
+          <li>Right to delete personal information, subject to legal exceptions.</li>
+          <li>Right to correct inaccurate personal information.</li>
+          <li>Right to opt out of the sale or sharing of personal information and of targeted advertising. We do not sell personal information.</li>
+          <li>Right to limit use of sensitive personal information (we do not collect sensitive personal information on this site).</li>
+        </ul>
+        <p>We honor the Global Privacy Control (GPC) signal as an opt-out preference where applicable.</p>
+        <p><a href="mailto:contact@saintcraft.us?subject=Privacy%20Request%20-%20Do%20Not%20Sell%2FShare" id="do-not-sell">Do Not Sell or Share My Personal Information</a></p>
+
+        <h3>Children’s privacy and safety</h3>
+        <p>Our community is family-friendly and we prioritize child safety. We follow COPPA in the US (under 13), the UK Children’s Code (Age Appropriate Design Code), and EU GDPR child consent rules (member-state age typically 13–16, default 16). If you are under 13 in the US/UK, or under your country’s digital consent age in the EEA, please ask a parent or guardian before enabling analytics or submitting personal information.</p>
+        <ul>
+          <li>We do not knowingly collect personal information from children without parental consent where required.</li>
+          <li>Analytics and non-essential cookies are off by default and only activated with explicit consent. We do not use behavioral advertising.</li>
+          <li>We apply data minimization, do not profile children for marketing, and disable precise geolocation.</li>
+          <li>Parents/guardians can request access, deletion, or withdrawal of consent at any time by emailing <a href="mailto:contact@saintcraft.us">contact@saintcraft.us</a>.</li>
+        </ul>
+
+        <h3>Online safety, moderation, and reporting</h3>
+        <p>We aim to maintain a safe environment. We moderate community spaces and act on reports of harmful or illegal content. To report a safety concern, suspected underage account, or policy violation, contact <a href="mailto:contact@saintcraft.us?subject=Safety%20Report">contact@saintcraft.us</a>. In urgent situations or where someone is at risk, contact local authorities.</p>
+
+        <h3>Age assurance (UK Online Safety Act, October 2025)</h3>
+        <p>To meet UK requirements, we may introduce age assurance measures for access to certain features. Where required, we will provide options such as third‑party face age‑estimation or document checks to estimate age without creating a biometric identifier.</p>
+        <ul>
+          <li>If face age‑estimation is offered, it will be performed by a vetted processor solely to produce an age estimate; we will not receive or store your face image or biometric template.</li>
+          <li>We will minimize data, use the least intrusive method available, and provide alternatives where feasible.</li>
+          <li>Any provider will be bound by contract to delete images promptly after the age estimate is produced and to prohibit secondary use.</li>
+        </ul>
+
+        <h3>Australia notice</h3>
+        <p>We aim to comply with the Australian Privacy Act 1988 and the Australian Privacy Principles (APPs). You may request access to and correction of personal information we hold about you and make complaints to the Office of the Australian Information Commissioner (OAIC) if unresolved with us.</p>
+
+        <h3>Contact</h3>
+        <p>Questions or requests: <a href="mailto:contact@saintcraft.us">contact@saintcraft.us</a>. We have not appointed a Data Protection Officer; please use this contact for privacy inquiries.</p>
+        <p>If you are in the UK/EU, you have the right to lodge a complaint with your supervisory authority (e.g., the ICO in the UK or your local EU Data Protection Authority). In Australia, you may contact the OAIC.</p>
+
+        <h3>Changes</h3>
+        <p>We may update this policy from time to time. We will post the updated version and update the effective date above.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <hr style="width:60px; border:1px solid #7f56d9; margin:0 auto 20px;">
+      <p>© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html> 
