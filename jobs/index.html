@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <title>Jobs at Saintcraft — Join Our Team</title>
+  <meta name="description" content="Open roles at Saintcraft. We're seeking a Junior–Mid Developer to help build our web experiences and Minecraft server tools. Remote, flexible, faith‑centered team.">
+  <meta name="theme-color" content="#2f508c">
+  <link rel="icon" type="image/png" href="/media/favicon.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { margin: 0; font-family: 'Lexend', 'Segoe UI', sans-serif; background: #f4f3ff; color: #1a1523; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navbar (from Saintcraft) */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #fff; padding: 15px 40px; border-bottom: 1px solid #eee; transition: transform .3s ease, box-shadow .3s ease; }
+    .navbar.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .navbar-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .nav-left { display: flex; align-items: center; gap: 60px; }
+    .logo { display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .nav-links { display: flex; gap: 30px; font-size: 16px; }
+    .nav-link { text-decoration: none; color: #000; font-weight: 500; position: relative; transition: color .3s ease; }
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #7f56d9; transition: width .3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .button-society { background: #7f56d9; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; transition: transform .3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color .3s ease, box-shadow .3s ease; }
+    .button-society:hover { transform: scale(1.05); background: #6941c6; box-shadow: 0 4px 20px rgba(127, 86, 217, 0.4); }
+    .menu-button { display: none; background: none; border: none; padding: 15px; cursor: pointer; position: relative; z-index: 1000; }
+    .menu-button span { display: block; width: 24px; height: 2px; margin-bottom: 5px; background: #333; border-radius: 3px; transition: all .3s ease-in-out; }
+    .menu-button span:last-child { margin-bottom: 0; }
+    .menu-button.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-button.active span:nth-child(2) { opacity: 0; }
+    .menu-button.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; padding: 20px; z-index: 999; opacity: 0; transition: opacity .3s ease; overflow-y: auto; }
+    .mobile-menu.active { display: block; opacity: 1; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+    .mobile-menu-close { background: none; border: none; padding: 8px; cursor: pointer; font-size: 24px; }
+    .mobile-menu .button-society { display: block; width: 100%; max-width: 300px; margin: 0 auto 60px; text-align: center; padding: 15px 30px; font-size: 16px; }
+    .mobile-menu .nav-link { display: block; padding: 20px 0; font-size: 18px; color: #1a1523; text-decoration: none; text-align: center; font-weight: 500; transition: color .3s ease; }
+    .mobile-menu .nav-link:hover { color: #7f56d9; }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 12px 20px; }
+      .nav-left { gap: 16px; }
+      .nav-links { display: none; }
+      .menu-button { display: block; }
+      .logo img { width: 100px; }
+      .button-society { font-size: 14px; padding: 10px 16px; }
+    }
+
+    /* Buttons */
+    .button { display: inline-block; padding: 12px 20px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform .3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .3s ease, background-color .3s ease; }
+    .button:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .button-primary { background: #7f56d9; color: #fff; }
+    .button-secondary { background: #a5f28c; color: #000; }
+
+    /* Page */
+    .hero { padding: 120px 0 40px; background: linear-gradient(135deg, #7f56d9 0%, #6941c6 100%); color: #fff; text-align: center; }
+    .hero h1 { font-size: clamp(28px, 5vw, 40px); margin-bottom: 10px; }
+    .hero p { opacity: .95; }
+
+    .jobs-section { padding: 40px 0 80px; }
+    .jobs-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
+    .job-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; }
+    .job-header { border-bottom: 1px solid #eee; padding: 22px 24px; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .job-title { font-size: 22px; font-weight: 700; color: #2e2e2e; }
+    .job-meta { font-size: 13px; color: #666; }
+    .job-body { padding: 22px 24px; display: grid; gap: 18px; }
+    .job-body h3 { font-size: 16px; color: #7f56d9; margin-bottom: 6px; }
+    .job-body ul { padding-left: 18px; }
+    .job-body li { margin: 6px 0; }
+    .job-actions { padding: 20px 24px; background: #faf9ff; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Footer (from Saintcraft) */
+    footer { background:#e6d7ff; padding:40px 20px; text-align:center; }
+  </style>
+  <script>
+    if (typeof window !== 'undefined' && window.location && window.location.protocol === "http:") {
+      window.location.href = "https://" + window.location.host + window.location.pathname + window.location.search;
+    }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="nav-left">
+        <div class="logo"><img src="https://saintcraft.us/sc_wm_tra_6.png" style="width: 125px;" alt="Saintcraft"></div>
+        <div class="nav-links">
+          <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
+          <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
+          <a href="https://saintcraft.us/coming_soon.html" class="nav-link">NEWS</a>
+          <a href="https://saintcraft.us/coming_soon.html" class="nav-link">ACCOUNT</a>
+        </div>
+      </div>
+      <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
+      <button class="menu-button" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="https://saintcraft.us/sc_wm_tra_6.png" alt="Saintcraft" style="width: 125px;">
+      <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+    </div>
+    <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
+    <nav>
+      <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
+      <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
+      <a href="https://saintcraft.us/coming_soon.html" class="nav-link">NEWS</a>
+      <a href="https://saintcraft.us/coming_soon.html" class="nav-link">ACCOUNT</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Join Saintcraft</h1>
+        <p>Help us build faith‑centered experiences for gamers worldwide.</p>
+      </div>
+    </section>
+
+    <section class="jobs-section">
+      <div class="container">
+        <div class="jobs-grid">
+          <article class="job-card" itemscope itemtype="https://schema.org/JobPosting">
+            <header class="job-header">
+              <div>
+                <div class="job-title" itemprop="title">Junior–Mid Full‑Stack Developer</div>
+                <div class="job-meta">
+                  <span itemprop="employmentType">Part‑time / Volunteer</span> • <span itemprop="jobLocation">Remote</span>
+                </div>
+              </div>
+              <a href="#apply-jr-mid" class="button button-primary">Apply</a>
+            </header>
+            <div class="job-body">
+              <div itemprop="description">
+                <p>Work with our small team to ship community‑facing features across our website and Minecraft ecosystem. Ideal for someone with solid fundamentals who wants to grow with mentorship and real impact.</p>
+              </div>
+
+              <div>
+                <h3>What you'll do</h3>
+                <ul>
+                  <li>Ship UI and pages in semantic HTML/CSS and light JS</li>
+                  <li>Build and maintain small Node/Python utilities for server tools</li>
+                  <li>Integrate APIs (Discord, payments, analytics with consent)</li>
+                  <li>Collaborate via Git, PRs, and short async updates</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3>What you'll bring</h3>
+                <ul>
+                  <li>Good grasp of HTML, modern CSS, and vanilla JS</li>
+                  <li>Basic familiarity with one backend language (Node or Python)</li>
+                  <li>Git basics (branching, PRs) and readable code style</li>
+                  <li>Comfort working in a faith‑positive community</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3>Nice to have</h3>
+                <ul>
+                  <li>Experience with static site generation or templating</li>
+                  <li>Design sense for clean, accessible UIs</li>
+                  <li>MC server admin, plugin/mod, or scripting experience</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3>Why Saintcraft</h3>
+                <ul>
+                  <li>Real ownership and mentorship</li>
+                  <li>Flexible hours, fully remote</li>
+                  <li>Build meaningful, family‑friendly experiences</li>
+                </ul>
+              </div>
+            </div>
+            <div class="job-actions" id="apply-jr-mid">
+              <a href="https://discord.saintcraft.us" class="button button-primary">Apply on Discord</a>
+              <a href="mailto:contact@saintcraft.us?subject=Application%3A%20Junior%E2%80%93Mid%20Developer&body=Hi%20Saintcraft%20Team%2C%0D%0A%0D%0AI'd%20like%20to%20apply%20for%20the%20Junior%E2%80%93Mid%20Developer%20role.%20Here%20are%20my%20links%20and%20resume%3A%0D%0A-%20Portfolio%3A%20%0D%0A-%20GitHub%3A%20%0D%0A-%20Resume%3A%20%0D%0A%0D%0AThanks!" class="button button-secondary">Email resume</a>
+            </div>
+
+            <!-- Structured data -->
+            <meta itemprop="datePosted" content="2025-09-01" />
+            <meta itemprop="validThrough" content="2025-12-31" />
+            <meta itemprop="applicantLocationRequirements" content="Worldwide" />
+            <meta itemprop="hiringOrganization" content="Saintcraft" />
+            <link itemprop="url" href="https://saintcraft.us/jobs/" />
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SOCIAL FOOTER (from Saintcraft) -->
+  <footer>
+    <div class="container">
+      <hr style="width:60px; border:1px solid #7f56d9; margin:0 auto 20px;">
+      <p style="font-size:12px; color:#444;">© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu functionality + navbar scroll effect
+    const menuButton = document.querySelector('.menu-button');
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const navbar = document.querySelector('.navbar');
+
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('active');
+      menuButton.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    menuButton.addEventListener('click', toggleMobileMenu);
+    mobileMenuClose.addEventListener('click', toggleMobileMenu);
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 20) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.menu-button') && !e.target.closest('.mobile-menu') && mobileMenu.classList.contains('active')) {
+        toggleMobileMenu();
+      }
+    });
+  </script>
+
+  <!-- JSON-LD Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Saintcraft",
+    "url": "https://saintcraft.us",
+    "logo": "https://saintcraft.us/media/logo.png"
+  }
+  </script>
+</body>
+</html>
+
+
