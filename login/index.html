@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Login - Saintcraft</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lexend', 'Segoe UI', sans-serif;
+      background: #f4f3ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 1px solid #eee;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 16px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .button-society {
+      background: #7f56d9;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.3s ease,
+                  box-shadow 0.3s ease;
+    }
+
+    .button-society:hover {
+      transform: scale(1.05);
+      background: #6941c6;
+      box-shadow: 0 4px 20px rgba(127, 86, 217, 0.4);
+    }
+
+    .login-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 20px 40px;
+      background: linear-gradient(135deg, #f0e7ff 0%, #e6f7ff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 0.6s ease-out;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .divider {
+      width: 1px;
+      background: #e4e7ec;
+      height: 100%;
+      min-height: 400px;
+    }
+
+    .login-form-section {
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .info-section {
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .login-title {
+      font-size: 24px;
+      color: #1a1523;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .login-subtitle {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #344054;
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #7f56d9;
+      box-shadow: 0 0 0 4px rgba(127, 86, 217, 0.1);
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .remember-me input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #d0d5dd;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .forgot-password {
+      color: #7f56d9;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: #6941c6;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      background: #7f56d9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .login-button:hover {
+      background: #6941c6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(127, 86, 217, 0.4);
+    }
+
+    .login-divider {
+      display: flex;
+      align-items: center;
+      margin: 24px 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .login-divider::before,
+    .login-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e4e7ec;
+      margin: 0 16px;
+    }
+
+    .social-login {
+      display: grid;
+      gap: 12px;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      background: white;
+      color: #344054;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .social-button:hover {
+      background: #f9fafb;
+      border-color: #7f56d9;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .signup-link a {
+      color: #7f56d9;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signup-link a:hover {
+      color: #6941c6;
+    }
+
+    .floating-items {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .floating-item {
+      position: absolute;
+      opacity: 0.5;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-item:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .floating-item:nth-child(2) { top: 60%; left: 85%; animation-delay: -1s; }
+    .floating-item:nth-child(3) { top: 25%; left: 70%; animation-delay: -2s; }
+    .floating-item:nth-child(4) { top: 75%; left: 25%; animation-delay: -3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+
+      .nav-left {
+        gap: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .login-card {
+        padding: 30px 20px;
+      }
+
+      .floating-items {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .login-card {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px 24px;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        min-height: 0;
+      }
+
+      .login-form-section,
+      .info-section {
+        max-width: 100%;
+      }
+    }
+
+    .info-title {
+      font-size: 20px;
+      color: #1a1523;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .info-title svg {
+      width: 24px;
+      height: 24px;
+      color: #7f56d9;
+    }
+
+    .info-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-step {
+      margin-bottom: 24px;
+      padding-left: 36px;
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #7f56d9;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: #1a1523;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .step-description {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .command-block {
+      background: #f4f3ff;
+      border: 1px solid #e4e7ec;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: monospace;
+      color: #7f56d9;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .copy-button {
+      background: none;
+      border: none;
+      color: #7f56d9;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .copy-button:hover {
+      background: rgba(127, 86, 217, 0.1);
+    }
+
+    .copy-button svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .info-note {
+      margin-top: 24px;
+      padding: 16px;
+      background: #f9f5ff;
+      border-radius: 8px;
+      border-left: 4px solid #7f56d9;
+    }
+
+    .info-note-title {
+      font-weight: 600;
+      color: #1a1523;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .info-note-content {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .info-note-content ul {
+      margin: 8px 0 0 16px;
+      padding: 0;
+    }
+
+    .info-note-content li {
+      margin-bottom: 4px;
+      color: #666;
+    }
+
+    .info-note-content li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Help text and modal styles */
+    .help-text {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .secondary-button {
+      width: 100%;
+      padding: 12px;
+      background: #ffffff;
+      color: #7f56d9;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-button:hover {
+      background: #f9fafb;
+      border-color: #7f56d9;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      overflow: hidden;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1523;
+    }
+
+    .modal-close {
+      background: none;
+      border: 1px solid #e4e7ec;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #7f56d9;
+    }
+
+    .modal-body {
+      padding: 16px 20px 20px;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background: #e6d7ff;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-divider {
+      width: 60px;
+      border: 1px solid #7f56d9;
+      margin: 0 auto 20px;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .footer-heart {
+      display: inline-block;
+      color: #ff6b6b;
+      animation: heartBeat 1.5s ease-in-out infinite;
+      margin: 0 3px;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      10% { transform: scale(1.2); }
+      20% { transform: scale(1); }
+      30% { transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="nav-left">
+        <a href="https://saintcraft.us" class="logo">
+          <img src="https://saintcraft.us/sc_wm_tra_6.png" style="width: 125px;" alt="Saintcraft">
+        </a>
+      </div>
+      <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
+    </div>
+  </nav>
+  <br><br>
+
+  <!-- LOGIN CONTAINER -->
+  <div class="login-container">
+    <div class="floating-items">
+      <img src="https://saintcraft.us/ico_book.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+      <img src="https://saintcraft.us/ico_compass.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+      <img src="https://saintcraft.us/ico_potion.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+      <img src="https://saintcraft.us/ico_table.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+    </div>
+
+    <div class="login-card">
+      <div class="login-form-section">
+        <div class="login-header">
+          <h1 class="login-title">Sign in with Minecraft</h1>
+          <p class="login-subtitle">Use your Minecraft username and in-game link code</p>
+        </div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="mc-username">Minecraft Username</label>
+            <input type="text" id="mc-username" class="form-input" placeholder="e.g. Notch" autocomplete="username">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="access-code">Access Code</label>
+            <input type="text" id="access-code" class="form-input" placeholder="Enter the code from /account link" autocomplete="one-time-code">
+          </div>
+
+          <div class="form-footer">
+            <label class="remember-me">
+              <input type="checkbox" id="remember">
+              <span>Remember me</span>
+            </label>
+            <a href="#how-to" class="forgot-password" id="need-code-link">Need a code?</a>
+          </div>
+
+          <button type="submit" class="login-button">Continue</button>
+        </form>
+
+        <form id="email-step" style="display: none; margin-top: 8px;">
+          <div class="login-header" style="margin-top: 8px;">
+            <h2 class="login-title" style="font-size: 20px;">Add an email for recovery</h2>
+            <p class="login-subtitle">Recommended. Used for password resets and security alerts.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email-challenge">Email (first-time setup)</label>
+            <input type="email" id="email-challenge" class="form-input" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="form-footer" style="margin-top: 4px;">
+            <button type="button" id="email-back" class="secondary-button" style="max-width: 48%;">Back</button>
+            <button type="submit" class="login-button" style="max-width: 48%;">Finish setup</button>
+          </div>
+          <div id="email-error" class="help-text" style="color:#b42318; display:none; margin-top: 8px;">Please enter a valid email address.</div>
+          <div class="signup-link" style="margin-top: 12px;">
+            By adding an email, you enable account recovery and security notifications.
+          </div>
+        </form>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="info-section">
+        <h2 class="info-title" id="how-to">
+          Link Your Minecraft Account
+        </h2>
+        
+        <ol class="info-steps">
+          <li class="info-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">No Signup Required</div>
+              <div class="step-description">Use your Minecraft username to sign in. Your in-game link code is your password.</div>
+            </div>
+          </li>
+          
+          <li class="info-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">Join Our Server</div>
+              <div class="step-description">Launch Minecraft and connect to our server using:</div>
+              <div class="command-block">
+                play.saintcraft.us
+                <button class="copy-button" onclick="copyToClipboard('play.saintcraft.us')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
+                    <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </li>
+          
+          <li class="info-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">Get Your Link Code</div>
+              <div class="step-description">Once in-game, type this command in the chat:</div>
+              <div class="command-block">
+                /account link
+                <button class="copy-button" onclick="copyToClipboard('/account link')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
+                    <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </li>
+
+          <li class="info-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <div class="step-title">Sign In Here</div>
+              <div class="step-description">Enter your Minecraft username and your link code above. On first login, you'll be asked to add an email for recovery.</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="info-note">
+          <div class="info-note-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;">
+              <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+            </svg>
+            Why Link Your Account?
+          </div>
+          <div class="info-note-content">
+            Linking your account allows you to:
+            <ul style="margin-top: 8px; margin-left: 16px;">
+              <li>Save your game progress and preferences</li>
+              <li>Access exclusive features and rewards</li>
+              <li>Participate in community events</li>
+              <li>Sync your ranks and permissions across platforms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Need a Code Modal -->
+  <div id="need-code-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="need-code-title">
+      <div class="modal-header">
+        <div class="modal-title" id="need-code-title">How to Get Your Link Code</div>
+        <button class="modal-close" id="need-code-close">Close</button>
+      </div>
+      <div class="modal-body">
+        <ol class="info-steps">
+          <li class="info-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">Join the server</div>
+              <div class="step-description">Open Minecraft and connect to:</div>
+              <div class="command-block">
+                play.saintcraft.us
+                <button class="copy-button" onclick="copyToClipboard('play.saintcraft.us')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
+                    <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="info-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">Run the command</div>
+              <div class="step-description">In chat, type:</div>
+              <div class="command-block">
+                /account link
+                <button class="copy-button" onclick="copyToClipboard('/account link')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
+                    <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
+                  </svg>
+                </button>
+              </div>
+              <div class="help-text">You'll receive a one-time code. Use it here as your password.</div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <hr class="footer-divider">
+      <p class="footer-text">© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. <span class="footer-heart">♥</span> All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Add copy to clipboard functionality
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const button = event.currentTarget;
+        const originalColor = button.style.color;
+        button.style.color = '#2bb673';
+        
+        setTimeout(() => {
+          button.style.color = originalColor;
+        }, 1000);
+      });
+    }
+
+    // ===== Account Link Login Flow =====
+    (function() {
+      const formLogin = document.getElementById('login-form');
+      const formEmail = document.getElementById('email-step');
+      const inputUser = document.getElementById('mc-username');
+      const inputCode = document.getElementById('access-code');
+      const inputEmail = document.getElementById('email-challenge');
+      const emailBack = document.getElementById('email-back');
+      const remember = document.getElementById('remember');
+      const needCodeLink = document.getElementById('need-code-link');
+      const modal = document.getElementById('need-code-modal');
+      const modalClose = document.getElementById('need-code-close');
+
+      const API_BASE = 'https://api.saintcraft.us';
+
+      function jsonp(src) {
+        const s = document.createElement('script');
+        s.src = src + (src.indexOf('?')>-1?'&':'?') + '_=' + Date.now();
+        document.body.appendChild(s);
+      }
+
+      function showEmailStep() {
+        if (!formEmail) return;
+        formLogin.style.display = 'none';
+        formEmail.style.display = 'block';
+        inputEmail?.focus();
+      }
+
+      function showLoginStep() {
+        if (!formLogin) return;
+        formEmail.style.display = 'none';
+        formLogin.style.display = 'block';
+        inputUser?.focus();
+      }
+
+      function finishLogin() {
+        // Redirect to account dashboard on success
+        //window.location.href = '/account';
+      }
+
+      window.loginCallback = function(response) {
+        if (!response || response.error !== 'none') {
+          alert('Login failed. Check your username and code.');
+          return;
+        }
+        try {
+          localStorage.setItem('username', response.name);
+          localStorage.setItem('uuid', response.uuid);
+          localStorage.setItem('code', response.code);
+          localStorage.setItem('isLoggedIn', 'true');
+        } catch (e) {}
+        // If backend included email, persist it and skip email step regardless
+        try {
+          if (response && typeof response.email === 'string' && response.email.indexOf('@') > -1) {
+            const uuid = response.uuid;
+            if (uuid) localStorage.setItem(`email::${uuid}`, response.email);
+          }
+        } catch (e) {}
+        // Backend-provided flag to skip email step when already set
+        const hasEmailFlag = (response.hasEmail === true || response.hasEmail === 'true');
+        if (hasEmailFlag) {
+          finishLogin();
+        } else {
+          showEmailStep();
+        }
+      }
+
+      if (formLogin) {
+        formLogin.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const u = (inputUser?.value || '').trim();
+          const c = (inputCode?.value || '').trim();
+          if (!u || !c) {
+            alert('Please enter your Minecraft username and access code.');
+            return;
+          }
+          if (remember?.checked) {
+            try { localStorage.setItem('remember', '1'); } catch (e) {}
+          } else {
+            try { localStorage.removeItem('remember'); } catch (e) {}
+          }
+          const url = `${API_BASE}/login/${encodeURIComponent(u)}&${encodeURIComponent(c)}?callback=loginCallback`;
+          jsonp(url);
+        });
+      }
+
+      if (formEmail) {
+        formEmail.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = (inputEmail?.value || '').trim();
+          const errorEl = document.getElementById('email-error');
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            if (errorEl) errorEl.style.display = 'block';
+            return;
+          }
+          if (errorEl) errorEl.style.display = 'none';
+          // Persist email server-side
+          const username = localStorage.getItem('username');
+          const code = localStorage.getItem('code');
+          if (!username || !code) { finishLogin(); return; }
+          const url = `${API_BASE}/setEmail/${encodeURIComponent(username)}&${encodeURIComponent(code)}~${encodeURIComponent(email)}?callback=emailCallback`;
+          jsonp(url);
+        });
+        emailBack?.addEventListener('click', function() {
+          showLoginStep();
+        });
+      }
+
+      // Handle email persistence result
+      window.emailCallback = function(res) {
+        if (!res || res.error !== 'none') {
+          alert('Unable to save email. Please try again.');
+          return;
+        }
+        try {
+          const uuid = localStorage.getItem('uuid');
+          const email = inputEmail?.value || '';
+          if (uuid && email) localStorage.setItem(`email::${uuid}`, email);
+        } catch (e) {}
+        finishLogin();
+      }
+
+      // Modal wiring
+      function openModal() {
+        if (!modal) return;
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      function closeModal() {
+        if (!modal) return;
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      needCodeLink?.addEventListener('click', function(e) {
+        e.preventDefault();
+        openModal();
+      });
+      modalClose?.addEventListener('click', closeModal);
+      modal?.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+    })();
+  </script>
+</body>
+</html> 
