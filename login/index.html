@@ -887,6 +887,15 @@
         window.location.href = '/account';
       }
 
+      function clearStoredSession() {
+        try {
+          localStorage.removeItem('username');
+          localStorage.removeItem('uuid');
+          localStorage.removeItem('code');
+          localStorage.setItem('isLoggedIn', 'false');
+        } catch (e) {}
+      }
+
       window.loginCallback = function(response) {
         if (!response || response.error !== 'none') {
           alert('Login failed. Check your username and code.');
@@ -914,6 +923,34 @@
         }
       }
 
+      // Silent auto-login flow using localStorage credentials
+      window.autoLoginCallback = function(response) {
+        if (!response || response.error !== 'none') {
+          // Credentials invalid; clear them silently and stay on page
+          clearStoredSession();
+          return;
+        }
+        try {
+          localStorage.setItem('username', response.name);
+          localStorage.setItem('uuid', response.uuid);
+          localStorage.setItem('code', response.code);
+          localStorage.setItem('isLoggedIn', 'true');
+        } catch (e) {}
+        try {
+          if (response && typeof response.email === 'string' && response.email.indexOf('@') > -1) {
+            const uuid = response.uuid;
+            if (uuid) localStorage.setItem(`email::${uuid}`, response.email);
+          }
+        } catch (e) {}
+        const hasEmailFlag = (response.hasEmail === true || response.hasEmail === 'true');
+        if (hasEmailFlag) {
+          finishLogin();
+        } else {
+          // If email not set, guide user through email step instead of redirecting
+          showEmailStep();
+        }
+      }
+
       if (formLogin) {
         formLogin.addEventListener('submit', function(e) {
           e.preventDefault();
@@ -932,6 +969,19 @@
           jsonp(url);
         });
       }
+
+      // Attempt automatic session validation and redirect
+      (function attemptAutoLogin() {
+        try {
+          const storedUser = localStorage.getItem('username');
+          const storedCode = localStorage.getItem('code');
+          const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+          if (storedUser && storedCode && isLoggedIn) {
+            const url = `${API_BASE}/login/${encodeURIComponent(storedUser)}&${encodeURIComponent(storedCode)}?callback=autoLoginCallback`;
+            jsonp(url);
+          }
+        } catch (e) {}
+      })();
 
       if (formEmail) {
         formEmail.addEventListener('submit', function(e) {
