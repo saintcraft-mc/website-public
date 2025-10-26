@@ -1227,6 +1227,7 @@ Written by @sabrinica for Saintcraft
       <div class="nav-left">
         <div class="logo"><img src="https://saintcraft.us/sc_wm_tra_6.png" style="width: 125px;"></div>
         <div class="nav-links">
+          <a href="https://saintcraft.us/archive" class="nav-link">ARCHIVE</a>
           <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
           <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
           <a href="https://saintcraft.us/coming_soon.html" class="nav-link">NEWS</a>
@@ -1251,6 +1252,7 @@ Written by @sabrinica for Saintcraft
     <img style="display: none;" src="https://saintcraft.us/sc_wm_tra_6.png" alt="Saintcraft" class="mobile-menu-logo">
     <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
     <nav>
+      <a href="https://saintcraft.us/archive" class="nav-link">ARCHIVE</a>
       <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
       <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
       <a href="https://saintcraft.us/coming_soon.html" class="nav-link">NEWS</a>
@@ -1264,6 +1266,7 @@ Written by @sabrinica for Saintcraft
     <!-- SUNSETTING MESSAGE -->
     <div style="min-height: 70vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f4f3ff 0%, #fef3f0 100%); padding: 60px 20px;">
       <div class="container" style="max-width: 800px; text-align: center;">
+        <span style="margin-top: 30px;"></span><br><br>
         <div style="width: 100px; height: 100px; margin: 0 auto 30px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(255, 107, 53, 0.3);">
           <svg width="50" height="50" viewBox="0 0 24 24" fill="white">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
@@ -1271,23 +1274,59 @@ Written by @sabrinica for Saintcraft
         </div>
         
         <h2 style="font-size: clamp(32px, 6vw, 48px); font-weight: 800; color: #1a1523; margin-bottom: 24px; line-height: 1.2;">
-          Saintcraft is Sunsetting
+          Season 2 Coming Soon
         </h2>
         
-        <p style="font-size: clamp(18px, 3vw, 22px); color: #444; line-height: 1.7; margin-bottom: 32px;">
-          The server has shut down. We'll be releasing more information soon on our roadmap and making the world available for public download.
+        <p style="font-size: clamp(18px, 3vw, 22px); color: #444; line-height: 1.7; margin-bottom: 16px;">
+          We prepare for Season 2. We're coming back within the next few weeks with a fresh start, new map, and updated gameplay.
         </p>
+        
+        <p style="font-size: clamp(16px, 2.5vw, 18px); color: #666; line-height: 1.6; margin-bottom: 32px;">
+          The Season 1 world is available for download in our archive. Join Discord to help shape what comes next and get notified when Season 2 launches.
+        </p>
+
+        <!-- Countdown Timer -->
+        <div style="background: white; border: 2px solid #ff6b35; border-radius: 16px; padding: 32px 24px; margin: 32px auto 40px; max-width: 600px; box-shadow: 0 8px 24px rgba(255, 107, 53, 0.2);">
+          <div style="font-size: 14px; color: #d73a49; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;">
+            ⚠️ Server Shutdown
+          </div>
+          <div id="countdown" style="display: flex; gap: 12px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="background: #f6f8fa; border-radius: 12px; padding: 16px 20px; min-width: 90px;">
+              <div id="days" style="font-size: 36px; font-weight: 800; color: #1a1523;">--</div>
+              <div style="font-size: 12px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Days</div>
+            </div>
+            <div style="background: #f6f8fa; border-radius: 12px; padding: 16px 20px; min-width: 90px;">
+              <div id="hours" style="font-size: 36px; font-weight: 800; color: #1a1523;">--</div>
+              <div style="font-size: 12px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Hours</div>
+            </div>
+            <div style="background: #f6f8fa; border-radius: 12px; padding: 16px 20px; min-width: 90px;">
+              <div id="minutes" style="font-size: 36px; font-weight: 800; color: #1a1523;">--</div>
+              <div style="font-size: 12px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Minutes</div>
+            </div>
+            <div style="background: #f6f8fa; border-radius: 12px; padding: 16px 20px; min-width: 90px;">
+              <div id="seconds" style="font-size: 36px; font-weight: 800; color: #1a1523;">--</div>
+              <div style="font-size: 12px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Seconds</div>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: #666; margin: 0; line-height: 1.5;">
+            <strong>Server closes: October 29, 2025 at 6:00 PM CET</strong><br>
+            World backup (archive) from October 25, 2025 (will not be updated)
+          </p>
+        </div>
         
         <p style="font-size: 20px; color: #666; font-weight: 600; margin-bottom: 40px;">
           Thank you for being part of our community. 💙
         </p>
         
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://saintcraft.us/archive" class="button-primary" style="display: inline-block; padding: 16px 32px; background: #238636; color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 16px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(35, 134, 54, 0.3);">
+            Download World Archive
+          </a>
           <a href="https://discord.saintcraft.us" class="button-primary" style="display: inline-block; padding: 16px 32px; background: #7f56d9; color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 16px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(127, 86, 217, 0.3);">
             Join Our Discord
           </a>
           <a href="https://saintcraft.us/news/new_roadmap.html" class="button-secondary" style="display: inline-block; padding: 16px 32px; background: #f4f3ff; color: #7f56d9; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 16px; transition: all 0.3s ease; border: 2px solid #7f56d9;">
-            Read Latest News
+            Read Announcement
           </a>
         </div>
       </div>
@@ -1611,6 +1650,42 @@ Written by @sabrinica for Saintcraft
     
     // Initial call
     updateBlinkTimings();
+
+    // Countdown Timer - Target: Wednesday, October 29, 2025, 6:00 PM CET
+    function updateCountdown() {
+      // October 29, 2025, 18:00 CET = 17:00 UTC
+      // Using UTC to avoid timezone issues
+      const endTime = new Date(Date.UTC(2025, 9, 29, 17, 0, 0)); // Month is 0-indexed (9 = October)
+      
+      function update() {
+        const now = new Date();
+        const distance = endTime - now;
+        
+        if (distance < 0) {
+          document.getElementById('days').textContent = '0';
+          document.getElementById('hours').textContent = '0';
+          document.getElementById('minutes').textContent = '0';
+          document.getElementById('seconds').textContent = '0';
+          clearInterval(timer);
+          return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+      }
+      
+      update();
+      const timer = setInterval(update, 1000); // Update every second
+    }
+    
+    updateCountdown();
   </script>
   <script>
     (function() {
