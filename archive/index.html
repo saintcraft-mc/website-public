@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f6f8fa;
+      color: #24292f;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: white;
+      border-bottom: 1px solid #d0d7de;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04);
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #24292f;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #0969da;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 60px 0;
+      min-height: calc(100vh - 200px);
+    }
+
+    .page-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #d0d7de;
+    }
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #24292f;
+      margin-bottom: 8px;
+    }
+
+    .page-description {
+      font-size: 16px;
+      color: #57606a;
+    }
+
+    /* Archive Card */
+    .archive-card {
+      background: white;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(27, 31, 36, 0.04);
+    }
+
+    .archive-header {
+      padding: 16px 20px;
+      background: #f6f8fa;
+      border-bottom: 1px solid #d0d7de;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .archive-icon {
+      width: 20px;
+      height: 20px;
+      fill: #57606a;
+    }
+
+    .archive-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #24292f;
+      margin: 0;
+    }
+
+    .archive-body {
+      padding: 24px 20px;
+    }
+
+    .download-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+
+    .download-item:hover {
+      border-color: #0969da;
+      background: white;
+      box-shadow: 0 1px 3px rgba(27, 31, 36, 0.08);
+    }
+
+    .download-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .download-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .download-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .download-details h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0969da;
+      margin-bottom: 4px;
+    }
+
+    .download-details p {
+      font-size: 13px;
+      color: #57606a;
+      margin: 0;
+    }
+
+    .download-button {
+      padding: 8px 16px;
+      background: #238636;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .download-button:hover {
+      background: #2ea043;
+    }
+
+    .download-button:active {
+      background: #1f7a2e;
+    }
+
+    .info-box {
+      background: #ddf4ff;
+      border: 1px solid #54aeff;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .info-icon {
+      width: 16px;
+      height: 16px;
+      fill: #0969da;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-content {
+      flex: 1;
+    }
+
+    .info-content p {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #24292f;
+    }
+
+    .info-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(27, 31, 36, 0.04);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #57606a;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: #24292f;
+    }
+
+    /* Footer */
+    footer {
+      background: #f6f8fa;
+      border-top: 1px solid #d0d7de;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: #57606a;
+      line-height: 1.6;
+    }
+
+    .footer-divider {
+      width: 60px;
+      border: 0;
+      border-top: 1px solid #d0d7de;
+      margin: 0 auto 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 40px 0;
+      }
+
+      .page-title {
+        font-size: 24px;
+      }
+
+      .download-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .download-button {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-link {
+        font-size: 12px;
+      }
+    }
+  </style>
+  <title>World Archive - Saintcraft</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <div class="logo">
+          <img src="../sc_wm_tra_6.png" alt="Saintcraft">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">
+          <svg style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px; fill: #57606a;" viewBox="0 0 16 16">
+            <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+          </svg>
+          World Archive
+        </h1>
+        <p class="page-description">Download the complete Saintcraft Season 1 world files</p>
+      </div>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <svg class="info-icon" viewBox="0 0 16 16">
+          <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </svg>
+        <div class="info-content">
+          <p><strong>Important:</strong> These world files are from Saintcraft Season 1. They're provided as-is for preservation and personal use.</p>
+          <p>You can explore these worlds locally in Minecraft or set up your own server. For help, join our Discord.</p>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Archive Status</div>
+          <div class="stat-value">Available</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Last Updated</div>
+          <div class="stat-value">Oct 2025</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Season</div>
+          <div class="stat-value">Season 1</div>
+        </div>
+      </div>
+
+      <!-- Archive Card -->
+      <div class="archive-card">
+        <div class="archive-header">
+          <svg class="archive-icon" viewBox="0 0 16 16">
+            <path d="M8.5 1.5A1.5 1.5 0 0 0 7 0h-2A1.5 1.5 0 0 0 3.5 1.5v1A1.5 1.5 0 0 0 5 4h2A1.5 1.5 0 0 0 8.5 2.5v-1zM5 1a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1zm3.5 2v3h1v-3h-1zm-1 0v3h1v-3h-1zm-1 0v3h1v-3h-1zM0 7.5A1.5 1.5 0 0 1 1.5 6h13A1.5 1.5 0 0 1 16 7.5v6a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-6zM1.5 7a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-13z"/>
+          </svg>
+          <h2 class="archive-title">World Downloads</h2>
+        </div>
+        <div class="archive-body">
+          <!-- World Download -->
+          <div class="download-item">
+            <div class="download-info">
+              <div class="download-icon">
+                <svg fill="#0969da" viewBox="0 0 24 24">
+                  <path d="M17.9 17.39c-.26-.8-1.01-1.39-1.9-1.39h-1v-3a1 1 0 0 0-1-1H8v-2h2a1 1 0 0 0 1-1V7h2a2 2 0 0 0 2-2v-.41c2.93 1.18 5 4.05 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                  <path d="M11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1a2 2 0 0 0 2 2v1.93z"/>
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="none" stroke="#0969da" stroke-width="1"/>
+                </svg>
+              </div>
+              <div class="download-details">
+                <h3>Overworld (4.68 GB)</h3>
+                <p>The main Saintcraft world with all player builds and terrain</p>
+              </div>
+            </div>
+            <a href="https://mega.nz/file/QrRTGRAD#nmPmFhvA-nDxUBMr6yjIS7Uca6qC-XaGsHcrHwKnUvQ" class="download-button" target="_blank" rel="noopener noreferrer">
+              <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 16 16">
+                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+          <!-- Nether Download -->
+          <div class="download-item">
+            <div class="download-info">
+              <div class="download-icon">
+                <svg fill="#d73a49" viewBox="0 0 24 24">
+                  <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+                </svg>
+              </div>
+              <div class="download-details">
+                <h3>Nether (1.95 GB)</h3>
+                <p>The complete Nether dimension with all structures and progress</p>
+              </div>
+            </div>
+            <a href="https://mega.nz/file/17YnDBzS#av6waxKLHNGfwVghAR70g15cY8ifRKZk8IUkA8Tn6p8" class="download-button" target="_blank" rel="noopener noreferrer">
+              <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 16 16">
+                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+          <!-- End Download -->
+          <!--<div class="download-item">
+            <div class="download-info">
+              <div class="download-icon">
+                <svg fill="#6f42c1" viewBox="0 0 24 24">
+                  <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7.4-6.3-4.6-6.3 4.6 2.3-7.4-6-4.6h7.6z"/>
+                </svg>
+              </div>
+              <div class="download-details">
+                <h3>The End</h3>
+                <p>The End dimension including all islands and dragon fight area</p>
+              </div>
+            </div>
+            <button class="download-button">
+              <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 16 16">
+                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+              </svg>
+              Download
+            </button>
+          </div>
+        </div>
+      </div>-->
+
+      <!-- Installation Guide -->
+      <div class="archive-card">
+        <div class="archive-header">
+          <svg class="archive-icon" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+          </svg>
+          <h2 class="archive-title">How to Use</h2>
+        </div>
+        <div class="archive-body">
+          <div style="padding: 0 16px;">
+            <p style="color: #57606a; margin-bottom: 16px;">To load these worlds in Minecraft:</p>
+            <ol style="color: #24292f; margin-left: 20px; line-height: 2;">
+              <li>Download the world files above</li>
+              <li>Extract the ZIP files to your Minecraft saves folder</li>
+              <li>Launch Minecraft and select the world from your world list</li>
+              <li>Join our Discord if you need help or have questions</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <hr class="footer-divider">
+      <p>© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved.<br>
+      All trademarks and names are the property of their respective owners.<br>
+      We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Add click handlers for download buttons (only for placeholder buttons, not actual links)
+    document.querySelectorAll('.download-button').forEach(button => {
+      // Only add alert for buttons (not anchor tags with href)
+      if (button.tagName === 'BUTTON') {
+        button.addEventListener('click', function() {
+          const item = this.closest('.download-item');
+          const title = item.querySelector('h3').textContent;
+          alert(`Download link for ${title} will be added soon. Check Discord for updates!`);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
