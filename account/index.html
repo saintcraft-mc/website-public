@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <title>My Account - Saintcraft</title>
+  <title>Login - Saintcraft</title>
   <style>
     * {
       box-sizing: border-box;
@@ -58,6 +58,20 @@
       font-weight: bold;
     }
 
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 16px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
     .button-society {
       background: #7f56d9;
       color: white;
@@ -78,142 +92,67 @@
       box-shadow: 0 4px 20px rgba(127, 86, 217, 0.4);
     }
 
-    .account-container {
+    .login-container {
       flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 100px 20px 40px;
       background: linear-gradient(135deg, #f0e7ff 0%, #e6f7ff 100%);
       position: relative;
       overflow: hidden;
     }
 
-    .account-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 40px;
+    .login-card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 800px;
       position: relative;
       z-index: 1;
+      animation: fadeIn 0.6s ease-out;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 40px;
+      align-items: start;
     }
 
-    .sidebar {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      height: fit-content;
+    .divider {
+      width: 1px;
+      background: #e4e7ec;
+      height: 100%;
+      min-height: 400px;
     }
 
-    .profile-header {
+    .login-form-section {
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .info-section {
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .login-header {
       text-align: center;
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #eee;
+      margin-bottom: 30px;
     }
 
-    .profile-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin: 0 auto 12px;
-      background: #f4f3ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      color: #7f56d9;
-      font-weight: 600;
-    }
-
-    .profile-name {
-      font-size: 18px;
-      font-weight: 600;
+    .login-title {
+      font-size: 24px;
       color: #1a1523;
-      margin-bottom: 4px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .profile-email {
+    .login-subtitle {
       font-size: 14px;
       color: #666;
-    }
-
-    .nav-menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-item {
-      margin-bottom: 8px;
-      width: 100%;
-    }
-
-    .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      border-radius: 8px;
-      color: #666;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      width: 100%;
-    }
-
-    .nav-link:hover {
-      background: #f4f3ff;
-      color: #7f56d9;
-    }
-
-    .nav-link.active {
-      background: #f4f3ff;
-      color: #7f56d9;
-      font-weight: 500;
-    }
-
-    .nav-link svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
-    .main-content {
-      display: grid;
-      gap: 24px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin-bottom: 24px;
-    }
-
-    .card:last-child {
-      margin-bottom: 0;
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-
-    .card-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: #1a1523;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .card-title svg {
-      width: 24px;
-      height: 24px;
-      color: #7f56d9;
     }
 
     .form-group {
@@ -243,117 +182,116 @@
       box-shadow: 0 0 0 4px rgba(127, 86, 217, 0.1);
     }
 
-    .button {
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      border: none;
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
     }
 
-    .button-primary {
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .remember-me input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #d0d5dd;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .forgot-password {
+      color: #7f56d9;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: #6941c6;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 12px;
       background: #7f56d9;
       color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .button-primary:hover {
+    .login-button:hover {
       background: #6941c6;
       transform: translateY(-2px);
       box-shadow: 0 4px 20px rgba(127, 86, 217, 0.4);
     }
 
-    .button-secondary {
-      background: #f4f3ff;
-      color: #7f56d9;
+    .login-divider {
+      display: flex;
+      align-items: center;
+      margin: 24px 0;
+      color: #666;
+      font-size: 14px;
     }
 
-    .button-secondary:hover {
-      background: #e9e5ff;
-      transform: translateY(-2px);
+    .login-divider::before,
+    .login-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e4e7ec;
+      margin: 0 16px;
     }
 
-    .button-danger {
-      background: #fee4e2;
-      color: #d92d20;
-    }
-
-    .button-danger:hover {
-      background: #fecdca;
-      transform: translateY(-2px);
-    }
-
-    .linked-accounts {
+    .social-login {
       display: grid;
-      gap: 16px;
-    }
-
-    .account-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px;
-      background: #f9f5ff;
-      border-radius: 12px;
-      border: 1px solid #e4e7ec;
-      transition: all 0.3s ease;
-    }
-
-    .account-info {
-      display: flex;
-      align-items: center;
       gap: 12px;
     }
 
-    .account-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
+    .social-button {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
       background: white;
-    }
-
-    .account-icon img {
-      width: 24px;
-      height: 24px;
-    }
-
-    .account-details h3 {
+      color: #344054;
       font-size: 16px;
-      font-weight: 600;
-      color: #1a1523;
-      margin-bottom: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .account-details p {
+    .social-button:hover {
+      background: #f9fafb;
+      border-color: #7f56d9;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 24px;
       font-size: 14px;
       color: #666;
     }
 
-    .account-status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-    }
-
-    .status-badge {
-      padding: 4px 12px;
-      border-radius: 16px;
+    .signup-link a {
+      color: #7f56d9;
+      text-decoration: none;
       font-weight: 500;
     }
 
-    .status-badge.connected {
-      background: #ecfdf3;
-      color: #027a48;
-    }
-
-    .status-badge.pending {
-      background: #fff6ed;
-      color: #c4320a;
+    .signup-link a:hover {
+      color: #6941c6;
     }
 
     .floating-items {
@@ -361,8 +299,6 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      top: 0;
-      left: 0;
     }
 
     .floating-item {
@@ -379,6 +315,264 @@
     @keyframes float {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+
+      .nav-left {
+        gap: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .login-card {
+        padding: 30px 20px;
+      }
+
+      .floating-items {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .login-card {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px 24px;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        min-height: 0;
+      }
+
+      .login-form-section,
+      .info-section {
+        max-width: 100%;
+      }
+    }
+
+    .info-title {
+      font-size: 20px;
+      color: #1a1523;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .info-title svg {
+      width: 24px;
+      height: 24px;
+      color: #7f56d9;
+    }
+
+    .info-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-step {
+      margin-bottom: 24px;
+      padding-left: 36px;
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #7f56d9;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: #1a1523;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .step-description {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .command-block {
+      background: #f4f3ff;
+      border: 1px solid #e4e7ec;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: monospace;
+      color: #7f56d9;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .copy-button {
+      background: none;
+      border: none;
+      color: #7f56d9;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .copy-button:hover {
+      background: rgba(127, 86, 217, 0.1);
+    }
+
+    .copy-button svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .info-note {
+      margin-top: 24px;
+      padding: 16px;
+      background: #f9f5ff;
+      border-radius: 8px;
+      border-left: 4px solid #7f56d9;
+    }
+
+    .info-note-title {
+      font-weight: 600;
+      color: #1a1523;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .info-note-content {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .info-note-content ul {
+      margin: 8px 0 0 16px;
+      padding: 0;
+    }
+
+    .info-note-content li {
+      margin-bottom: 4px;
+      color: #666;
+    }
+
+    .info-note-content li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Help text and modal styles */
+    .help-text {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .secondary-button {
+      width: 100%;
+      padding: 12px;
+      background: #ffffff;
+      color: #7f56d9;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-button:hover {
+      background: #f9fafb;
+      border-color: #7f56d9;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      overflow: hidden;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1523;
+    }
+
+    .modal-close {
+      background: none;
+      border: 1px solid #e4e7ec;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #7f56d9;
+    }
+
+    .modal-body {
+      padding: 16px 20px 20px;
     }
 
     /* Footer Styles */
@@ -419,1388 +613,6 @@
       20% { transform: scale(1); }
       30% { transform: scale(1.1); }
     }
-
-    @media (max-width: 900px) {
-      .account-content {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        position: sticky;
-        top: 80px;
-      }
-
-      .nav-menu {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .nav-item {
-        margin: 0;
-        flex: 1;
-        min-width: 160px;
-      }
-    }
-
-    /* Enhanced credit balance styles */
-    .credit-balance {
-      background: linear-gradient(135deg, #f4f3ff 0%, #e4d7ff 100%);
-      padding: 32px;
-      border-radius: 16px;
-      color: #1a1523;
-      margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(127, 86, 217, 0.1);
-      border: 1px solid rgba(127, 86, 217, 0.2);
-    }
-
-    .credit-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .credit-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 24px;
-    }
-
-    .credit-title {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #6941c6;
-      margin-bottom: 8px;
-    }
-
-    .credit-amount {
-      font-size: clamp(32px, 6vw, 52px);
-      font-weight: 800;
-      color: #1a1523;
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      letter-spacing: 0.3px;
-    }
-
-    .credit-currency {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      background: #ffffff;
-      border: 1px solid rgba(127, 86, 217, 0.25);
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #6941c6;
-      box-shadow: 0 4px 14px rgba(127, 86, 217, 0.12);
-      letter-spacing: 0.08em;
-    }
-
-    .credit-currency img {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Balance meta badges */
-    .balance-meta {
-      margin-top: 8px;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .meta-badge {
-      font-size: 11px;
-      font-weight: 600;
-      color: #6941c6;
-      background: rgba(127, 86, 217, 0.08);
-      border: 1px solid rgba(127, 86, 217, 0.18);
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    .credit-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(127, 86, 217, 0.2);
-    }
-
-    .credit-stat {
-      text-align: center;
-      padding: 16px;
-      background: white;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 4px rgba(127, 86, 217, 0.1);
-    }
-
-    .credit-stat:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(127, 86, 217, 0.2);
-    }
-
-    .stat-value {
-      font-size: 24px;
-      font-weight: 600;
-      color: #1a1523;
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: #6941c6;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .credit-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .credit-action {
-      flex: 1;
-      padding: 12px;
-      border-radius: 12px;
-      background: white;
-      border: 1px solid rgba(127, 86, 217, 0.2);
-      color: #7f56d9;
-      font-size: 14px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .credit-action:hover {
-      background: #7f56d9;
-      border-color: #7f56d9;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(127, 86, 217, 0.2);
-    }
-
-    .credit-action svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .recent-transactions {
-      margin-top: 24px;
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(127, 86, 217, 0.1);
-    }
-
-    .transaction-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .transaction-title {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #6941c6;
-    }
-
-    .transaction-link {
-      color: #7f56d9;
-      font-size: 14px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .transaction-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .transaction-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      background: #f9f5ff;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-    }
-
-    .transaction-item:hover {
-      background: #f4f3ff;
-      transform: translateX(4px);
-    }
-
-    .transaction-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 4px rgba(127, 86, 217, 0.1);
-    }
-
-    .transaction-icon img {
-      width: 24px;
-      height: 24px;
-    }
-
-    .transaction-info {
-      flex: 1;
-    }
-
-    .transaction-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: #1a1523;
-      margin-bottom: 2px;
-    }
-
-    .transaction-time {
-      font-size: 12px;
-      color: #6941c6;
-    }
-
-    .transaction-amount {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .transaction-amount.positive {
-      color: #039855;
-    }
-
-    .transaction-amount.negative {
-      color: #d92d20;
-    }
-
-    /* Add section visibility styles */
-    .content-section {
-      display: none;
-      margin-bottom: 40px;
-    }
-
-    .content-section.active {
-      display: block;
-    }
-
-    /* Enhanced market styles */
-    .market-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .market-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-      width: 100%;
-    }
-
-    .market-stat {
-      background: #f9f5ff;
-      padding: 16px 24px;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .market-tabs {
-      display: flex;
-      gap: 4px;
-      background: #f4f3ff;
-      padding: 4px;
-      border-radius: 12px;
-      margin-bottom: 24px;
-    }
-
-    .market-tab {
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #666;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .market-tab.active {
-      background: white;
-      color: #7f56d9;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .market-tab:hover:not(.active) {
-      background: rgba(255,255,255,0.5);
-    }
-
-    /* Embedded marketplace table styles */
-    .market-controls {
-      display: grid;
-      grid-template-columns: 1fr 200px 160px 120px;
-      gap: 12px;
-      margin-bottom: 16px;
-      align-items: center;
-    }
-    @media (max-width: 800px) {
-      .market-controls { grid-template-columns: 1fr 1fr; }
-    }
-    .market-input, .market-select, .market-button {
-      padding: 10px 12px;
-      border: 1px solid #e4e7ec;
-      border-radius: 8px;
-      font-size: 14px;
-      background: #fff;
-    }
-    .market-button { background: #7f56d9; color: #fff; cursor: pointer; }
-    .market-button:hover { background: #6941c6; }
-
-    .market-table-card { background: #fff; border: 1px solid #e4e7ec; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.05); }
-    .market-table-responsive { width: 100%; overflow-x: auto; }
-    .market-table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
-    .market-table thead th { background: #faf8ff; color: #2a1c64; text-align: left; font-weight: 600; padding: 12px 14px; border-bottom: 1px solid #eee; }
-    .market-table tbody td { padding: 12px 14px; border-bottom: 1px solid #f1f1f4; }
-    .market-table tbody tr { transition: background-color .2s ease, transform .2s ease; cursor: pointer; }
-    .market-table tbody tr:hover { background: #fafafa; transform: translateY(-1px); }
-    .product-icon { width: 32px; height: 32px; image-rendering: pixelated; }
-    .product-icon-container { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; }
-    /* Prevent table from stretching wider than card */
-    .market-table th:nth-child(1), .market-table td:nth-child(1) { width: 64px; }
-    .market-table th:nth-child(2), .market-table td:nth-child(2) { display: none; }
-    /* Product name column wraps earlier */
-    .market-table th:nth-child(3), .market-table td:nth-child(3) {
-      width: clamp(16ch, 35%, 28ch);
-      max-width: 28ch;
-      white-space: normal;
-      word-break: break-word;
-      overflow-wrap: anywhere;
-    }
-    .market-table th:nth-child(4), .market-table td:nth-child(4) { width: 90px; }
-    .market-table th:nth-child(5), .market-table td:nth-child(5) { width: 120px; }
-    .market-table th:nth-child(6), .market-table td:nth-child(6) { width: 160px; }
-
-    .featured-items {
-      margin-bottom: 40px;
-    }
-
-    .featured-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .featured-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #1a1523;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .featured-badge {
-      background: #fff6ed;
-      color: #c4320a;
-      padding: 4px 12px;
-      border-radius: 16px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .market-categories {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .category-chip {
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #666;
-      background: white;
-      border: 1px solid #e4e7ec;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .category-chip.active {
-      background: #7f56d9;
-      color: white;
-      border-color: #7f56d9;
-    }
-
-    .category-chip:hover:not(.active) {
-      border-color: #7f56d9;
-      color: #7f56d9;
-    }
-
-    .market-item {
-      position: relative;
-      overflow: visible;
-    }
-
-    .item-badge {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: #fee4e2;
-      color: #d92d20;
-      padding: 4px 12px;
-      border-radius: 16px;
-      font-size: 12px;
-      font-weight: 500;
-      z-index: 1;
-    }
-
-    .item-badge.sale {
-      background: #ecfdf3;
-      color: #027a48;
-    }
-
-    .item-badge.new {
-      background: #f4f3ff;
-      color: #7f56d9;
-    }
-
-    .item-details {
-      position: relative;
-    }
-
-    .item-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .item-rating {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      color: #f59e0b;
-      font-size: 12px;
-    }
-
-    .item-sales {
-      font-size: 12px;
-      color: #666;
-    }
-
-    .item-description {
-      font-size: 13px;
-      color: #666;
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-
-    /* Loading animation */
-    .loading-skeleton {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-    }
-
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* Add styles for unlinked state */
-    .account-item.unlinked {
-      background: #f9fafb;
-      border: 1px dashed #d0d5dd;
-    }
-
-    .account-item.required {
-      border: 1px dashed #f59e0b;
-      background: #fffbeb;
-    }
-
-    .account-item.required .account-icon {
-      background: #fff7ed;
-      color: #f59e0b;
-    }
-
-    .account-alert {
-      padding: 16px;
-      background: #fffbeb;
-      border: 1px solid #fef3c7;
-      border-radius: 12px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .account-alert svg {
-      width: 20px;
-      height: 20px;
-      color: #f59e0b;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .alert-content {
-      flex: 1;
-    }
-
-    .alert-content h4 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #92400e;
-      margin-bottom: 4px;
-    }
-
-    .alert-content p {
-      font-size: 14px;
-      color: #92400e;
-      opacity: 0.8;
-      line-height: 1.5;
-    }
-
-    .setup-steps {
-      margin-top: 24px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .setup-step {
-      display: flex;
-      gap: 16px;
-      padding: 16px;
-      background: white;
-      border-radius: 12px;
-      border: 1px solid #e4e7ec;
-    }
-
-    .step-number {
-      width: 24px;
-      height: 24px;
-      background: #f4f3ff;
-      color: #7f56d9;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    .step-content {
-      flex: 1;
-    }
-
-    .step-content h4 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1a1523;
-      margin-bottom: 4px;
-    }
-
-    .step-content p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.5;
-    }
-
-    /* Add transition styles for account items */
-    .account-item {
-      transition: all 0.3s ease;
-    }
-
-    .account-status button {
-      transition: all 0.3s ease;
-    }
-
-    /* Connected state styles */
-    .account-item[data-connected="true"] {
-      background: #f9f5ff;
-      border: 1px solid #e4e7ec;
-    }
-
-    .account-item[data-connected="true"] .account-icon {
-      background: #f4f3ff;
-    }
-
-    /* Loading state styles */
-    .account-item[data-loading="true"] {
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .account-item[data-loading="true"] button {
-      position: relative;
-      padding-right: 40px;
-    }
-
-    .account-item[data-loading="true"] button::after {
-      content: '';
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
-      border: 2px solid currentColor;
-      border-right-color: transparent;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: translateY(-50%) rotate(0deg); }
-      to { transform: translateY(-50%) rotate(360deg); }
-    }
-
-    /* Add styles for restricted content */
-    .restricted-overlay {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 16px;
-      padding: 32px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      position: relative;
-      border: 1px dashed #f59e0b;
-    }
-
-    .restricted-icon {
-      width: 48px;
-      height: 48px;
-      color: #f59e0b;
-      margin-bottom: 8px;
-    }
-
-    .restricted-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #92400e;
-      margin-bottom: 8px;
-    }
-
-    .restricted-text {
-      color: #92400e;
-      opacity: 0.8;
-      max-width: 400px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .restricted-button {
-      margin-top: 8px;
-    }
-
-    .content-blur {
-      filter: blur(4px);
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .restricted-container {
-      position: relative;
-    }
-
-    .restricted-container .restricted-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-      width: 90%;
-      max-width: 500px;
-      background: white;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    /* Modal styles */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal {
-      background: white;
-      border-radius: 16px;
-      padding: 32px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
-    }
-
-    .modal-header {
-      margin-bottom: 24px;
-    }
-
-    .modal-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: #1a1523;
-      margin-bottom: 8px;
-    }
-
-    .modal-description {
-      color: #666;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .modal-steps {
-      margin: 24px 0;
-      display: grid;
-      gap: 16px;
-    }
-
-    .modal-step {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .step-circle {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #f4f3ff;
-      color: #7f56d9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-
-    .step-content h4 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1a1523;
-      margin-bottom: 4px;
-    }
-
-    .step-content p {
-      font-size: 14px;
-      color: #666;
-      margin: 0;
-    }
-
-    .modal-form {
-      margin: 24px 0;
-    }
-
-    .modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .error-message {
-      color: #d92d20;
-      font-size: 14px;
-      margin-top: 8px;
-      display: none;
-    }
-
-    .minecraft-profile {
-      display: none;
-    }
-
-    .market-content {
-      position: relative;
-      margin-top: 24px;
-    }
-
-    .restricted-container {
-      position: relative;
-    }
-
-    .content-blur {
-      filter: blur(4px);
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .restricted-overlay {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      border-radius: 16px;
-      padding: 32px;
-      text-align: center;
-      width: 90%;
-      max-width: 500px;
-      z-index: 10;
-      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
-      border: 1px dashed #f59e0b;
-    }
-
-    /* Add leaderboard styles */
-    .leaderboard-filters {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .leaderboard-category {
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #666;
-      background: white;
-      border: 1px solid #e4e7ec;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .leaderboard-category.active {
-      background: #7f56d9;
-      color: white;
-      border-color: #7f56d9;
-    }
-
-    .time-filter {
-      padding: 8px 16px;
-      border: 1px solid #e4e7ec;
-      border-radius: 8px;
-      font-size: 14px;
-      color: #666;
-      background: white;
-    }
-
-    .leaderboard-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .leaderboard-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px;
-      background: white;
-      border-radius: 12px;
-      border: 1px solid #e4e7ec;
-      transition: all 0.3s ease;
-    }
-
-    .leaderboard-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    .rank {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    .rank-1 {
-      background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
-      color: white;
-    }
-
-    .rank-2 {
-      background: linear-gradient(135deg, #c0c0c0 0%, #a0a0a0 100%);
-      color: white;
-    }
-
-    .rank-3 {
-      background: linear-gradient(135deg, #cd7f32 0%, #a0522d 100%);
-      color: white;
-    }
-
-    .rank-other {
-      background: #f4f3ff;
-      color: #7f56d9;
-    }
-
-    .player-info {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .player-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px;
-      background: #f4f3ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .player-details h4 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #1a1523;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .player-badge {
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .badge-you {
-      background: #f4f3ff;
-      color: #7f56d9;
-    }
-
-    .badge-verified {
-      background: #ecfdf3;
-      color: #027a48;
-    }
-
-    .player-stats {
-      color: #666;
-      font-size: 14px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    .stat-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      border: 1px solid #e4e7ec;
-    }
-
-    .stat-value {
-      font-size: 24px;
-      font-weight: 600;
-      color: #1a1523;
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      color: #666;
-    }
-
-    .your-rank-card {
-      background: linear-gradient(135deg, #7f56d9 0%, #6941c6 100%);
-      color: white;
-      padding: 24px;
-      border-radius: 16px;
-      margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .your-rank-info {
-      flex: 1;
-    }
-
-    .your-rank-label {
-      font-size: 14px;
-      opacity: 0.9;
-      margin-bottom: 4px;
-    }
-
-    .your-rank-value {
-      font-size: 32px;
-      font-weight: 600;
-    }
-
-    .your-rank-details {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .rank-change {
-      padding: 8px 16px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .rank-change.positive {
-      color: #4ade80;
-    }
-
-    .rank-change.negative {
-      color: #f87171;
-    }
-
-    /* Add success popup styles */
-    .success-popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
-      background: white;
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      z-index: 2000;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    }
-
-    @keyframes popIn {
-      from { 
-        transform: translate(-50%, -50%) scale(0.9);
-        opacity: 0;
-      }
-      to { 
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-      }
-    }
-
-    .success-popup.show {
-      display: block;
-    }
-
-    .success-popup-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 1999;
-      animation: fadeIn 0.3s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .success-popup-overlay.show {
-      display: block;
-    }
-
-    .success-icon-container {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 24px;
-      position: relative;
-    }
-
-    .success-icon {
-      width: 100%;
-      height: 100%;
-      background: #ecfdf3;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #039855;
-      animation: iconBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    @keyframes iconBounce {
-      0%, 20% { transform: translateY(0); }
-      40% { transform: translateY(-20px); }
-      50% { transform: translateY(5px); }
-      60% { transform: translateY(-10px); }
-      80% { transform: translateY(2px); }
-      100% { transform: translateY(0); }
-    }
-
-    .floating-items-success {
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      pointer-events: none;
-    }
-
-    .floating-item-success {
-      position: absolute;
-      opacity: 0;
-      animation: floatAndFade 2s ease-out forwards;
-    }
-
-    .floating-item-success:nth-child(1) { top: 40%; left: 20%; animation-delay: 0.2s; }
-    .floating-item-success:nth-child(2) { top: 60%; left: 80%; animation-delay: 0.4s; }
-    .floating-item-success:nth-child(3) { top: 30%; left: 60%; animation-delay: 0.6s; }
-    .floating-item-success:nth-child(4) { top: 70%; left: 40%; animation-delay: 0.8s; }
-
-    @keyframes floatAndFade {
-      0% { 
-        transform: translate(0, 0) rotate(0deg) scale(0.5);
-        opacity: 0;
-      }
-      20% { opacity: 0.8; }
-      100% { 
-        transform: translate(var(--tx, 20px), var(--ty, -40px)) rotate(var(--tr, 45deg)) scale(1);
-        opacity: 0;
-      }
-    }
-
-    .success-title {
-      font-size: 24px;
-      font-weight: 600;
-      color: #1a1523;
-      margin-bottom: 12px;
-    }
-
-    .success-message {
-      color: #666;
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    .success-features {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
-      text-align: left;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      background: #f9f5ff;
-      border-radius: 8px;
-      color: #7f56d9;
-      font-size: 14px;
-    }
-
-    .minecraft-username-success {
-      font-weight: 500;
-      color: #7f56d9;
-    }
-
-    .confetti {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      opacity: 0;
-    }
-
-    .confetti-piece {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background: #7f56d9;
-      opacity: 0;
-      animation: confetti 1s ease-out forwards;
-    }
-
-    @keyframes confetti {
-      0% { 
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-      }
-      100% { 
-        transform: translate(var(--tx, 50px), var(--ty, 50px)) rotate(var(--tr, 90deg));
-        opacity: 0;
-      }
-    }
-    /* Balance card redesign (compact, minimal) */
-    .credit-balance {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      color: #111827;
-      margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(17, 24, 39, 0.06);
-      border: 1px solid #e5e7eb;
-    }
-    .credit-header { margin-bottom: 0; }
-    .credit-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #6b7280;
-      margin-bottom: 6px;
-    }
-    .credit-amount {
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 800;
-      color: #0f172a;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      line-height: 1;
-    }
-    .credit-currency {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      color: #6b21a8;
-      box-shadow: none;
-      letter-spacing: 0.06em;
-    }
-    .credit-currency img { width: 16px; height: 16px; }
-    .balance-meta {
-      margin-top: 10px;
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .meta-badge {
-      font-size: 11px;
-      font-weight: 600;
-      color: #475569;
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      padding: 4px 8px;
-      border-radius: 999px;
-    }
-    /* Profile avatar as image */
-    .profile-avatar img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      display: block;
-      image-rendering: pixelated;
-    }
-    /* Skeleton loading styles */
-    .skeleton-line, .skeleton-circle, .skeleton-pill, .skeleton-box {
-      background: linear-gradient(90deg, #f2f2f7 25%, #e9e9f5 37%, #f2f2f7 63%);
-      background-size: 400% 100%;
-      animation: shimmer 1.2s ease-in-out infinite;
-    }
-    @keyframes shimmer {
-      0% { background-position: 0% 0; }
-      100% { background-position: -200% 0; }
-    }
-    .skeleton-circle {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin: 0 auto 12px;
-    }
-    .skeleton-line {
-      height: 14px;
-      border-radius: 8px;
-      margin: 6px 0;
-    }
-    .skeleton-pill {
-      height: 22px;
-      border-radius: 999px;
-      width: 130px;
-      margin-top: 8px;
-    }
-    .w-60 { width: 60%; margin-left: auto; margin-right: auto; }
-    .w-80 { width: 80%; margin-left: auto; margin-right: auto; }
-    .w-40 { width: 40%; margin-left: auto; margin-right: auto; }
-    /* Profile header skeleton toggle */
-    .profile-header { position: relative; min-height: 140px; }
-    .profile-header.loading .profile-avatar,
-    .profile-header.loading .profile-name,
-    .profile-header.loading .profile-email,
-    .profile-header.loading .minecraft-profile-badge { opacity: 0; }
-    /* Hide real content from layout while loading to avoid odd stacking */
-    .profile-header.loading .profile-avatar,
-    .profile-header.loading .profile-name,
-    .profile-header.loading .profile-email,
-    .profile-header.loading .minecraft-profile-badge,
-    .profile-header.loading br { display: none; }
-    .profile-header .profile-skeleton {
-      display: none;
-      position: absolute;
-      inset: 0;
-      padding: 16px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .profile-header.loading .profile-skeleton { display: flex; }
-    /* Credit balance skeleton */
-    #creditBalanceContent .balance-skeleton { display: none; }
-    #creditBalanceContent.loading .balance-skeleton { display: block; padding: 8px 0 4px; }
-    #creditBalanceContent.loading .credit-amount,
-    #creditBalanceContent.loading .balance-meta { opacity: 0; height: 0; overflow: hidden; }
-    /* Inventory skeleton */
-    #inventoryCard .inventory-skeleton { display: none; }
-    #inventoryCard.loading .inventory-skeleton { display: grid; grid-template-columns: repeat(9, 1fr); gap: 8px; padding: 12px; background: #f4f3ff; border: 1px solid #e4e7ec; border-radius: 12px; max-width: 600px; }
-    #inventoryCard.loading #inventoryGrid { display: none !important; }
-    #inventoryCard.loading #inventoryCount { opacity: 0.5; }
-    .inventory-skeleton .skeleton-box { width: 52px; height: 52px; border-radius: 8px; }
-    /* Reveal animations */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal-in { animation: fadeInUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
   </style>
 </head>
 <body>
@@ -1808,16 +620,34 @@
   <nav class="navbar">
     <div class="navbar-content">
       <div class="nav-left">
-        <a href="/" class="logo">
+        <a href="https://saintcraft.us" class="logo">
           <img src="https://saintcraft.us/sc_wm_tra_6.png" style="width: 125px;" alt="Saintcraft">
         </a>
       </div>
-      <a href="#" id="logoutButton" class="button-society" style="background:#ffffff; color:#7f56d9; border:1px solid #7f56d9;">LOG OUT</a>
+      <a href="https://discord.saintcraft.us" class="button-society">JOIN OUR DISCORD</a>
     </div>
   </nav>
+  <br><br>
 
-  <!-- ACCOUNT CONTAINER -->
-  <div class="account-container">
+  <!-- OUTDATED ACCOUNT SYSTEM WARNING BANNER -->
+  <div style="background: #fef2f2; border-bottom: 3px solid #dc2626; padding: 24px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="font-size: 48px; line-height: 1;">⚠️</div>
+        <div style="flex: 1; min-width: 300px;">
+          <h2 style="margin: 0 0 8px 0; font-size: 24px; font-weight: 700; color: #991b1b;">
+            This Account System is Deprecated
+          </h2>
+          <p style="margin: 0; font-size: 16px; color: #7f1d1d; line-height: 1.5;">
+            <strong>Nothing in this account system is currently correct.</strong> The information and functionality here are outdated and may not work properly. We're working on updating it. Please contact staff on Discord for assistance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN CONTAINER -->
+  <div class="login-container">
     <div class="floating-items">
       <img src="https://saintcraft.us/ico_book.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
       <img src="https://saintcraft.us/ico_compass.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
@@ -1825,765 +655,178 @@
       <img src="https://saintcraft.us/ico_table.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
     </div>
 
-    <div class="account-content">
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <div class="profile-header">
-          <div class="profile-avatar"><img id="profileAvatarImg" src="" alt="Avatar" onerror="this.style.display='none'"></div>
-          <div class="profile-name" style="display: none;"></div>
-          <div class="minecraft-profile-badge" style="display: none; margin-top: 12px;">
-            <div style="background: #f4f3ff; padding: 8px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 8px;">
-              <img src="https://raw.githubusercontent.com/saintcraft-mc/website-public/refs/heads/main/mc_acc.png" alt="Minecraft" style="width: 16px; height: 16px;">
-              <span style="color: #7f56d9; font-size: 14px; font-weight: 500;"></span>
-            </div>
-          </div>
-          <br>
-          <div class="profile-email"></div>
-          <!-- Profile skeleton -->
-          <div class="profile-skeleton">
-            <div class="skeleton-circle"></div>
-            <div class="skeleton-line w-60"></div>
-            <div class="skeleton-line w-40"></div>
-            <div class="skeleton-pill w-60"></div>
-          </div>
+    <div class="login-card">
+      <div class="login-form-section">
+        <div class="login-header">
+          <h1 class="login-title">Sign in with Minecraft</h1>
+          <p class="login-subtitle">Use your Minecraft username and in-game link code</p>
         </div>
 
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a href="#profile" class="nav-link active">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
-              </svg>
-              Profile
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#market" class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-              </svg>
-              Marketplace
-            </a>
-          </li>
-          <li class="nav-item" style="display: none;">
-            <a href="#linked-accounts" class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z" clip-rule="evenodd" />
-              </svg>
-              Linked Accounts
-            </a>
-          </li>
-          <li class="nav-item" style="display: none;">
-            <a href="#security" class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.75.75 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
-              </svg>
-              Security
-            </a>
-          </li>
-          <li class="nav-item" style="display: none;">
-            <a href="#leaderboard" class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 00-.584.859 6.753 6.753 0 006.138 5.6 6.73 6.73 0 002.743 1.346A6.707 6.707 0 019.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 00-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 00.75-.75 2.25 2.25 0 00-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 01-1.112-3.173 6.73 6.73 0 002.743-1.347 6.753 6.753 0 006.139-5.6.75.75 0 00-.585-.858 47.077 47.077 0 00-3.07-.543V2.62a.75.75 0 00-.658-.744 49.22 49.22 0 00-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 00-.657.744zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 013.16 5.337a45.6 45.6 0 012.006-.343v.256zm13.668 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 01-2.863 3.207 6.72 6.72 0 00.857-3.294z" clip-rule="evenodd" />
-              </svg>
-              Leaderboard
-            </a>
-          </li>
-        </ul>
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="mc-username">Minecraft Username</label>
+            <input type="text" id="mc-username" class="form-input" placeholder="e.g. Notch" autocomplete="username">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="access-code">Access Code</label>
+            <input type="text" id="access-code" class="form-input" placeholder="Enter the code from /account link" autocomplete="one-time-code">
+          </div>
+
+          <div class="form-footer">
+            <label class="remember-me">
+              <input type="checkbox" id="remember">
+              <span>Remember me</span>
+            </label>
+            <a href="#how-to" class="forgot-password" id="need-code-link">Need a code?</a>
+          </div>
+
+          <button type="submit" class="login-button">Continue</button>
+        </form>
+
+        <form id="email-step" style="display: none; margin-top: 8px;">
+          <div class="login-header" style="margin-top: 8px;">
+            <h2 class="login-title" style="font-size: 20px;">Add an email for recovery</h2>
+            <p class="login-subtitle">Recommended. Used for password resets and security alerts.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email-challenge">Email (first-time setup)</label>
+            <input type="email" id="email-challenge" class="form-input" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="form-footer" style="margin-top: 4px;">
+            <button type="button" id="email-back" class="secondary-button" style="max-width: 48%;">Back</button>
+            <button type="submit" class="login-button" style="max-width: 48%;">Finish setup</button>
+          </div>
+          <div id="email-error" class="help-text" style="color:#b42318; display:none; margin-top: 8px;">Please enter a valid email address.</div>
+          <div class="signup-link" style="margin-top: 12px;">
+            By adding an email, you enable account recovery and security notifications.
+          </div>
+        </form>
       </div>
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <!-- Profile Section -->
-        <div id="profile" class="content-section active">
-          <!-- Credit Balance Card -->
-          <div class="card" style="padding: 0px !important;">
-            <div class="restricted-container">
-              <div id="creditBalanceContent" class="content-blur">
-                <div class="credit-balance">
-                  <div class="credit-content">
-                    <div class="credit-header">
-                      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-                        <div class="credit-title" style="margin:0;">Available Balance</div>
-                        <div class="balance-meta" style="margin:0;">
-                          <span class="meta-badge" id="balanceUpdated">Updated just now</span>
-                        </div>
-                      </div>
-                      <div id="loanStatusPill" class="meta-badge" style="display:none; background:#eef4ff; color:#175cd3; border:1px solid #d6e4ff; margin-top:6px;">No loan</div>
-                      <!-- Balance skeleton -->
-                      <div class="balance-skeleton" style="width:100%;">
-                        <div class="skeleton-line w-80"></div>
-                      </div>
-                      <div class="credit-amount" id="balanceValue" style="margin-top:8px;">
-                        —
-                        <span class="credit-currency" id="currencyPill">
-                          <img src="https://raw.githubusercontent.com/saintcraft-mc/website-public/refs/heads/main/frame_cr_base.png" alt="Credits">
-                          CREDITS
-                        </span>
-                      </div>
-                    </div>
+      <div class="divider"></div>
 
-                    <div class="credit-stats" style="display: none;">
-                      <div class="credit-stat">
-                        <div class="stat-value">24</div>
-                        <div class="stat-label">Daily Trades</div>
-                      </div>
-                      <div class="credit-stat">
-                        <div class="stat-value">98%</div>
-                        <div class="stat-label">Success Rate</div>
-                      </div>
-                      <div class="credit-stat">
-                        <div class="stat-value">A+</div>
-                        <div class="stat-label">Trader Rank</div>
-                      </div>
-                    </div>
-
-                    <div class="credit-actions" style="display: none;">
-                      <button class="credit-action">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 2.25a.75.75 0 01.75.75v11.69l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V3a.75.75 0 01.75-.75zm-9 13.5a.75.75 0 01.75.75v2.25a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5V16.5a.75.75 0 011.5 0v2.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V16.5a.75.75 0 01.75-.75z" />
-                        </svg>
-                        Deposit
-                      </button>
-                      <button class="credit-action">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 21.75a.75.75 0 01-.75-.75V9.31l-3.22 3.22a.75.75 0 11-1.06-1.06l4.5-4.5a.75.75 0 011.06 0l4.5 4.5a.75.75 0 11-1.06 1.06l-3.22-3.22V21a.75.75 0 01-.75.75zm9-13.5a.75.75 0 01-.75-.75V4.5a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v3a.75.75 0 01-1.5 0v-3a3 3 0 013-3h13.5a3 3 0 013 3v3a.75.75 0 01-.75.75z" />
-                        </svg>
-                        Withdraw
-                      </button>
-                    </div>
-
-                    <div class="recent-transactions" style="display: none;">
-                      <div class="transaction-header">
-                        <div class="transaction-title">Recent Transactions</div>
-                        <a href="#" class="transaction-link">
-                          View All
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;">
-                            <path fill-rule="evenodd" d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z" clip-rule="evenodd" />
-                          </svg>
-                        </a>
-                      </div>
-                      <div class="transaction-list">
-                        <div class="transaction-item">
-                          <div class="transaction-icon">
-                            <img src="ico_diamond.webp" alt="Diamond">
-                          </div>
-                          <div class="transaction-info">
-                            <div class="transaction-name">Diamond Sword Purchase</div>
-                            <div class="transaction-time">2 minutes ago</div>
-                          </div>
-                          <div class="transaction-amount negative">-50.00</div>
-                        </div>
-                        <div class="transaction-item">
-                          <div class="transaction-icon">
-                            <img src="ico_emerald.webp" alt="Emerald">
-                          </div>
-                          <div class="transaction-info">
-                            <div class="transaction-name">Credit Top-up</div>
-                            <div class="transaction-time">1 hour ago</div>
-                          </div>
-                          <div class="transaction-amount positive">+100.00</div>
-                        </div>
-                        <div class="transaction-item">
-                          <div class="transaction-icon">
-                            <img src="ico_gold.webp" alt="Gold">
-                          </div>
-                          <div class="transaction-info">
-                            <div class="transaction-name">Golden Apple Sale</div>
-                            <div class="transaction-time">3 hours ago</div>
-                          </div>
-                          <div class="transaction-amount positive">+75.00</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="transaction-history" style="display: none;">
-                  <h3 style="margin-bottom: 16px; font-size: 16px;">Recent Transactions</h3>
-                  <div class="transaction-list">
-                    <div class="transaction-item">
-                      <div class="transaction-info">
-                        <div class="transaction-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-                            <path d="M2.273 5.625A4.483 4.483 0 015.25 4.5h13.5c1.141 0 2.183.425 2.977 1.125A3 3 0 0018.75 3H5.25a3 3 0 00-2.977 2.625zM2.273 8.625A4.483 4.483 0 015.25 7.5h13.5c1.141 0 2.183.425 2.977 1.125A3 3 0 0018.75 6H5.25a3 3 0 00-2.977 2.625zM5.25 9a3 3 0 00-3 3v6a3 3 0 003 3h13.5a3 3 0 003-3v-6a3 3 0 00-3-3H15a.75.75 0 00-.75.75 2.25 2.25 0 01-4.5 0A.75.75 0 009 9H5.25z" />
-                          </svg>
-                        </div>
-                        <div class="transaction-details">
-                          <h4>Diamond Sword Purchase</h4>
-                          <p>2 minutes ago</p>
-                        </div>
-                      </div>
-                      <div class="transaction-amount debit">-$50.00</div>
-                    </div>
-                    <div class="transaction-item">
-                      <div class="transaction-info">
-                        <div class="transaction-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-                            <path d="M12 7.5a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" />
-                            <path fill-rule="evenodd" d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 14.625v-9.75z" clip-rule="evenodd" />
-                          </svg>
-                        </div>
-                        <div class="transaction-details">
-                          <h4>Credit Top-up</h4>
-                          <p>1 hour ago</p>
-                        </div>
-                      </div>
-                      <div class="transaction-amount credit">+$100.00</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="creditBalanceRestricted" class="restricted-overlay">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="restricted-icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                </svg>
-                <h3 class="restricted-title">Credits Unavailable</h3>
-                <p class="restricted-text">Link your Minecraft account to view your credit balance and transaction history. This helps us ensure secure trading and account verification.</p>
-                <button id="creditLinkButton" class="button button-primary restricted-button">Link Minecraft Account</button>
-              </div>
+      <div class="info-section">
+        <h2 class="info-title" id="how-to">
+          Link Your Minecraft Account
+        </h2>
+        
+        <ol class="info-steps">
+          <li class="info-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">No Signup Required</div>
+              <div class="step-description">Use your Minecraft username to sign in. Your in-game link code is your password.</div>
             </div>
-          </div>
-
-          <!-- Profile Information -->
-          <div class="card" style="display: none;">
-            <div class="card-header">
-              <h2 class="card-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
-                </svg>
-                Profile Information
-              </h2>
-              <button class="button button-secondary">Edit Profile</button>
-            </div>
-
-            <form>
-              <div class="form-group">
-                <label class="form-label" for="display-name">Display Name</label>
-                <input type="text" id="display-name" class="form-input" value="John Smith">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="email">Email</label>
-                <input type="email" id="email" class="form-input" value="john.smith@example.com">
-              </div>
-
-              <div class="form-group minecraft-profile" style="display: none;">
-                <label class="form-label">Minecraft Username</label>
-                <div style="padding: 12px 16px; background: #f4f3ff; border-radius: 8px; color: #7f56d9; font-weight: 500;"></div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="bio">Bio</label>
-                <textarea id="bio" class="form-input" rows="4" placeholder="Tell us about yourself..."></textarea>
-              </div>
-            </form>
-          </div>
-
-          <!-- Loan Status Card -->
-          <div id="loanCard" class="card">
-            <div class="card-header" style="align-items: center; justify-content: space-between;">
-              <h2 class="card-title" style="display:flex; align-items:center; gap:10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 28px; height: 28px; color:#7f56d9;">
-                  <path fill-rule="evenodd" d="M11.25 3a.75.75 0 01.75-.75h5.25A2.25 2.25 0 0119.5 4.5v15a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V9.75a.75.75 0 01.75-.75h6a.75.75 0 00.75-.75V3zM12 4.06V8.25H6v11.25c0 .414.336.75.75.75h10.5a.75.75 0 00.75-.75V4.5a.75.75 0 00-.75-.75H12zM7.5 12a.75.75 0 01.75-.75H15a.75.75 0 010 1.5H8.25A.75.75 0 017.5 12zm0 3a.75.75 0 01.75-.75H15a.75.75 0 010 1.5H8.25A.75.75 0 017.5 15zm0 3a.75.75 0 01.75-.75H15a.75.75 0 010 1.5H8.25A.75.75 0 017.5 18z" clip-rule="evenodd" />
-                </svg>
-                Loan
-              </h2>
-              <div id="loanStatus" style="display:inline-flex; align-items:center; gap:8px; padding:6px 10px; background:#eef4ff; color:#175cd3; border:1px solid #d6e4ff; border-radius:999px; font-weight:600; font-size:12px;">No loan</div>
-            </div>
-            <div id="loanContent" style="display:grid; gap:14px;">
-              <div id="loanDetails" style="display:none;">
-                <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-                  <div style="display:flex; align-items:center; gap:10px;">
-                    <div style="font-size:14px; color:#475467;">Remaining balance</div>
-                    <div id="loanRemaining" style="font-weight:800; color:#b42318; font-size:16px;">CR$ 0</div>
-                  </div>
-                  <div>
-                    <button id="loanRepayBtn" class="button button-secondary">Repay loan in full</button>
-                  </div>
-                </div>
-                <div style="margin-top:6px; display:grid; gap:6px;">
-                  <div style="font-size:12px; color:#667085;">Repayment progress</div>
-                  <div id="loanProgressWrap" style="height:10px; background:#f2f4f7; border-radius:999px; overflow:hidden; box-shadow: inset 0 1px 2px rgba(16,24,40,0.06);">
-                    <div id="loanProgress" style="height:100%; width:0%; background:linear-gradient(90deg, #f04438, #b42318); box-shadow: 0 1px 2px rgba(244,68,56,0.3);"></div>
-                  </div>
-                </div>
-              </div>
-              <div id="loanOptions" style="display:grid; gap:12px; grid-template-columns: repeat(3, minmax(0, 1fr));">
-                <div style="background:#f9fafb; border:1px solid #e4e7ec; border-radius:12px; padding:12px; display:grid; gap:10px;">
-                  <div style="font-weight:700; color:#1a1523;">Small Loan</div>
-                  <div style="font-size:14px; color:#475467;">Up to <strong style="color:#7f56d9;">CR$ 500</strong> credited instantly.</div>
-                  <button class="button button-primary" data-loan-size="small">Take Small Loan</button>
-                </div>
-                <div style="background:#f9fafb; border:1px solid #e4e7ec; border-radius:12px; padding:12px; display:grid; gap:10px;">
-                  <div style="font-weight:700; color:#1a1523;">Medium Loan</div>
-                  <div style="font-size:14px; color:#475467;">Get <strong style="color:#7f56d9;">CR$ 2000</strong> for bigger needs.</div>
-                  <button class="button button-primary" data-loan-size="medium">Take Medium Loan</button>
-                </div>
-                <div style="background:#f9fafb; border:1px solid #e4e7ec; border-radius:12px; padding:12px; display:grid; gap:10px;">
-                  <div style="font-weight:700; color:#1a1523;">Large Loan</div>
-                  <div style="font-size:14px; color:#475467;">Boost balance with <strong style="color:#7f56d9;">CR$ 5000</strong>.</div>
-                  <button class="button button-primary" data-loan-size="large">Take Large Loan</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Inventory Card -->
-          <div id="inventoryCard" class="card">
-            <div class="card-header">
-              <h2 class="card-title">
-                <img src="https://raw.githubusercontent.com/saintcraft-mc/website-public/refs/heads/main/ico_inventory.webp" alt="Inventory" style="width: 35px; height: 35px;">
-                Account Storage
-              </h2>
-              <div style="display:flex; gap:8px; align-items:center;">
-                <span id="inventoryCount" style="font-size:12px; color:#6941c6;">— items</span>
-                <button id="refreshInventory" class="button button-secondary">Refresh</button>
-              </div>
-            </div>
-            <div id="inventoryGrid" style="
-              display:grid;
-              grid-template-columns: repeat(9, 1fr);
-              gap:8px;
-              padding:12px;
-              background:#f4f3ff;
-              border:1px solid #e4e7ec;
-              border-radius:12px;
-              max-width: 600px;
-            "></div>
-            <!-- Inventory skeleton grid -->
-            <div class="inventory-skeleton">
-              <div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div>
-              <div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div>
-              <div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div><div class="skeleton-box"></div>
-            </div>
-            <div class="help-text" style="margin: 12px 0 0 0; color:#475467;">
-              Items purchased on the website are delivered to your Market Storage.<br>In-game, use <span style="font-family:monospace; background:#f2f4f7; border:1px solid #e4e7ec; border-radius:6px; padding:2px 6px;">/market storage</span> to transfer them into your inventory.
-            </div>
-          </div>
-        </div>
-
-        <!-- Market Section -->
-        <div id="market" class="content-section">
-          <div class="card" style="max-width: 100%;">
-            <div class="card-header">
-              <h2 class="card-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-                </svg>
-                Marketplace
-              </h2>
-            </div>
-
-            <div class="market-header" style="display:none;">
-              <div id="marketSummary" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:space-between;">
-                <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
-                  <span id="sumResults" class="meta-badge">Results: —</span>
-                  <span id="sumSellers" class="meta-badge">Sellers: —</span>
-                  <span id="sumPrice" class="meta-badge">Price: —</span>
-                  <span id="sumAvg" class="meta-badge">Avg: —</span>
-                </div>
-                <button id="mk-refresh" class="market-button">Refresh</button>
-              </div>
-            </div>
-
-            <div class="restricted-container">
-              <div class="market-content">
-                <div id="marketContent" class="content-blur">
-                  <div class="market-controls">
-                    <input id="mk-search" class="market-input" type="text" placeholder="Search products">
-                    <select id="mk-seller" class="market-select">
-                      <option value="">All Sellers</option>
-                    </select>
-                    <input id="mk-price" class="market-input" type="number" placeholder="Max Price">
-                    <button id="mk-apply" class="market-button">Apply</button>
-                  </div>
-                  <div class="market-table-card" style="max-width: 100%;">
-                    <div id="mk-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:16px;">
-                      <!-- Product cards injected here -->
-                    </div>
-                  </div>
-                </div>
-
-                <div id="marketRestricted" class="restricted-overlay">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="restricted-icon">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
-                  </svg>
-                  <h3 class="restricted-title">Marketplace Locked</h3>
-                  <p class="restricted-text">The marketplace is only available to users with linked Minecraft accounts. Connect your account to start trading and accessing exclusive items.</p>
-                  <button id="marketLinkButton" class="button button-primary restricted-button">Link Minecraft Account</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Linked Accounts Section -->
-        <div id="linked-accounts" class="content-section">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z" clip-rule="evenodd" />
-                </svg>
-                Linked Accounts
-              </h2>
-              <!-- Remove onclick attributes -->
-              <div style="display: flex; gap: 8px;">
-                <button id="toggleViewBtn" class="button button-secondary">
-                  Toggle View
-                </button>
-                <button id="testMinecraftBtn" class="button button-secondary">
-                  Test Minecraft
-                </button>
-              </div>
-            </div>
-
-            <div id="accountAlert" class="account-alert">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
-              </svg>
-              <div class="alert-content">
-                <h4>Minecraft Account Required</h4>
-                <p>To access the marketplace and trading features, please link your Minecraft account. This helps us verify your identity and ensure secure trading.</p>
-              </div>
-            </div>
-
-            <div class="linked-accounts">
-              <div id="minecraftAccount" class="account-item required" data-connected="false" data-account-type="minecraft">
-                <div class="account-info">
-                  <div class="account-icon">
-                    <img src="https://www.minecraft.net/favicon.ico" alt="Minecraft">
-                  </div>
-                  <div class="account-details">
-                    <h3>Minecraft</h3>
-                    <p class="account-status-text">Required for trading</p>
-                  </div>
-                </div>
-                <div class="account-status">
-                  <div class="minecraft-username" style="display: none; text-align: right; margin-bottom: 4px;">
-                    <span style="font-size: 14px; color: #1a1523; font-weight: 500;"></span>
-                  </div>
-                  <button class="button button-primary">Connect</button>
-                </div>
-              </div>
-
-              <div id="discordAccount" class="account-item unlinked" data-connected="false" data-account-type="discord">
-                <div class="account-info">
-                  <div class="account-icon">
-                    <img src="https://discord.com/assets/favicon.ico" alt="Discord">
-                  </div>
-                  <div class="account-details">
-                    <h3>Discord</h3>
-                    <p class="account-status-text">Optional - Get notified about trades</p>
-                  </div>
-                </div>
-                <div class="account-status">
-                  <button class="button button-secondary" onclick="handleConnection('discord')">Connect</button>
-                </div>
-              </div>
-
-              <div id="googleAccount" class="account-item unlinked" data-connected="false" data-account-type="google">
-                <div class="account-info">
-                  <div class="account-icon">
-                    <img src="https://www.google.com/favicon.ico" alt="Google">
-                  </div>
-                  <div class="account-details">
-                    <h3>Google</h3>
-                    <p class="account-status-text">Optional - Quick sign in</p>
-                  </div>
-                </div>
-                <div class="account-status">
-                  <button class="button button-secondary" onclick="handleConnection('google')">Connect</button>
-                </div>
-              </div>
-            </div>
-
-            <div id="setupSteps" class="setup-steps">
-              <h3 style="font-size: 16px; margin-bottom: 8px;">How to Connect Your Minecraft Account</h3>
-              <div class="setup-step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                  <h4>Launch Minecraft</h4>
-                  <p>Open your Minecraft game and make sure you're logged in with your account.</p>
-                </div>
-              </div>
-              <div class="setup-step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                  <h4>Click Connect</h4>
-                  <p>Click the Connect button above and follow the verification process.</p>
-                </div>
-              </div>
-              <div class="setup-step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                  <h4>Verify Ownership</h4>
-                  <p>Complete a simple in-game verification to confirm your account ownership.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Security Section -->
-        <div id="security" class="content-section">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.75.75 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
-                </svg>
-                Security Settings
-              </h2>
-            </div>
-
-            <div style="display: grid; gap: 24px;">
-              <div class="form-group">
-                <label class="form-label" for="current-password">Current Password</label>
-                <input type="password" id="current-password" class="form-input" placeholder="Enter current password">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="new-password">New Password</label>
-                <input type="password" id="new-password" class="form-input" placeholder="Enter new password">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="confirm-password">Confirm New Password</label>
-                <input type="password" id="confirm-password" class="form-input" placeholder="Confirm new password">
-              </div>
-
-              <button class="button button-primary" style="width: fit-content;">Update Password</button>
-            </div>
-          </div>
+          </li>
           
-          <!-- Danger Zone -->
-          <div class="card" style="border: 1px solid #fecdca;">
-            <div class="card-header">
-              <h2 class="card-title" style="color: #d92d20;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="color: #d92d20;">
-                  <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
-                </svg>
-                Danger Zone
-              </h2>
-            </div>
-
-            <div style="display: grid; gap: 16px;">
-              <div class="danger-warning" style="background: #fff4f4; border: 1px solid #fecdca; padding: 16px; border-radius: 8px;">
-                <h4 style="color: #d92d20; font-size: 14px; margin-bottom: 8px;">Account Deletion Warning</h4>
-                <p style="color: #666; font-size: 14px; line-height: 1.5;">Once you delete your account, there is no going back. This action:</p>
-                <ul style="color: #666; font-size: 14px; line-height: 1.5; margin: 8px 0 0 20px;">
-                  <li>Cannot be undone</li>
-                  <li>Will permanently delete all your account data</li>
-                  <li id="minecraftWarning" style="color: #d92d20; display: none;">
-                    <strong>Will affect your Minecraft assets:</strong>
-                    <ul style="margin: 4px 0 0 20px;">
-                      <li>Your credit balance will be cleared</li>
-                      <li>Your virtual items may be redistributed to other players</li>
-                      <li>Your in-game inventories may be cleared</li>
-                    </ul>
-                  </li>
-                </ul>
+          <li class="info-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">Join Our Server</div>
+              <div class="step-description">Launch Minecraft and connect to our server using:</div>
+              <div class="command-block">
+                play.saintcraft.us
+                <button class="copy-button" onclick="copyToClipboard('play.saintcraft.us')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
+                    <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
+                  </svg>
+                </button>
               </div>
-              <button id="initiateDeleteButton" class="button button-danger" style="width: fit-content;">Delete Account</button>
             </div>
+          </li>
+          
+          <li class="info-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">Get Your Link Code</div>
+              <div class="step-description">Once in-game, type this command in the chat:</div>
+              <div class="command-block">
+                /account link
+                <button class="copy-button" onclick="copyToClipboard('/account link')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
+                    <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </li>
+
+          <li class="info-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <div class="step-title">Sign In Here</div>
+              <div class="step-description">Enter your Minecraft username and your link code above. On first login, you'll be asked to add an email for recovery.</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="info-note">
+          <div class="info-note-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;">
+              <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+            </svg>
+            Why Link Your Account?
           </div>
-
-          <!-- Delete Account Modal -->
-          <div id="deleteAccountModal" class="modal-overlay" style="background: rgba(217, 45, 32, 0.05);">
-            <div class="modal" style="border: 1px solid #fecdca;">
-              <div class="modal-header">
-                <h3 class="modal-title" style="color: #d92d20;">Delete Account</h3>
-                <p class="modal-description" style="color: #666;">Please review all consequences of account deletion carefully.</p>
-              </div>
-
-              <div class="consequences-list" style="margin: 24px 0; padding: 16px; background: #fff4f4; border-radius: 8px; border: 1px solid #fecdca;">
-                <h4 style="color: #d92d20; font-size: 14px; margin-bottom: 12px;">This will result in:</h4>
-                
-                <!-- General Consequences -->
-                <div style="margin-bottom: 16px;">
-                  <h5 style="color: #344054; font-size: 13px; margin-bottom: 8px; font-weight: 600;">General Account:</h5>
-                  <ul style="color: #666; font-size: 13px; line-height: 1.5; margin-left: 20px;">
-                    <li>Permanent deletion of your account</li>
-                    <li>Loss of all account settings and preferences</li>
-                    <li>Removal from all associated services</li>
-                  </ul>
-                </div>
-
-                <!-- Minecraft Specific Consequences -->
-                <div id="minecraftConsequences" style="display: none;">
-                  <h5 style="color: #d92d20; font-size: 13px; margin-bottom: 8px; font-weight: 600;">Minecraft Account Assets:</h5>
-                  <ul style="color: #666; font-size: 13px; line-height: 1.5; margin-left: 20px;">
-                    <li style="color: #d92d20;">Your entire credit balance will be cleared</li>
-                    <li style="color: #d92d20;">All virtual items in your possession may be redistributed to other players</li>
-                    <li style="color: #d92d20;">Your in-game inventories will be permanently cleared</li>
-                    <li style="color: #d92d20;">All marketplace listings will be removed</li>
-                    <li style="color: #d92d20;">Trading history and reputation will be erased</li>
-                  </ul>
-                </div>
-
-                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #fecdca;">
-                  <p style="color: #d92d20; font-size: 13px; font-weight: 500;">These actions cannot be reversed and no refunds will be provided.</p>
-                </div>
-              </div>
-
-              <div class="deletion-steps" style="margin: 24px 0;">
-                <div class="deletion-step" style="margin-bottom: 20px;">
-                  <label class="form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    <input type="checkbox" id="deleteCheck1" style="width: 16px; height: 16px;">
-                    <span>I understand that this action cannot be undone</span>
-                  </label>
-                </div>
-
-                <div class="deletion-step" style="margin-bottom: 20px;">
-                  <label class="form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    <input type="checkbox" id="deleteCheck2" style="width: 16px; height: 16px;">
-                    <span>I understand that all my account data will be permanently deleted</span>
-                  </label>
-                </div>
-
-                <div id="minecraftDeleteCheck" class="deletion-step" style="margin-bottom: 20px; display: none;">
-                  <label class="form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    <input type="checkbox" id="deleteCheck3" style="width: 16px; height: 16px;">
-                    <span style="color: #d92d20;">I understand that my credit balance will be cleared and my virtual items may be redistributed to other players</span>
-                  </label>
-                </div>
-
-                <div class="deletion-step">
-                  <label class="form-label" for="deleteConfirm">Type "DELETE" to confirm</label>
-                  <input type="text" id="deleteConfirm" class="form-input" style="border-color: #fecdca;" placeholder="Type DELETE in capitals">
-                </div>
-              </div>
-
-              <div class="modal-actions">
-                <button id="cancelDeleteButton" class="button button-secondary">Cancel</button>
-                <button id="confirmDeleteButton" class="button button-danger" disabled>Permanently Delete Account</button>
-              </div>
-            </div>
+          <div class="info-note-content">
+            Linking your account allows you to:
+            <ul style="margin-top: 8px; margin-left: 16px;">
+              <li>Save your game progress and preferences</li>
+              <li>Access exclusive features and rewards</li>
+              <li>Participate in community events</li>
+              <li>Sync your ranks and permissions across platforms</li>
+            </ul>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Add Leaderboard Section -->
-        <div id="leaderboard" class="content-section">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path fill-rule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 00-.584.859 6.753 6.753 0 006.138 5.6 6.73 6.73 0 002.743 1.346A6.707 6.707 0 019.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 00-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 00.75-.75 2.25 2.25 0 00-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 01-1.112-3.173 6.73 6.73 0 002.743-1.347 6.753 6.753 0 006.139-5.6.75.75 0 00-.585-.858 47.077 47.077 0 00-3.07-.543V2.62a.75.75 0 00-.658-.744 49.22 49.22 0 00-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 00-.657.744zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 013.16 5.337a45.6 45.6 0 012.006-.343v.256zm13.668 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 01-2.863 3.207 6.72 6.72 0 00.857-3.294z" clip-rule="evenodd" />
-                </svg>
-                Leaderboard
-              </h2>
-            </div>
-
-            <div class="your-rank-card">
-              <div class="your-rank-info">
-                <div class="your-rank-label">Your Current Rank</div>
-                <div class="your-rank-value">#42</div>
-                <div class="your-rank-details">Top 10% of all traders</div>
-              </div>
-              <div class="rank-change positive">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-                  <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06l-6.22-6.22V21a.75.75 0 01-1.5 0V4.81l-6.22 6.22a.75.75 0 11-1.06-1.06l7.5-7.5z" clip-rule="evenodd" />
-                </svg>
-                +5 this week
-              </div>
-            </div>
-
-            <div class="stats-grid">
-              <div class="stat-card">
-                <div class="stat-value">$24.5K</div>
-                <div class="stat-label">Trading Volume</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-value">156</div>
-                <div class="stat-label">Items Sold</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-value">98%</div>
-                <div class="stat-label">Positive Ratings</div>
+  <!-- Need a Code Modal -->
+  <div id="need-code-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="need-code-title">
+      <div class="modal-header">
+        <div class="modal-title" id="need-code-title">How to Get Your Link Code</div>
+        <button class="modal-close" id="need-code-close">Close</button>
+      </div>
+      <div class="modal-body">
+        <ol class="info-steps">
+          <li class="info-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">Join the server</div>
+              <div class="step-description">Open Minecraft and connect to:</div>
+              <div class="command-block">
+                play.saintcraft.us
+                <button class="copy-button" onclick="copyToClipboard('play.saintcraft.us')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
+                    <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
+                  </svg>
+                </button>
               </div>
             </div>
-
-            <div class="leaderboard-filters">
-              <div class="leaderboard-category active">Trading Volume</div>
-              <div class="leaderboard-category">Items Sold</div>
-              <div class="leaderboard-category">Positive Ratings</div>
-              <select class="time-filter">
-                <option value="all-time">All Time</option>
-                <option value="this-month">This Month</option>
-                <option value="this-week">This Week</option>
-                <option value="today">Today</option>
-              </select>
+          </li>
+          <li class="info-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">Run the command</div>
+              <div class="step-description">In chat, type:</div>
+              <div class="command-block">
+                /account link
+                <button class="copy-button" onclick="copyToClipboard('/account link')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
+                    <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
+                  </svg>
+                </button>
+              </div>
+              <div class="help-text">You'll receive a one-time code. Use it here as your password.</div>
             </div>
-
-            <div class="leaderboard-grid">
-              <!-- Top 3 Players -->
-              <div class="leaderboard-item">
-                <div class="rank rank-1">1</div>
-                <div class="player-info">
-                  <div class="player-avatar">
-                    <img src="https://www.minecraft.net/favicon.ico" alt="Player" style="width: 24px; height: 24px;">
-                  </div>
-                  <div class="player-details">
-                    <h4>
-                      MasterTrader_123
-                      <span class="player-badge badge-verified">Verified</span>
-                    </h4>
-                    <div class="player-stats">$124.5K Trading Volume • 532 Items Sold</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="leaderboard-item">
-                <div class="rank rank-2">2</div>
-                <div class="player-info">
-                  <div class="player-avatar">
-                    <img src="https://www.minecraft.net/favicon.ico" alt="Player" style="width: 24px; height: 24px;">
-                  </div>
-                  <div class="player-details">
-                    <h4>
-                      CraftKing99
-                      <span class="player-badge badge-verified">Verified</span>
-                    </h4>
-                    <div class="player-stats">$98.2K Trading Volume • 423 Items Sold</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="leaderboard-item">
-                <div class="rank rank-3">3</div>
-                <div class="player-info">
-                  <div class="player-avatar">
-                    <img src="https://www.minecraft.net/favicon.ico" alt="Player" style="width: 24px; height: 24px;">
-                  </div>
-                  <div class="player-details">
-                    <h4>DiamondDealer</h4>
-                    <div class="player-stats">$87.3K Trading Volume • 389 Items Sold</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Your Position -->
-              <div class="leaderboard-item">
-                <div class="rank rank-other">42</div>
-                <div class="player-info">
-                  <div class="player-avatar">
-                    <img src="https://www.minecraft.net/favicon.ico" alt="Player" style="width: 24px; height: 24px;">
-                  </div>
-                  <div class="player-details">
-                    <h4>
-                      Player123
-                      <span class="player-badge badge-you">You</span>
-                    </h4>
-                    <div class="player-stats">$24.5K Trading Volume • 156 Items Sold</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
@@ -2596,1523 +839,223 @@
     </div>
   </footer>
 
-  <!-- Add Modal HTML before the closing body tag -->
-  <div id="minecraftLinkModal" class="modal-overlay">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Link Minecraft Account</h3>
-        <p class="modal-description">Follow these steps to link your Minecraft account with SaintCraft Market.</p>
-      </div>
-
-      <div class="modal-steps">
-        <div class="modal-step">
-          <div class="step-circle">1</div>
-          <div class="step-content">
-            <h4>Launch Minecraft</h4>
-            <p>Open your Minecraft game and join the SaintCraft server.</p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="step-circle">2</div>
-          <div class="step-content">
-            <h4>Run the Link Command</h4>
-            <p>In the game chat, type the command <strong>/account link</strong> and press Enter.</p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="step-circle">3</div>
-          <div class="step-content">
-            <h4>Enter the Link Key</h4>
-            <p>Copy the generated key and paste it below to complete the linking process.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-form">
-        <div class="form-group">
-          <label class="form-label" for="linkKey">Link Key</label>
-          <input type="text" id="linkKey" class="form-input" placeholder="Enter the key generated in-game">
-          <div id="linkKeyError" class="error-message">Please enter a valid link key.</div>
-        </div>
-      </div>
-
-      <div class="modal-actions">
-        <button id="cancelLinkButton" class="button button-secondary">Cancel</button>
-        <button id="submitLinkButton" class="button button-primary">Link Account</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add Success Popup -->
-  <div id="successPopupOverlay" class="success-popup-overlay">
-    <div id="successPopup" class="success-popup">
-      <div class="success-icon-container">
-        <div class="success-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 40px; height: 40px;">
-            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="floating-items-success">
-          <img src="ico_diamond.webp" alt="" class="floating-item-success" style="--tx: -30px; --ty: -50px; --tr: -45deg;">
-          <img src="ico_emerald.webp" alt="" class="floating-item-success" style="--tx: 40px; --ty: -40px; --tr: 30deg;">
-          <img src="ico_gold.webp" alt="" class="floating-item-success" style="--tx: -20px; --ty: -30px; --tr: 60deg;">
-          <img src="ico_iron.webp" alt="" class="floating-item-success" style="--tx: 30px; --ty: -45px; --tr: -30deg;">
-        </div>
-      </div>
-
-      <h3 class="success-title">Account Successfully Linked!</h3>
-      <p class="success-message">Welcome aboard, <span class="minecraft-username-success">Player123</span>! Your Minecraft account is now connected to SaintCraft Market.</p>
-      
-      <div class="success-features">
-        <div class="feature-item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25z" />
-          </svg>
-          Access to Marketplace Trading
-        </div>
-        <div class="feature-item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-            <path d="M12 7.5a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" />
-            <path fill-rule="evenodd" d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 14.625v-9.75zM8.25 9.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM18.75 9a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V9.75a.75.75 0 00-.75-.75h-.008zM4.5 9.75A.75.75 0 015.25 9h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V9.75z" />
-          </svg>
-          Credit Balance System
-        </div>
-        <div class="feature-item">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-            <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM15.75 9.75a3 3 0 116 0 3 3 0 01-6 0zM2.25 9.75a3 3 0 116 0 3 3 0 01-6 0zM6.31 15.117A6.745 6.745 0 0112 12a6.745 6.745 0 016.709 7.498.75.75 0 01-.372.568A12.696 12.696 0 0112 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 01-.372-.568 6.787 6.787 0 011.019-4.38z" />
-            <path d="M5.082 14.254a8.287 8.287 0 00-1.308 5.135 9.687 9.687 0 01-1.764-.44l-.115-.04a.563.563 0 01-.373-.487l-.01-.121a3.75 3.75 0 013.57-4.047zM20.226 19.389a8.287 8.287 0 00-1.308-5.135 3.75 3.75 0 013.57 4.047l-.01.121a.563.563 0 01-.373.486l-.115.04c-.567.2-1.156.349-1.764.441z" />
-          </svg>
-          Community Trading Features
-        </div>
-      </div>
-
-      <button id="startTradingButton" class="button button-primary">Let's Start Trading!</button>
-    </div>
-  </div>
-
-  <!-- Purchase Result Popup (success/error) -->
-  <div id="purchaseResultOverlay" class="success-popup-overlay">
-    <div id="purchaseResult" class="success-popup">
-      <div class="success-icon-container">
-        <div id="purchaseResultIcon" class="success-icon" style="background:#ecfdf3; color:#039855;"></div>
-      </div>
-      <h3 id="prTitle" class="success-title">Purchase Successful</h3>
-      <p id="prMessage" class="success-message">Your item has been delivered to your storage.</p>
-      <button id="prOk" class="button button-primary" style="width: fit-content;">OK</button>
-    </div>
-  </div>
-
   <script>
-    // Move success popup functions to global scope
-    function showSuccessPopup(username) {
-      const overlay = document.getElementById('successPopupOverlay');
-      const popup = document.getElementById('successPopup');
-      const usernameSpan = popup.querySelector('.minecraft-username-success');
-      
-      if (usernameSpan) {
-        usernameSpan.textContent = username;
-      }
-
-    // Purchase result popup helpers
-    window.showPurchaseResult = function({ success = true, title = '', message = '' }) {
-      const overlay = document.getElementById('purchaseResultOverlay');
-      const box = document.getElementById('purchaseResult');
-      const icon = document.getElementById('purchaseResultIcon');
-      const titleEl = document.getElementById('prTitle');
-      const msgEl = document.getElementById('prMessage');
-      if (!overlay || !box || !icon || !titleEl || !msgEl) return;
-      // Style
-      if (success) {
-        icon.style.background = '#ecfdf3';
-        icon.style.color = '#039855';
-        titleEl.textContent = title || 'Purchase Successful';
-        msgEl.textContent = message || 'Your item has been delivered to your storage.';
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 20) {
+        navbar.classList.add('scrolled');
       } else {
-        icon.style.background = '#fff4f4';
-        icon.style.color = '#d92d20';
-        titleEl.textContent = title || 'Purchase Failed';
-        msgEl.textContent = message || 'We could not complete your purchase.';
+        navbar.classList.remove('scrolled');
       }
-      try { console.log('[purchase] showing result modal:', { success, title: titleEl.textContent }); } catch(e) {}
-      overlay.classList.add('show');
-      box.classList.add('show');
-      // Fallback in case CSS class is overridden
-      overlay.style.display = 'block';
-      box.style.display = 'block';
-    }
-    window.hidePurchaseResult = function() {
-      const overlay = document.getElementById('purchaseResultOverlay');
-      const box = document.getElementById('purchaseResult');
-      if (overlay) overlay.classList.remove('show');
-      if (box) box.classList.remove('show');
-      if (overlay) overlay.style.display = '';
-      if (box) box.style.display = '';
+    });
+
+    // Add copy to clipboard functionality
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const button = event.currentTarget;
+        const originalColor = button.style.color;
+        button.style.color = '#2bb673';
+        
+        setTimeout(() => {
+          button.style.color = originalColor;
+        }, 1000);
+      });
     }
 
-    }
+    // ===== Account Link Login Flow =====
+    (function() {
+      const formLogin = document.getElementById('login-form');
+      const formEmail = document.getElementById('email-step');
+      const inputUser = document.getElementById('mc-username');
+      const inputCode = document.getElementById('access-code');
+      const inputEmail = document.getElementById('email-challenge');
+      const emailBack = document.getElementById('email-back');
+      const remember = document.getElementById('remember');
+      const needCodeLink = document.getElementById('need-code-link');
+      const modal = document.getElementById('need-code-modal');
+      const modalClose = document.getElementById('need-code-close');
 
-    function hideSuccessPopup() {
-      const overlay = document.getElementById('successPopupOverlay');
-      const popup = document.getElementById('successPopup');
-      
-      overlay.classList.remove('show');
-      popup.classList.remove('show');
-    }
-
-    function createConfetti() {
-      const colors = ['#7f56d9', '#e4d7ff', '#6941c6', '#f4f3ff'];
-      const container = document.getElementById('successPopup');
-      
-      for (let i = 0; i < 30; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti-piece';
-        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.left = Math.random() * 100 + '%';
-        confetti.style.top = Math.random() * 100 + '%';
-        confetti.style.setProperty('--tx', (Math.random() * 200 - 100) + 'px');
-        confetti.style.setProperty('--ty', (Math.random() * 200 - 100) + 'px');
-        confetti.style.setProperty('--tr', (Math.random() * 360) + 'deg');
-        confetti.style.animationDelay = Math.random() * 0.5 + 's';
-        container.appendChild(confetti);
-
-        // Remove confetti after animation
-        setTimeout(() => confetti.remove(), 2000);
-      }
-    }
-
-    // Wrap the rest in DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add event listeners for success popup
-      const startTradingButton = document.getElementById('startTradingButton');
-      const successPopupOverlay = document.getElementById('successPopupOverlay');
-
-      if (startTradingButton) {
-        startTradingButton.addEventListener('click', hideSuccessPopup);
-      }
-
-      if (successPopupOverlay) {
-        successPopupOverlay.addEventListener('click', (e) => {
-          if (e.target === successPopupOverlay) {
-            hideSuccessPopup();
-          }
-        });
-      }
-
-      // Purchase result popup events
-      const prOverlay = document.getElementById('purchaseResultOverlay');
-      const prOk = document.getElementById('prOk');
-      if (prOverlay) {
-        prOverlay.addEventListener('click', (e) => { if (e.target === prOverlay) window.hidePurchaseResult && window.hidePurchaseResult(); });
-      }
-      if (prOk) { prOk.addEventListener('click', () => { window.hidePurchaseResult && window.hidePurchaseResult(); }); }
-
-      // Initialize state management first
-      const accountData = {
-        minecraft: {
-          connected: false,
-          username: 'JohnSmith123',
-          required: true
-        },
-        discord: {
-          connected: false,
-          username: 'John#1234',
-          required: false
-        },
-        google: {
-          connected: false,
-          username: 'john.smith@example.com',
-          required: false
-        }
-      };
-
-      // Initialize UI elements
-      const navbar = document.querySelector('.navbar');
-      const searchInput = document.querySelector('.search-input');
-      const toggleViewBtn = document.getElementById('toggleViewBtn');
-      const testMinecraftBtn = document.getElementById('testMinecraftBtn');
-      const logoutBtn = document.getElementById('logoutButton');
-
-      // Ensure API helpers and callbacks exist before any JSONP requests
       const API_BASE = 'https://api.saintcraft.us';
+
       function jsonp(src) {
-        try { console.log('[account] JSONP request:', src); } catch (e) {}
         const s = document.createElement('script');
-        // Cache-busting to avoid stale responses influencing UI
-        const bust = (src.indexOf('?') > -1 ? '&' : '?') + '_=' + Date.now();
-        s.src = src + bust;
-        s.async = true;
-        s.onerror = function() { try { console.warn('[account] JSONP failed:', src); } catch (e) {} };
+        s.src = src + (src.indexOf('?')>-1?'&':'?') + '_=' + Date.now();
         document.body.appendChild(s);
       }
-      // Marketplace helpers
-      // Match standalone marketplace contract: provider always calls `callback(...)`
-      const MARKET_API = 'https://api.saintcraft.us/marketList?callback=callback';
-      let marketProducts = [];
-      function fetchMarket() { jsonp(MARKET_API); }
-      if (!window.marketCallback) {
-        window.marketCallback = function(data) {
-          marketProducts = (data && data.row) ? data.row : [];
-          populateMarketFilters();
-          populateMarketTable(marketProducts);
-        }
+
+      function showEmailStep() {
+        if (!formEmail) return;
+        formLogin.style.display = 'none';
+        formEmail.style.display = 'block';
+        inputEmail?.focus();
       }
-      // Provider sometimes invokes global `callback(...)` regardless of query param
-      if (!window.callback) {
-        window.callback = function(data) {
-          if (typeof window.marketCallback === 'function') {
-            window.marketCallback(data);
-          }
-        }
+
+      function showLoginStep() {
+        if (!formLogin) return;
+        formEmail.style.display = 'none';
+        formLogin.style.display = 'block';
+        inputUser?.focus();
       }
-      function populateMarketFilters() {
-        const sellerSelect = document.getElementById('mk-seller');
-        if (!sellerSelect) return;
-        const sellers = [...new Set(marketProducts.map(p => p.seller))];
-        sellerSelect.innerHTML = '<option value="">All Sellers</option>' + sellers.map(s => `<option value="${s}">${s}</option>`).join('');
-        // Re-apply current selection if any
-        const current = sellerSelect.getAttribute('data-value');
-        if (current) sellerSelect.value = current;
+
+      function finishLogin() {
+        // Redirect to account dashboard on success
+        window.location.href = '/account';
       }
-      function updateMarketSummary(rows) {
+
+      function clearStoredSession() {
         try {
-          const results = rows.length;
-          const uniqueSellers = new Set(rows.map(r => r.seller)).size;
-          const prices = rows.map(r => parseFloat(r.price)).filter(n => !isNaN(n));
-          const min = prices.length ? Math.min(...prices) : null;
-          const max = prices.length ? Math.max(...prices) : null;
-          const avg = prices.length ? Math.round(prices.reduce((a,b)=>a+b,0) / prices.length) : null;
-          const fmt = (n) => (n==null ? '—' : `$${n}`);
-          const sumResults = document.getElementById('sumResults');
-          const sumSellers = document.getElementById('sumSellers');
-          const sumPrice = document.getElementById('sumPrice');
-          const sumAvg = document.getElementById('sumAvg');
-          if (sumResults) sumResults.textContent = `Results: ${results}`;
-          if (sumSellers) sumSellers.textContent = `Sellers: ${uniqueSellers}`;
-          if (sumPrice) sumPrice.textContent = `Price: ${fmt(min)} – ${fmt(max)}`;
-          if (sumAvg) sumAvg.textContent = `Avg: ${fmt(avg)}`;
+          localStorage.removeItem('username');
+          localStorage.removeItem('uuid');
+          localStorage.removeItem('code');
+          localStorage.setItem('isLoggedIn', 'false');
         } catch (e) {}
       }
-      function populateMarketTable(rows) {
-        const grid = document.getElementById('mk-grid');
-        if (!grid) return;
-        grid.innerHTML = '';
-        rows.forEach(product => {
-          const { id, name, price, seller, type, amount, enchantments } = product;
-          const card = document.createElement('div');
-          card.style.border = '1px solid #e4e7ec';
-          card.style.background = '#ffffff';
-          card.style.borderRadius = '12px';
-          card.style.padding = '12px';
-          card.style.display = 'grid';
-          card.style.gap = '10px';
-          card.style.cursor = 'pointer';
-          card.style.transition = 'box-shadow .2s ease, transform .1s ease';
-          card.onmouseenter = () => { card.style.boxShadow = '0 8px 20px rgba(16,24,40,0.08)'; card.style.transform = 'translateY(-1px)'; };
-          card.onmouseleave = () => { card.style.boxShadow = 'none'; card.style.transform = 'none'; };
 
-          const top = document.createElement('div');
-          top.style.display = 'flex';
-          top.style.alignItems = 'center';
-          top.style.justifyContent = 'space-between';
-
-          const left = document.createElement('div');
-          left.style.display = 'flex';
-          left.style.alignItems = 'center';
-          left.style.gap = '10px';
-
-          const icon = document.createElement('img');
-          icon.src = 'https://saintcraft.us/market/shop_textures/' + (String(type||'').split(':')[1] || 'stone') + '.png';
-          icon.onerror = function(){ this.onerror=null; this.src = 'https://raw.githubusercontent.com/saintcraft-mc/website-public/refs/heads/main/missing_model.webp'; };
-          icon.alt = name || 'item';
-          icon.style.width = '44px';
-          icon.style.height = '44px';
-          icon.style.imageRendering = 'pixelated';
-
-          const titleWrap = document.createElement('div');
-          titleWrap.style.display = 'grid';
-          titleWrap.style.gap = '2px';
-          const title = document.createElement('div');
-          title.style.fontWeight = '700';
-          title.style.color = '#1a1523';
-          const cleanName = (name || '').replace(/^\s+|\s+$/g, '');
-          title.textContent = cleanName.length > 40 ? cleanName.slice(0, 40) + '…' : cleanName;
-          titleWrap.appendChild(title);
-          if (enchantments && enchantments.trim() !== '') {
-            const ench = document.createElement('div');
-            ench.textContent = enchantments.replace(/^-/, '').replace(/\b\w/g, l => l.toUpperCase()).replace(/-/g, ', ');
-            ench.style.color = '#7f56d9';
-            ench.style.fontWeight = '600';
-            ench.style.fontSize = '11px';
-            ench.style.whiteSpace = 'nowrap';
-            ench.style.overflow = 'hidden';
-            ench.style.textOverflow = 'ellipsis';
-            titleWrap.appendChild(ench);
-          }
-          left.appendChild(icon);
-          left.appendChild(titleWrap);
-
-          top.appendChild(left);
-
-          const meta = document.createElement('div');
-          meta.style.display = 'flex';
-          meta.style.alignItems = 'center';
-          meta.style.justifyContent = 'space-between';
-          meta.style.gap = '8px';
-
-          const amt = document.createElement('span');
-          amt.textContent = `Amount: ${amount}`;
-          amt.style.fontSize = '12px';
-          amt.style.color = '#475467';
-
-          const sellerWrap = document.createElement('div');
-          sellerWrap.style.display = 'flex';
-          sellerWrap.style.alignItems = 'center';
-          sellerWrap.style.gap = '6px';
-          const head = document.createElement('img');
-          head.src = `https://mc-heads.net/avatar/${seller}/100`;
-          head.alt = seller;
-          head.style.width = '18px';
-          head.style.height = '18px';
-          head.style.borderRadius = '4px';
-          const sellerText = document.createElement('span');
-          const sellerName = (seller || '').trim();
-          sellerText.textContent = sellerName.length > 14 ? sellerName.slice(0, 14) + '…' : sellerName;
-          sellerText.style.fontSize = '12px';
-          sellerText.style.color = '#475467';
-          sellerWrap.appendChild(head);
-          sellerWrap.appendChild(sellerText);
-
-          meta.appendChild(amt);
-          meta.appendChild(sellerWrap);
-
-          const footer = document.createElement('div');
-          footer.style.display = 'flex';
-          footer.style.alignItems = 'center';
-          footer.style.gap = '8px';
-
-          const pricePill = document.createElement('div');
-          pricePill.textContent = `$${price}`;
-          pricePill.style.display = 'inline-flex';
-          pricePill.style.alignItems = 'center';
-          pricePill.style.padding = '6px 10px';
-          pricePill.style.background = '#f4f3ff';
-          pricePill.style.border = '1px solid #e4e7ec';
-          pricePill.style.borderRadius = '999px';
-          pricePill.style.fontWeight = '800';
-          pricePill.style.color = '#6941c6';
-          pricePill.style.fontSize = '13px';
-
-          const cta = document.createElement('button');
-          cta.className = 'button button-primary';
-          cta.textContent = 'Buy';
-          cta.style.flex = '1';
-          cta.style.minWidth = '0';
-          cta.onclick = (e) => { e.stopPropagation(); openProductModal(product); };
-
-          footer.appendChild(pricePill);
-          footer.appendChild(cta);
-
-          card.appendChild(top);
-          card.appendChild(meta);
-          card.appendChild(footer);
-          card.addEventListener('click', () => openProductModal(product));
-          grid.appendChild(card);
-        });
-        updateMarketSummary(rows);
-      }
-      function applyMarketFilters() {
-        const q = (document.getElementById('mk-search')?.value || '').toLowerCase();
-        const sellerEl = document.getElementById('mk-seller');
-        const seller = sellerEl ? sellerEl.value : '';
-        const maxPrice = parseFloat(document.getElementById('mk-price')?.value || '');
-        if (sellerEl) sellerEl.setAttribute('data-value', seller);
-        let filtered = marketProducts;
-        if (q) filtered = filtered.filter(p => (p.name || '').toLowerCase().includes(q));
-        if (seller) filtered = filtered.filter(p => p.seller === seller);
-        if (!isNaN(maxPrice)) filtered = filtered.filter(p => parseFloat(p.price) <= maxPrice);
-        populateMarketTable(filtered);
-      }
-      // Manual refresh
-      (function wireMarketRefresh(){
-        const btn = document.getElementById('mk-refresh');
-        if (btn) btn.addEventListener('click', fetchMarket);
-      })();
-
-      // --- Product Modal + Purchase ---
-      function ensureProductModal() {
-        if (document.getElementById('productModal')) return;
-        const modal = document.createElement('div');
-        modal.id = 'productModal';
-        modal.className = 'modal-overlay';
-        modal.innerHTML = `
-          <div class="modal">
-            <div class="modal-header">
-              <h3 class="modal-title">Product Details</h3>
-              <p class="modal-description">Confirm the item and complete your purchase.</p>
-            </div>
-            <div class="modal-body" style="display:grid; gap:12px;">
-              <img id="pmImage" alt="Product" style="width:64px; height:64px; image-rendering:pixelated; justify-self:center;" />
-              <div style="display:grid; gap:6px;">
-                <div><strong>Name:</strong> <span id="pmName"></span></div>
-                <div><strong>ID:</strong> <span id="pmId"></span></div>
-                <div><strong>Amount:</strong> <span id="pmAmount"></span></div>
-                <div><strong>Price:</strong> <span id="pmPrice"></span></div>
-                <div><strong>Seller:</strong> <span id="pmSeller"></span></div>
-              </div>
-              <div id="pmError" class="error-message" style="display:none;"></div>
-            </div>
-            <div class="modal-actions">
-              <button id="pmCancel" class="button button-secondary">Cancel</button>
-              <button id="pmBuy" class="button button-primary">Purchase</button>
-            </div>
-          </div>`;
-        document.body.appendChild(modal);
-        modal.addEventListener('click', (e) => { if (e.target === modal) hideProductModal(); });
-        document.getElementById('pmCancel').addEventListener('click', hideProductModal);
-      }
-
-      function showProductModal() {
-        const modal = document.getElementById('productModal');
-        if (modal) modal.style.display = 'flex';
-      }
-      function hideProductModal() {
-        const modal = document.getElementById('productModal');
-        if (modal) modal.style.display = 'none';
-      }
-
-      let pendingProduct = null;
-      function openProductModal(product) {
-        ensureProductModal();
-        pendingProduct = product;
-        const { id, name, price, seller, type, amount } = product;
-        const imgUrl = 'https://saintcraft.us/market/shop_textures/' + (String(type||'').split(':')[1] || 'stone') + '.png';
-        const fallbackUrl = 'https://raw.githubusercontent.com/saintcraft-mc/website-public/refs/heads/main/missing_model.webp';
-        const pmImage = document.getElementById('pmImage');
-        pmImage.src = imgUrl; pmImage.onerror = function(){ this.onerror=null; this.src=fallbackUrl; };
-        document.getElementById('pmName').textContent = name;
-        document.getElementById('pmId').textContent = id;
-        document.getElementById('pmAmount').textContent = amount;
-        document.getElementById('pmPrice').textContent = `$${price}`;
-        document.getElementById('pmSeller').textContent = seller;
-        const buyBtn = document.getElementById('pmBuy');
-        buyBtn.onclick = () => purchaseProduct(seller, id);
-        document.getElementById('pmError').style.display = 'none';
-        showProductModal();
-      }
-
-      window.purchaseCallback = function(response){
-          try { console.log('[purchase] callback:', response); } catch (e) {}
-          const err = document.getElementById('pmError');
-          const modal = document.getElementById('productModal');
-          const info = ((response && response.info) ? String(response.info) : '').toLowerCase().trim();
-          if (info === 'success') {
-            if (err) err.style.display = 'none';
-            hideProductModal();
-            // Show success and refresh wallet + storage + products
-            if (window.showPurchaseResult) {
-              window.showPurchaseResult({ success: true, title: 'Purchase Successful', message: 'Your item has been delivered to your storage.' });
-            } else {
-              // Fallback: inject a simple modal if helper missing
-              try {
-                const html = `<div id="purchaseResultOverlay" class="success-popup-overlay" style="display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5);"><div id="purchaseResult" class="success-popup show" style="display:block;max-width:420px"><div class="success-icon-container"><div class="success-icon" style="background:#ecfdf3;color:#039855;"></div></div><h3 class="success-title">Purchase Successful</h3><p class="success-message">Your item has been delivered to your storage.</p><button id="prOk" class="button button-primary">OK</button></div></div>`;
-                let o = document.getElementById('purchaseResultOverlay');
-                if (!o) { document.body.insertAdjacentHTML('beforeend', html); o = document.getElementById('purchaseResultOverlay'); }
-                o.style.cssText = 'display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5)';
-                const b = document.getElementById('purchaseResult'); if (b) b.style.display = 'block';
-                const ok = document.getElementById('prOk'); if (ok) ok.onclick = () => o.remove();
-              } catch (e) {}
-            }
-            const username = localStorage.getItem('username');
-            const code = localStorage.getItem('code');
-            if (username && code) {
-              retrieveWallet(username, code);
-              // Refresh storage preview
-              try {
-                const url = `${API_BASE}/viewStorage/${encodeURIComponent(username)}&${encodeURIComponent(code)}?callback=storageCallback`;
-                jsonp(url);
-              } catch (e) {}
-            }
-            fetchMarket();
-            return;
-          }
-          const map = {
-            fail: 'Authentication failed. Please login again.',
-            self: 'You cannot purchase your own product.',
-            storage_fail: 'Not enough storage space.',
-            notfound: 'This product is no longer available.',
-            insufficient: 'Insufficient balance.'
-          };
-          hideProductModal();
-          if (window.showPurchaseResult) {
-            window.showPurchaseResult({ success: false, title: 'Purchase Failed', message: map[info] || 'Purchase failed.' });
-          } else {
-            try {
-              const html = `<div id="purchaseResultOverlay" class="success-popup-overlay" style="display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5);"><div id="purchaseResult" class="success-popup show" style="display:block;max-width:420px"><div class="success-icon-container"><div class="success-icon" style="background:#fff4f4;color:#d92d20;"></div></div><h3 class="success-title">Purchase Failed</h3><p class="success-message">${map[info] || 'Purchase failed.'}</p><button id="prOk" class="button button-primary">OK</button></div></div>`;
-              let o = document.getElementById('purchaseResultOverlay');
-              if (!o) { document.body.insertAdjacentHTML('beforeend', html); o = document.getElementById('purchaseResultOverlay'); }
-              o.style.cssText = 'display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5)';
-              const b = document.getElementById('purchaseResult'); if (b) b.style.display = 'block';
-              const ok = document.getElementById('prOk'); if (ok) ok.onclick = () => o.remove();
-            } catch (e) {}
-          }
-        }
-
-      function purchaseProduct(seller, id) {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        const buyer = localStorage.getItem('username');
-        const code = localStorage.getItem('code');
-        if (!isLoggedIn || !buyer || !code) {
-          const err = document.getElementById('pmError');
-          if (err) { err.textContent = 'Please login/link first.'; err.style.display = 'block'; }
+      window.loginCallback = function(response) {
+        if (!response || response.error !== 'none') {
+          alert('Login failed. Check your username and code.');
           return;
         }
-        const url = `${API_BASE}/purchase/${encodeURIComponent(seller)}&${encodeURIComponent(id)}-${encodeURIComponent(buyer)}~${encodeURIComponent(code)}?callback=purchaseCallback`;
-        jsonp(url);
-      }
-      function retrieveWallet(username, password) {
-        const url = `${API_BASE}/wallet/${encodeURIComponent(username)}&${encodeURIComponent(password)}?callback=walletCallback`;
-        jsonp(url);
-      }
-      function validateLogin(username, password) {
-        const url = `${API_BASE}/login/${encodeURIComponent(username)}&${encodeURIComponent(password)}?callback=loginCallback`;
-        jsonp(url);
-      }
-      function retrieveLoan(username, password) {
-        const url = `${API_BASE}/loanStatus/${encodeURIComponent(username)}&${encodeURIComponent(password)}?callback=loanCallback`;
-        jsonp(url);
-      }
-      function applyLoan(username, password, size) {
-        const url = `${API_BASE}/loanApply/${encodeURIComponent(username)}&${encodeURIComponent(password)}~${encodeURIComponent(size)}?callback=loanApplyCallback`;
-        jsonp(url);
-      }
-      function repayLoan(username, password) {
-        const url = `${API_BASE}/loanRepay/${encodeURIComponent(username)}&${encodeURIComponent(password)}?callback=loanRepayCallback`;
-        jsonp(url);
-      }
-      // Helper to toggle skeletons and apply reveal animation
-      function setLoadingState({ profile = false, balance = false, inventory = false }) {
         try {
-          const profileHeader = document.querySelector('.profile-header');
-          if (profileHeader) {
-            if (profile) {
-              profileHeader.classList.add('loading');
-            } else {
-              profileHeader.classList.remove('loading');
-              profileHeader.classList.add('reveal-in');
-              setTimeout(() => profileHeader.classList.remove('reveal-in'), 400);
-            }
-          }
-
-          const balanceContent = document.getElementById('creditBalanceContent');
-          if (balanceContent) {
-            if (balance) {
-              balanceContent.classList.add('loading');
-            } else {
-              balanceContent.classList.remove('loading');
-              balanceContent.classList.add('reveal-in');
-              setTimeout(() => balanceContent.classList.remove('reveal-in'), 400);
-            }
-          }
-
-          const inventoryCard = document.getElementById('inventoryCard');
-          if (inventoryCard) {
-            if (inventory) {
-              inventoryCard.classList.add('loading');
-            } else {
-              inventoryCard.classList.remove('loading');
-              inventoryCard.classList.add('reveal-in');
-              setTimeout(() => inventoryCard.classList.remove('reveal-in'), 400);
-            }
+          localStorage.setItem('username', response.name);
+          localStorage.setItem('uuid', response.uuid);
+          localStorage.setItem('code', response.code);
+          localStorage.setItem('isLoggedIn', 'true');
+        } catch (e) {}
+        // If backend included email, persist it and skip email step regardless
+        try {
+          if (response && typeof response.email === 'string' && response.email.indexOf('@') > -1) {
+            const uuid = response.uuid;
+            if (uuid) localStorage.setItem(`email::${uuid}`, response.email);
           }
         } catch (e) {}
-      }
-      if (!window.walletCallback) {
-        window.walletCallback = function(response) {
-          if (!response || response.error !== 'none') return;
-          const amountEl = document.getElementById('balanceValue');
-          const updatedEl = document.getElementById('balanceUpdated');
-          if (!amountEl) return;
-          // Show exactly as provided by the backend, no client-side formatting
-          const currencyEl = document.getElementById('currencyPill');
-          if (currencyEl) {
-            amountEl.textContent = 'CR' + String(response.bal) + ' ';
-            amountEl.appendChild(currencyEl);
-          } else {
-            amountEl.textContent = 'CR$ '+ String(response.bal);
-          }
-          if (updatedEl) {
-            updatedEl.textContent = 'Updated just now';
-          }
-          // stop balance skeleton
-          setLoadingState({ balance: false });
-        }
-      }
-      if (!window.loanCallback) {
-        window.loanCallback = function(response) {
-          try {
-            const statusEl = document.getElementById('loanStatus');
-            const detailsEl = document.getElementById('loanDetails');
-            const remainingEl = document.getElementById('loanRemaining');
-            const progressEl = document.getElementById('loanProgress');
-            const optionsEl = document.getElementById('loanOptions');
-            if (!statusEl || !detailsEl) return;
-            const showNoLoan = () => {
-              statusEl.textContent = 'No loan';
-              statusEl.style.color = '#175cd3';
-              detailsEl.style.display = 'none';
-              if (progressEl) progressEl.style.width = '0%';
-              if (optionsEl) optionsEl.style.display = 'grid';
-            };
-            if (!response || response.error !== 'none') { showNoLoan(); return; }
-            const hasLoan = (response.hasLoan === true || response.hasLoan === 'true');
-            if (!hasLoan) { showNoLoan(); return; }
-            const remaining = Number(response.remaining || 0);
-            const total = Number(response.total || 0);
-            const amount = Number(response.amount || 0);
-            statusEl.textContent = 'Active loan';
-            statusEl.style.color = '#b42318';
-            if (remainingEl) remainingEl.textContent = 'CR$ ' + remaining;
-            if (detailsEl) detailsEl.style.display = 'block';
-            if (progressEl) {
-              if (total > 0) {
-                const paid = Math.max(0, total - remaining);
-                let pct = Math.round((paid / total) * 100);
-                if (!isFinite(pct)) pct = 0;
-                pct = Math.max(0, Math.min(100, pct));
-                progressEl.style.width = pct + '%';
-              } else {
-                progressEl.style.width = '0%';
-              }
-            }
-          } catch (e) {}
-        }
-      }
-      if (!window.loanApplyCallback) {
-        window.loanApplyCallback = function(res) {
-          if (!res || res.error !== 'none') {
-            const map = { fail: 'Authentication failed.', exists: 'You already have a loan.', invalid: 'Invalid loan option.' };
-            if (window.showPurchaseResult) {
-              window.showPurchaseResult({ success: false, title: 'Loan Request Failed', message: map[res?.error] || 'Unable to take loan.' });
-            } else {
-              try {
-                const html = `<div id="loanResultOverlay" class="success-popup-overlay" style="display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5);"><div id="loanResult" class="success-popup show" style="display:block;max-width:420px"><div class="success-icon-container"><div class="success-icon" style="background:#fff4f4;color:#d92d20;"></div></div><h3 class="success-title">Loan Request Failed</h3><p class="success-message">${map[res?.error] || 'Unable to take loan.'}</p><button id="lrOk" class="button button-primary">OK</button></div></div>`;
-                let o = document.getElementById('loanResultOverlay');
-                if (!o) { document.body.insertAdjacentHTML('beforeend', html); o = document.getElementById('loanResultOverlay'); }
-                o.style.cssText = 'display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5)';
-                const b = document.getElementById('loanResult'); if (b) b.style.display = 'block';
-                const ok = document.getElementById('lrOk'); if (ok) ok.onclick = () => o.remove();
-              } catch (e) {}
-            }
-            return;
-          }
-          try {
-            const username = localStorage.getItem('username');
-            const code = localStorage.getItem('code');
-            if (username && code) {
-              retrieveWallet(username, code);
-              retrieveLoan(username, code);
-            }
-            if (window.showPurchaseResult) {
-              const a = Number(res.amount || 0), t = Number(res.total || 0);
-              window.showPurchaseResult({ success: true, title: 'Loan Approved', message: `CR$ ${a} credited. Total to repay: CR$ ${t}.` });
-            } else {
-              try {
-                const a = Number(res.amount || 0), t = Number(res.total || 0);
-                const html = `<div id="loanResultOverlay" class="success-popup-overlay" style="display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5);"><div id="loanResult" class="success-popup show" style="display:block;max-width:420px"><div class="success-icon-container"><div class="success-icon" style="background:#ecfdf3;color:#039855;"></div></div><h3 class="success-title">Loan Approved</h3><p class="success-message">CR$ ${a} credited. Total to repay: CR$ ${t}.</p><button id="lrOk" class="button button-primary">OK</button></div></div>`;
-                let o = document.getElementById('loanResultOverlay');
-                if (!o) { document.body.insertAdjacentHTML('beforeend', html); o = document.getElementById('loanResultOverlay'); }
-                o.style.cssText = 'display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5)';
-                const b = document.getElementById('loanResult'); if (b) b.style.display = 'block';
-                const ok = document.getElementById('lrOk'); if (ok) ok.onclick = () => o.remove();
-              } catch (e) {}
-            }
-          } catch (e) {}
-        }
-      }
-      if (!window.loanRepayCallback) {
-        window.loanRepayCallback = function(res) {
-          if (!res || res.error !== 'none') {
-            const map = { fail: 'Authentication failed.', noloan: 'No active loan to repay.', insufficient: 'Insufficient balance to repay.' };
-            if (window.showPurchaseResult) {
-              window.showPurchaseResult({ success: false, title: 'Repayment Failed', message: map[res?.error] || 'Unable to repay loan.' });
-            } else {
-              try {
-                const html = `<div id="loanResultOverlay" class="success-popup-overlay" style="display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5);"><div id="loanResult" class="success-popup show" style="display:block;max-width:420px"><div class="success-icon-container"><div class="success-icon" style="background:#fff4f4;color:#d92d20;"></div></div><h3 class="success-title">Repayment Failed</h3><p class="success-message">${map[res?.error] || 'Unable to repay loan.'}</p><button id="lrOk" class="button button-primary">OK</button></div></div>`;
-                let o = document.getElementById('loanResultOverlay');
-                if (!o) { document.body.insertAdjacentHTML('beforeend', html); o = document.getElementById('loanResultOverlay'); }
-                o.style.cssText = 'display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5)';
-                const b = document.getElementById('loanResult'); if (b) b.style.display = 'block';
-                const ok = document.getElementById('lrOk'); if (ok) ok.onclick = () => o.remove();
-              } catch (e) {}
-            }
-            return;
-          }
-          try {
-            const username = localStorage.getItem('username');
-            const code = localStorage.getItem('code');
-            if (username && code) {
-              retrieveWallet(username, code);
-              retrieveLoan(username, code);
-            }
-            if (window.showPurchaseResult) {
-              window.showPurchaseResult({ success: true, title: 'Loan Repaid', message: 'Your loan has been fully repaid.' });
-            } else {
-              try {
-                const html = `<div id="loanResultOverlay" class="success-popup-overlay" style="display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5);"><div id="loanResult" class="success-popup show" style="display:block;max-width:420px"><div class="success-icon-container"><div class="success-icon" style="background:#ecfdf3;color:#039855;"></div></div><h3 class="success-title">Loan Repaid</h3><p class="success-message">Your loan has been fully repaid.</p><button id="lrOk" class="button button-primary">OK</button></div></div>`;
-                let o = document.getElementById('loanResultOverlay');
-                if (!o) { document.body.insertAdjacentHTML('beforeend', html); o = document.getElementById('loanResultOverlay'); }
-                o.style.cssText = 'display:flex;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.5)';
-                const b = document.getElementById('loanResult'); if (b) b.style.display = 'block';
-                const ok = document.getElementById('lrOk'); if (ok) ok.onclick = () => o.remove();
-              } catch (e) {}
-            }
-          } catch (e) {}
-        }
-      }
-      if (!window.storageCallback) {
-        window.storageCallback = function(response) {
-          try {
-            const countEl = document.getElementById('inventoryCount');
-            const gridEl = document.getElementById('inventoryGrid');
-            if (!countEl || !gridEl) return;
-            gridEl.innerHTML = '';
-            const rows = (response && Array.isArray(response.row)) ? response.row : [];
-            countEl.textContent = rows.length + ' items';
-            // Render up to 27 slots like a chest (3 rows of 9)
-            const maxSlots = 27;
-            for (let i = 0; i < maxSlots; i++) {
-              const slot = document.createElement('div');
-              slot.style.width = '52px';
-              slot.style.height = '52px';
-              slot.style.background = '#fff';
-              slot.style.border = '1px solid #e4e7ec';
-              slot.style.borderRadius = '8px';
-              slot.style.display = 'flex';
-              slot.style.alignItems = 'center';
-              slot.style.justifyContent = 'center';
-              slot.style.position = 'relative';
-              if (rows[i]) {
-                const it = rows[i];
-                const type = (it.type || '').split(':')[1] || 'stone';
-                const img = document.createElement('img');
-                img.src = 'https://saintcraft.us/market/shop_textures/' + type + '.png';
-                img.alt = it.name || type;
-                img.style.width = '32px';
-                img.style.height = '32px';
-                img.style.imageRendering = 'pixelated';
-                img.onerror = function(){ this.onerror = null; this.src = 'https://raw.githubusercontent.com/saintcraft-mc/website-public/refs/heads/main/missing_model.webp'; };
-                img.title = (it.name || type) + (it.amount ? ' x' + it.amount : '');
-                slot.appendChild(img);
-                if (it.amount && parseInt(it.amount) > 1) {
-                  const badge = document.createElement('div');
-                  badge.textContent = it.amount;
-                  badge.style.position = 'absolute';
-                  badge.style.right = '4px';
-                  badge.style.bottom = '2px';
-                  badge.style.fontSize = '12px';
-                  badge.style.fontWeight = '700';
-                  badge.style.color = '#1a1523';
-                  badge.style.background = 'rgba(255,255,255,0.8)';
-                  badge.style.border = '1px solid #e4e7ec';
-                  badge.style.borderRadius = '6px';
-                  badge.style.padding = '1px 4px';
-                  slot.appendChild(badge);
-                }
-
-                // Hover tooltip
-                slot.addEventListener('mouseenter', () => {
-                  const tooltip = document.createElement('div');
-                  tooltip.className = 'inventory-tooltip';
-                  tooltip.style.position = 'absolute';
-                  tooltip.style.left = '50%';
-                  tooltip.style.bottom = '60px';
-                  tooltip.style.transform = 'translateX(-50%)';
-                  tooltip.style.background = '#ffffff';
-                  tooltip.style.border = '1px solid #e4e7ec';
-                  tooltip.style.boxShadow = '0 8px 20px rgba(16,24,40,0.12)';
-                  tooltip.style.borderRadius = '10px';
-                  tooltip.style.padding = '10px 12px';
-                  tooltip.style.zIndex = '10000';
-                  tooltip.style.minWidth = '180px';
-                  tooltip.style.pointerEvents = 'none';
-                  const displayName = (it.name || type).toString();
-                  const amountText = it.amount ? ('x' + it.amount) : '';
-                  tooltip.innerHTML = `
-                    <div style="display:flex; align-items:center; gap:8px;">
-                      <img src="https://saintcraft.us/market/shop_textures/${type}.png" style="width:24px; height:24px; image-rendering:pixelated;" alt="${displayName}">
-                      <div style="font-weight:700; color:#1a1523;">${displayName} <span style="color:#667085; font-weight:600; margin-left:4px;">${amountText}</span></div>
-                    </div>
-                    <div style="margin-top:6px; font-size:12px; color:#667085;">Type: <span style="font-family:monospace;">${it.type || 'minecraft:unknown'}</span></div>
-                  `;
-                  slot.appendChild(tooltip);
-                });
-                slot.addEventListener('mouseleave', () => {
-                  const t = slot.querySelector('.inventory-tooltip');
-                  if (t) t.remove();
-                });
-              }
-              gridEl.appendChild(slot);
-            }
-            // stop inventory skeleton
-            setLoadingState({ inventory: false });
-          } catch (e) {}
-        }
-      }
-      if (!window.loginCallback) {
-        window.loginCallback = function(response) {
-          if (!response || response.error !== 'none') {
-            try {
-              localStorage.removeItem('username');
-              localStorage.removeItem('uuid');
-              localStorage.removeItem('code');
-              localStorage.setItem('isLoggedIn', 'false');
-            } catch (e) {}
-            accountData.minecraft.connected = false;
-            updateAccountUI('minecraft', false);
-            updateRestrictedViews(false);
-            // Redirect to login when session invalid
-            window.location.href = '/login';
-            return;
-          }
-          try {
-            localStorage.setItem('username', response.name);
-            localStorage.setItem('uuid', response.uuid);
-            localStorage.setItem('code', response.code);
-            localStorage.setItem('isLoggedIn', 'true');
-          } catch (e) {}
-          // If backend provided email, persist and update UI immediately
-          try {
-            if (response && typeof response.email === 'string' && response.email.indexOf('@') > -1) {
-              const uuid = response.uuid;
-              const emailVal = response.email;
-              if (uuid) {
-                localStorage.setItem(`email::${uuid}`, emailVal);
-                const profileEmailEl = document.querySelector('.profile-email');
-                if (profileEmailEl) {
-                  if (emailVal.length > 24) {
-                    const at = emailVal.indexOf('@');
-                    const domain = at > -1 ? emailVal.slice(at) : '';
-                    const namePart = at > -1 ? emailVal.slice(0, at) : emailVal;
-                    const short = namePart.length > 12 ? namePart.slice(0, 12) + '…' : namePart;
-                    profileEmailEl.textContent = short + domain;
-                  } else {
-                    profileEmailEl.textContent = emailVal;
-                  }
-                }
-              }
-            }
-          } catch (e) {}
-          accountData.minecraft.connected = true;
-          accountData.minecraft.username = response.name;
-          updateAccountUI('minecraft', true);
-          updateRestrictedViews(true);
-          // stop initial profile skeleton once authenticated
-          setLoadingState({ profile: false });
-          retrieveWallet(response.name, response.code);
-          // Fetch storage summary preview
-          try {
-            const url = `${API_BASE}/viewStorage/${encodeURIComponent(response.name)}&${encodeURIComponent(response.code)}?callback=storageCallback`;
-            jsonp(url);
-          } catch (e) {}
+        // Backend-provided flag to skip email step when already set
+        const hasEmailFlag = (response.hasEmail === true || response.hasEmail === 'true');
+        if (hasEmailFlag) {
+          finishLogin();
+        } else {
+          showEmailStep();
         }
       }
 
-      // ===== New: Initialize from localStorage (linked via login) =====
-      (function initFromLocalStorage() {
+      // Silent auto-login flow using localStorage credentials
+      window.autoLoginCallback = function(response) {
+        if (!response || response.error !== 'none') {
+          // Credentials invalid; clear them silently and stay on page
+          clearStoredSession();
+          return;
+        }
         try {
-          const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-          // start skeletons immediately
-          setLoadingState({ profile: true, balance: true, inventory: true });
-          if (!isLoggedIn) {
-            updateRestrictedViews(false);
-            // If not logged in, keep profile skeleton short then reveal static content gracefully
-            setTimeout(() => setLoadingState({ profile: false, balance: false, inventory: false }), 600);
-            // Hard redirect to login if no session
-            window.location.href = '/login';
-            return;
-          }
-          const username = localStorage.getItem('username') || '';
-          const uuid = localStorage.getItem('uuid') || '';
-          const code = localStorage.getItem('code') || '';
-          const email = uuid ? (localStorage.getItem(`email::${uuid}`) || '') : '';
-
-          // Update profile header
-          const profileNameEl = document.querySelector('.profile-name');
-          const profileEmailEl = document.querySelector('.profile-email');
-          const profileAvatarEl = document.querySelector('.profile-avatar');
-          const profileAvatarImg = document.getElementById('profileAvatarImg');
-          if (profileNameEl && username) profileNameEl.textContent = username;
-          if (profileEmailEl) {
-            if (email && email.length > 24) {
-              const at = email.indexOf('@');
-              const domain = at > -1 ? email.slice(at) : '';
-              const namePart = at > -1 ? email.slice(0, at) : email;
-              const short = namePart.length > 12 ? namePart.slice(0, 12) + '…' : namePart;
-              profileEmailEl.textContent = short + domain;
-            } else {
-              profileEmailEl.textContent = email || 'Not set';
-            }
-          }
-          if (profileAvatarImg) {
-            if (uuid) {
-              profileAvatarImg.src = `https://crafatar.com/renders/head/${uuid}`;
-              profileAvatarImg.style.display = 'block';
-            } else {
-              profileAvatarImg.style.display = 'none';
-            }
-          }
-          // Once we have any profile data, stop skeleton state
-          const profileHeaderEl = document.querySelector('.profile-header');
-          if (profileHeaderEl) profileHeaderEl.classList.remove('loading');
-
-          // Validate with backend before unlocking UI
-          if (username && code) {
-            validateLogin(username, code);
-            retrieveLoan(username, code);
-          } else {
-            updateRestrictedViews(false);
-            setTimeout(() => setLoadingState({ profile: false, balance: false, inventory: false }), 600);
+          localStorage.setItem('username', response.name);
+          localStorage.setItem('uuid', response.uuid);
+          localStorage.setItem('code', response.code);
+          localStorage.setItem('isLoggedIn', 'true');
+        } catch (e) {}
+        try {
+          if (response && typeof response.email === 'string' && response.email.indexOf('@') > -1) {
+            const uuid = response.uuid;
+            if (uuid) localStorage.setItem(`email::${uuid}`, response.email);
           }
         } catch (e) {}
-      })();
-
-      // Add event listeners
-      if (toggleViewBtn) {
-        toggleViewBtn.addEventListener('click', () => {
-          const allConnected = Object.values(accountData).every(acc => acc.connected);
-          for (const [accountType, data] of Object.entries(accountData)) {
-            data.connected = !allConnected;
-            updateAccountUI(accountType, !allConnected);
-          }
-        });
-      }
-
-      // Repurpose test button to re-fetch wallet if logged in
-      if (testMinecraftBtn) {
-        testMinecraftBtn.addEventListener('click', () => {
-          const username = localStorage.getItem('username');
-          const code = localStorage.getItem('code');
-          if (username && code) {
-            setLoadingState({ balance: true, inventory: true });
-            retrieveWallet(username, code);
-            const url = `${API_BASE}/viewStorage/${encodeURIComponent(username)}&${encodeURIComponent(code)}?callback=storageCallback`;
-            jsonp(url);
-          }
-        });
-      }
-
-      // Refresh inventory button
-      const refreshInventoryBtn = document.getElementById('refreshInventory');
-      if (refreshInventoryBtn) {
-        refreshInventoryBtn.addEventListener('click', () => {
-          const username = localStorage.getItem('username');
-          const code = localStorage.getItem('code');
-          if (username && code) {
-            setLoadingState({ inventory: true });
-            const url = `${API_BASE}/viewStorage/${encodeURIComponent(username)}&${encodeURIComponent(code)}?callback=storageCallback`;
-            jsonp(url);
-          }
-        });
-      }
-
-      if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-          try {
-            localStorage.removeItem('username');
-            localStorage.removeItem('uuid');
-            localStorage.removeItem('code');
-            localStorage.setItem('isLoggedIn', 'false');
-          } catch (e) {}
-          window.location.href = '/login';
-        });
-      }
-
-      // Navbar scroll effect
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 20) {
-          navbar.classList.add('scrolled');
+        const hasEmailFlag = (response.hasEmail === true || response.hasEmail === 'true');
+        if (hasEmailFlag) {
+          finishLogin();
         } else {
-          navbar.classList.remove('scrolled');
-        }
-      });
-
-      // Market search functionality
-      let searchTimeout;
-      if (searchInput) {
-        searchInput.addEventListener('input', () => {
-          clearTimeout(searchTimeout);
-          searchTimeout = setTimeout(filterMarketItems, 300);
-        });
-      }
-
-      // Function definitions
-      function filterMarketItems() {
-        const query = searchInput.value.toLowerCase();
-        const items = document.querySelectorAll('.market-item');
-        
-        items.forEach(item => {
-          const name = item.querySelector('.item-name').textContent.toLowerCase();
-          const description = item.querySelector('.item-description').textContent.toLowerCase();
-          
-          if (name.includes(query) || description.includes(query)) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      }
-
-      function updateAccountUI(accountType, isConnected) {
-        const account = document.getElementById(`${accountType}Account`);
-        if (!account) return;
-
-        const statusText = account.querySelector('.account-status-text');
-        const button = account.querySelector('button');
-        const data = accountData[accountType];
-
-        account.dataset.connected = isConnected;
-        
-        if (isConnected) {
-          account.classList.remove('unlinked', 'required');
-          if (accountType === 'minecraft') {
-            // Update Minecraft username displays
-            const usernameDisplay = account.querySelector('.minecraft-username');
-            const usernameSpan = usernameDisplay.querySelector('span');
-            usernameDisplay.style.display = 'block';
-            usernameSpan.textContent = data.username;
-            statusText.textContent = 'Connected';
-
-            // Update profile section
-            const minecraftProfile = document.querySelector('.minecraft-profile');
-            if (minecraftProfile) {
-              minecraftProfile.style.display = 'block';
-              minecraftProfile.querySelector('div').textContent = data.username;
-            }
-
-            // Update sidebar profile badge
-            const profileBadge = document.querySelector('.minecraft-profile-badge');
-            if (profileBadge) {
-              profileBadge.style.display = 'block';
-              profileBadge.querySelector('span').textContent = data.username;
-            }
-          } else {
-            statusText.textContent = data.username;
-          }
-          button.textContent = 'Unlink';
-          button.classList.remove('button-primary', 'button-secondary');
-          button.classList.add('button-danger');
-        } else {
-          account.classList.add(data.required ? 'required' : 'unlinked');
-          if (accountType === 'minecraft') {
-            // Hide Minecraft username displays
-            const usernameDisplay = account.querySelector('.minecraft-username');
-            usernameDisplay.style.display = 'none';
-            statusText.textContent = 'Required for trading';
-
-            // Hide profile section
-            const minecraftProfile = document.querySelector('.minecraft-profile');
-            if (minecraftProfile) {
-              minecraftProfile.style.display = 'none';
-            }
-
-            // Hide sidebar profile badge
-            const profileBadge = document.querySelector('.minecraft-profile-badge');
-            if (profileBadge) {
-              profileBadge.style.display = 'none';
-            }
-          } else {
-            statusText.textContent = data.required ? 'Required for trading' : `Optional - ${getOptionalText(accountType)}`;
-          }
-          button.textContent = 'Connect';
-          button.classList.remove('button-danger');
-          button.classList.add(data.required ? 'button-primary' : 'button-secondary');
-        }
-
-        // Update alert and setup steps visibility
-        const alert = document.getElementById('accountAlert');
-        const setupSteps = document.getElementById('setupSteps');
-        const isMinecraftConnected = accountData.minecraft.connected;
-
-        if (alert) alert.style.display = isMinecraftConnected ? 'none' : 'flex';
-        if (setupSteps) setupSteps.style.display = isMinecraftConnected ? 'none' : 'grid';
-
-        // Update restricted views when Minecraft connection status changes
-        if (accountType === 'minecraft') {
-          updateRestrictedViews(isConnected);
+          // If email not set, guide user through email step instead of redirecting
+          showEmailStep();
         }
       }
 
-      function getOptionalText(accountType) {
-        switch(accountType) {
-          case 'discord': return 'Get notified about trades';
-          case 'google': return 'Quick sign in';
-          default: return '';
-        }
-      }
-
-      // Add event listeners for restricted view buttons
-      const creditLinkButton = document.getElementById('creditLinkButton');
-      const marketLinkButton = document.getElementById('marketLinkButton');
-
-      if (creditLinkButton) {
-        creditLinkButton.addEventListener('click', () => handleConnection('minecraft'));
-      }
-
-      if (marketLinkButton) {
-        marketLinkButton.addEventListener('click', () => handleConnection('minecraft'));
-      }
-
-      // Move handleConnection function definition before its usage
-      async function handleConnection(accountType) {
-        const account = document.getElementById(`${accountType}Account`);
-        if (!account) return;
-
-        const isCurrentlyConnected = account.dataset.connected === 'true';
-
-        if (isCurrentlyConnected) {
-          if (confirm(`Are you sure you want to unlink your ${accountType} account?`)) {
-            account.dataset.loading = 'true';
-            await simulateApiCall();
-            accountData[accountType].connected = false;
-            updateAccountUI(accountType, false);
-            account.dataset.loading = 'false';
-          }
-        } else {
-          if (accountType === 'minecraft') {
-            showModal();
-          } else {
-            account.dataset.loading = 'true';
-            await simulateApiCall();
-            accountData[accountType].connected = true;
-            updateAccountUI(accountType, true);
-            account.dataset.loading = 'false';
-          }
-        }
-      }
-
-      function simulateApiCall() {
-        return new Promise(resolve => setTimeout(resolve, 1000));
-      }
-
-      
-
-      // Initialize account connection handlers
-      document.querySelectorAll('[data-account-type]').forEach(account => {
-        const button = account.querySelector('button');
-        const accountType = account.dataset.accountType;
-        
-        if (button && accountType) {
-          button.addEventListener('click', () => handleConnection(accountType));
-        }
-      });
-
-      // Marketplace controls
-      function initMarketplaceControls() {
-        const mkSearch = document.getElementById('mk-search');
-        const mkSeller = document.getElementById('mk-seller');
-        const mkPrice = document.getElementById('mk-price');
-        const mkApply = document.getElementById('mk-apply');
-        if (mkSearch) mkSearch.addEventListener('input', () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(applyMarketFilters, 250); });
-        if (mkSeller) mkSeller.addEventListener('change', applyMarketFilters);
-        if (mkPrice) mkPrice.addEventListener('input', () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(applyMarketFilters, 250); });
-        if (mkApply) mkApply.addEventListener('click', applyMarketFilters);
-      }
-      // Initialize now (if already visible) and also after unlocking
-      initMarketplaceControls();
-
-      // Leaderboard functionality
-      const leaderboardCategories = document.querySelectorAll('.leaderboard-category');
-      const timeFilter = document.querySelector('.time-filter');
-
-      if (leaderboardCategories) {
-        leaderboardCategories.forEach(category => {
-          category.addEventListener('click', () => {
-            leaderboardCategories.forEach(c => c.classList.remove('active'));
-            category.classList.add('active');
-            updateLeaderboard(category.textContent, timeFilter.value);
-          });
-        });
-      }
-
-      if (timeFilter) {
-        timeFilter.addEventListener('change', () => {
-          const activeCategory = document.querySelector('.leaderboard-category.active');
-          if (activeCategory) {
-            updateLeaderboard(activeCategory.textContent, timeFilter.value);
-          }
-        });
-      }
-
-      function updateLeaderboard(category, timeFrame) {
-        // Here you would typically make an API call to fetch new leaderboard data
-        // For now, we'll just update the loading state
-        const leaderboardGrid = document.querySelector('.leaderboard-grid');
-        if (!leaderboardGrid) return;
-
-        leaderboardGrid.style.opacity = '0.5';
-        leaderboardGrid.style.pointerEvents = 'none';
-
-        // Simulate API call
-        setTimeout(() => {
-          leaderboardGrid.style.opacity = '1';
-          leaderboardGrid.style.pointerEvents = 'auto';
-          
-          // Update stats based on selected category
-          document.querySelectorAll('.player-stats').forEach(stats => {
-            if (category === 'Items Sold') {
-              stats.textContent = stats.textContent.replace(/\$[\d.]+K Trading Volume/, 'Items Sold');
-            } else if (category === 'Positive Ratings') {
-              stats.textContent = stats.textContent.replace(/\$[\d.]+K Trading Volume/, '98% Positive');
-            }
-          });
-
-          // Update time period in your rank card
-          const yourRankDetails = document.querySelector('.your-rank-details');
-          if (yourRankDetails) {
-            yourRankDetails.textContent = `Top 10% of all traders (${timeFrame.toLowerCase()})`;
-          }
-        }, 500);
-      }
-
-      // Navigation functionality
-      function switchSection(targetId) {
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
-        
-        const navLink = document.querySelector(`a[href="#${targetId}"]`);
-        if (navLink) {
-          navLink.classList.add('active');
-        }
-        
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.classList.add('active');
-        }
-      }
-
-      // Add click handlers to navigation links
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', (e) => {
+      if (formLogin) {
+        formLogin.addEventListener('submit', function(e) {
           e.preventDefault();
-          const targetId = link.getAttribute('href').substring(1);
-          switchSection(targetId);
-        });
-      });
-
-      // Market category functionality
-      document.querySelectorAll('.category-chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-          document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
-          chip.classList.add('active');
-        });
-      });
-
-      // Market tabs functionality
-      document.querySelectorAll('.market-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-          document.querySelectorAll('.market-tab').forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-        });
-      });
-
-      // Check URL hash on page load
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        switchSection(hash);
-      }
-
-      // Handle browser back/forward buttons
-      window.addEventListener('hashchange', () => {
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-          switchSection(hash);
-        }
-      });
-
-      function updateRestrictedViews(isMinecraftConnected) {
-        const creditBalanceContent = document.getElementById('creditBalanceContent');
-        const creditBalanceRestricted = document.getElementById('creditBalanceRestricted');
-        const marketContent = document.getElementById('marketContent');
-        const marketRestricted = document.getElementById('marketRestricted');
-
-        if (isMinecraftConnected) {
-          // Show content, hide restricted overlays
-          creditBalanceContent?.classList.remove('content-blur');
-          marketContent?.classList.remove('content-blur');
-          creditBalanceRestricted?.style.setProperty('display', 'none');
-          marketRestricted?.style.setProperty('display', 'none');
-          // Load marketplace data once unlocked
-          fetchMarket();
-          initMarketplaceControls();
-        } else {
-          // Hide content, show restricted overlays
-          creditBalanceContent?.classList.add('content-blur');
-          marketContent?.classList.add('content-blur');
-          creditBalanceRestricted?.style.setProperty('display', 'flex');
-          marketRestricted?.style.setProperty('display', 'flex');
-        }
-      }
-
-      // Initialize restricted views on page load based on localStorage
-      (function initRestrictedViews() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        updateRestrictedViews(isLoggedIn);
-      })();
-
-      // Modal elements
-      const modal = document.getElementById('minecraftLinkModal');
-      const linkKeyInput = document.getElementById('linkKey');
-      const linkKeyError = document.getElementById('linkKeyError');
-      const cancelLinkButton = document.getElementById('cancelLinkButton');
-      const submitLinkButton = document.getElementById('submitLinkButton');
-
-      // Show/hide modal functions
-      function showModal() {
-        modal.style.display = 'flex';
-        linkKeyInput.value = '';
-        linkKeyError.style.display = 'none';
-      }
-
-      function hideModal() {
-        modal.style.display = 'none';
-      }
-
-      // Handle modal events
-      cancelLinkButton.addEventListener('click', hideModal);
-
-      submitLinkButton.addEventListener('click', async () => {
-        const linkKey = linkKeyInput.value.trim();
-        
-        if (!linkKey) {
-          linkKeyError.textContent = 'Please enter a link key';
-          linkKeyError.style.display = 'block';
-          return;
-        }
-
-        // Update validation to require at least 9 characters
-        const keyPattern = /^[A-Za-z0-9]{9,}$/;
-        if (!keyPattern.test(linkKey)) {
-          linkKeyError.textContent = 'Link key must be at least 9 characters long and contain only letters and numbers';
-          linkKeyError.style.display = 'block';
-          return;
-        }
-        // New flow: no manual linking here; redirect user to login if not linked
-        window.location.href = '/login.html';
-      });
-
-      // Close modal when clicking outside
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          hideModal();
-        }
-      });
-
-      // Delete account functionality
-      const deleteAccountModal = document.getElementById('deleteAccountModal');
-      const initiateDeleteButton = document.getElementById('initiateDeleteButton');
-      const cancelDeleteButton = document.getElementById('cancelDeleteButton');
-      const confirmDeleteButton = document.getElementById('confirmDeleteButton');
-      const deleteCheck1 = document.getElementById('deleteCheck1');
-      const deleteCheck2 = document.getElementById('deleteCheck2');
-      const deleteCheck3 = document.getElementById('deleteCheck3');
-      const deleteConfirm = document.getElementById('deleteConfirm');
-      const minecraftWarning = document.getElementById('minecraftWarning');
-      const minecraftDeleteCheck = document.getElementById('minecraftDeleteCheck');
-
-      function updateDeleteButton() {
-        const isMinecraftConnected = accountData.minecraft.connected;
-        const allChecked = deleteCheck1.checked && deleteCheck2.checked && 
-          (!isMinecraftConnected || deleteCheck3.checked);
-        const deleteTyped = deleteConfirm.value === 'DELETE';
-        
-        confirmDeleteButton.disabled = !(allChecked && deleteTyped);
-      }
-
-      function showDeleteModal() {
-        const isMinecraftConnected = accountData.minecraft.connected;
-        
-        // Show/hide Minecraft-specific warnings and consequences
-        minecraftWarning.style.display = isMinecraftConnected ? 'list-item' : 'none';
-        minecraftDeleteCheck.style.display = isMinecraftConnected ? 'block' : 'none';
-        document.getElementById('minecraftConsequences').style.display = isMinecraftConnected ? 'block' : 'none';
-        
-        // Reset form
-        deleteCheck1.checked = false;
-        deleteCheck2.checked = false;
-        if (deleteCheck3) deleteCheck3.checked = false;
-        deleteConfirm.value = '';
-        updateDeleteButton();
-        
-        deleteAccountModal.style.display = 'flex';
-      }
-
-      function hideDeleteModal() {
-        deleteAccountModal.style.display = 'none';
-      }
-
-      // Event listeners
-      initiateDeleteButton.addEventListener('click', showDeleteModal);
-      cancelDeleteButton.addEventListener('click', hideDeleteModal);
-      
-      [deleteCheck1, deleteCheck2, deleteCheck3].forEach(checkbox => {
-        if (checkbox) {
-          checkbox.addEventListener('change', updateDeleteButton);
-        }
-      });
-
-      deleteConfirm.addEventListener('input', updateDeleteButton);
-
-      confirmDeleteButton.addEventListener('click', async () => {
-        const finalConfirm = await new Promise(resolve => {
-          const result = confirm('⚠️ FINAL WARNING: This is your last chance to keep your account. Are you absolutely sure you want to proceed with deletion?');
-          resolve(result);
-        });
-
-        if (finalConfirm) {
-          // Here you would make the API call to delete the account
-          try {
-            // Simulate API call
-            await simulateApiCall();
-            // Redirect to goodbye page
-            window.location.href = '/goodbye.html';
-          } catch (error) {
-            alert('There was an error deleting your account. Please try again later.');
+          const u = (inputUser?.value || '').trim();
+          const c = (inputCode?.value || '').trim();
+          if (!u || !c) {
+            alert('Please enter your Minecraft username and access code.');
+            return;
           }
-        }
-      });
+          if (remember?.checked) {
+            try { localStorage.setItem('remember', '1'); } catch (e) {}
+          } else {
+            try { localStorage.removeItem('remember'); } catch (e) {}
+          }
+          const url = `${API_BASE}/login/${encodeURIComponent(u)}&${encodeURIComponent(c)}?callback=loginCallback`;
+          jsonp(url);
+        });
+      }
 
-      // Close modal when clicking outside
-      deleteAccountModal.addEventListener('click', (e) => {
-        if (e.target === deleteAccountModal) {
-          hideDeleteModal();
-        }
-      });
-
-      // Loan UI buttons
-      (function wireLoanUI(){
+      // Attempt automatic session validation and redirect
+      (function attemptAutoLogin() {
         try {
-          const options = document.getElementById('loanOptions');
-          const repayBtn = document.getElementById('loanRepayBtn');
-          if (options) {
-            options.querySelectorAll('button[data-loan-size]')?.forEach(btn => {
-              btn.addEventListener('click', () => {
-                const size = btn.getAttribute('data-loan-size');
-                const username = localStorage.getItem('username');
-                const code = localStorage.getItem('code');
-                if (username && code && size) applyLoan(username, code, size);
-              });
-            });
-          }
-          if (repayBtn) {
-            repayBtn.addEventListener('click', () => {
-              const username = localStorage.getItem('username');
-              const code = localStorage.getItem('code');
-              if (username && code) repayLoan(username, code);
-            });
+          const storedUser = localStorage.getItem('username');
+          const storedCode = localStorage.getItem('code');
+          const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+          if (storedUser && storedCode && isLoggedIn) {
+            const url = `${API_BASE}/login/${encodeURIComponent(storedUser)}&${encodeURIComponent(storedCode)}?callback=autoLoginCallback`;
+            jsonp(url);
           }
         } catch (e) {}
       })();
-    });
+
+      if (formEmail) {
+        formEmail.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = (inputEmail?.value || '').trim();
+          const errorEl = document.getElementById('email-error');
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            if (errorEl) errorEl.style.display = 'block';
+            return;
+          }
+          if (errorEl) errorEl.style.display = 'none';
+          // Persist email server-side
+          const username = localStorage.getItem('username');
+          const code = localStorage.getItem('code');
+          if (!username || !code) { finishLogin(); return; }
+          const url = `${API_BASE}/setEmail/${encodeURIComponent(username)}&${encodeURIComponent(code)}~${encodeURIComponent(email)}?callback=emailCallback`;
+          jsonp(url);
+        });
+        emailBack?.addEventListener('click', function() {
+          showLoginStep();
+        });
+      }
+
+      // Handle email persistence result
+      window.emailCallback = function(res) {
+        if (!res || res.error !== 'none') {
+          alert('Unable to save email. Please try again.');
+          return;
+        }
+        try {
+          const uuid = localStorage.getItem('uuid');
+          const email = inputEmail?.value || '';
+          if (uuid && email) localStorage.setItem(`email::${uuid}`, email);
+        } catch (e) {}
+        finishLogin();
+      }
+
+      // Modal wiring
+      function openModal() {
+        if (!modal) return;
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      function closeModal() {
+        if (!modal) return;
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      needCodeLink?.addEventListener('click', function(e) {
+        e.preventDefault();
+        openModal();
+      });
+      modalClose?.addEventListener('click', closeModal);
+      modal?.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+    })();
   </script>
 </body>
 </html> 
