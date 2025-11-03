@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f6f8fa;
+      color: #24292f;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: white;
+      border-bottom: 1px solid #d0d7de;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04);
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #24292f;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #0969da;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 60px 0;
+      min-height: calc(100vh - 200px);
+    }
+
+    .page-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #d0d7de;
+    }
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #24292f;
+      margin-bottom: 8px;
+    }
+
+    .page-description {
+      font-size: 16px;
+      color: #57606a;
+    }
+
+    /* Alert Box */
+    .alert-box {
+      background: #fff8c5;
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .alert-icon {
+      width: 16px;
+      height: 16px;
+      fill: #9a6700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-content p {
+      margin: 0;
+      font-size: 14px;
+      color: #24292f;
+    }
+
+    /* Info Box */
+    .info-box {
+      background: #ddf4ff;
+      border: 1px solid #54aeff;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .info-icon {
+      width: 16px;
+      height: 16px;
+      fill: #0969da;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-content {
+      flex: 1;
+    }
+
+    .info-content p {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #24292f;
+    }
+
+    .info-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .player-types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .player-type-card {
+      background: white;
+      border: 2px solid #d0d7de;
+      border-radius: 6px;
+      padding: 20px;
+      transition: all 0.2s;
+    }
+
+    .player-type-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(27, 31, 36, 0.12);
+    }
+
+    .player-type-card.premium {
+      border-color: #238636;
+      background: linear-gradient(135deg, #f6ffed 0%, #ffffff 100%);
+    }
+
+    .player-type-card.cracked {
+      border-color: #0969da;
+      background: linear-gradient(135deg, #ddf4ff 0%, #ffffff 100%);
+    }
+
+    .player-type-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .player-type-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .player-type-card.premium .player-type-icon {
+      background: #238636;
+      color: white;
+    }
+
+    .player-type-card.cracked .player-type-icon {
+      background: #0969da;
+      color: white;
+    }
+
+    .player-type-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #24292f;
+      margin: 0;
+    }
+
+    .player-type-card p {
+      font-size: 14px;
+      color: #57606a;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Archive Card */
+    .archive-card {
+      background: white;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(27, 31, 36, 0.04);
+    }
+
+    .archive-header {
+      padding: 16px 20px;
+      background: #f6f8fa;
+      border-bottom: 1px solid #d0d7de;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .archive-icon {
+      width: 20px;
+      height: 20px;
+      fill: #57606a;
+    }
+
+    .archive-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #24292f;
+      margin: 0;
+    }
+
+    .archive-body {
+      padding: 24px 20px;
+    }
+
+    /* Steps */
+    .step-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .step-item:hover {
+      border-color: #0969da;
+      background: white;
+      box-shadow: 0 1px 3px rgba(27, 31, 36, 0.08);
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: #0969da;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #24292f;
+      margin-bottom: 8px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: #57606a;
+      margin: 0 0 8px 0;
+      line-height: 1.6;
+    }
+
+    .step-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .code-block {
+      background: #161b22;
+      color: #58a6ff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      margin-top: 8px;
+      display: inline-block;
+      border: 1px solid #30363d;
+    }
+
+    .highlight {
+      color: #0969da;
+      font-weight: 600;
+    }
+
+    .discord-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: #5865f2;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+      margin-top: 16px;
+    }
+
+    .discord-button:hover {
+      background: #4752c4;
+    }
+
+    .cta-box {
+      background: #0969da;
+      color: white;
+      border-radius: 6px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .cta-box h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: white;
+      color: #0969da;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .cta-button:hover {
+      background: #f6f8fa;
+    }
+
+    /* Footer */
+    footer {
+      background: #f6f8fa;
+      border-top: 1px solid #d0d7de;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: #57606a;
+      line-height: 1.6;
+    }
+
+    .footer-divider {
+      width: 60px;
+      border: 0;
+      border-top: 1px solid #d0d7de;
+      margin: 0 auto 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 40px 0;
+      }
+
+      .page-title {
+        font-size: 24px;
+      }
+
+      .step-item {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-link {
+        font-size: 12px;
+      }
+    }
+  </style>
+  <title>Ban Appeal - Saintcraft</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <div class="logo">
+          <img src="../sc_wm_tra_6.png" alt="Saintcraft">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">
+          <i class="fas fa-gavel" style="color: #57606a; margin-right: 8px;"></i>
+          Ban & Tempban Appeals
+        </h1>
+        <p class="page-description">Request a fair hearing for your ban or punishment</p>
+      </div>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <i class="fas fa-info-circle info-icon"></i>
+        <div class="info-content">
+          <p><strong>Believe you've been wrongfully banned or punished?</strong></p>
+          <p>At Saintcraft, we believe in fairness and justice. Everyone deserves a fair hearing to present their case. If you feel that inappropriate action was taken against your account, we encourage you to appeal and let us review the situation thoroughly.</p>
+          <p><strong>We believe in second chances and redemption.</strong> Even if you did break the rules, we understand that people can change and grow. If you're willing to show us that you want to better yourself and become a positive member of our community, we will hear you out. Everyone deserves an opportunity to demonstrate their commitment to improvement.</p>
+        </div>
+      </div>
+
+      <!-- Appeal Process Card -->
+      <div class="archive-card">
+        <div class="archive-header">
+          <i class="fas fa-list-ol archive-icon"></i>
+          <h2 class="archive-title">How to Submit an Appeal</h2>
+        </div>
+        <div class="archive-body">
+          
+          <!-- Step 1 -->
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Join Our Discord Server</h3>
+              <p>If you're not already a member, join our Discord community at <span class="highlight">discord.saintcraft.us</span>. This is where all appeals are handled.</p>
+              <a href="https://discord.saintcraft.us" target="_blank" class="discord-button">
+                <i class="fab fa-discord"></i>
+                Join Discord
+              </a>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Contact Any Staff Member</h3>
+              <p>Reach out to <span class="highlight">any staff member</span> in <span class="highlight">any channel</span> on our Discord server. You don't need to wait for a specific channel or specific person - any staff member can help initiate your appeal.</p>
+              <p>Simply explain that you'd like to appeal your ban or punishment, and they will guide you through the process.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Present Your Case</h3>
+              <p>The staff member will create a space for you to present your appeal. Be honest and provide any relevant details about:</p>
+              <ul style="color: #57606a; margin-left: 20px; margin-top: 8px; line-height: 1.8;">
+                <li>Why you believe the ban or punishment was wrongful</li>
+                <li>What happened from your perspective</li>
+                <li>Any evidence or context that supports your case</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Fair Review & Decision</h3>
+              <p>Our staff team will carefully review your appeal, examine the evidence, and evaluate whether appropriate action was taken. We take all appeals seriously and ensure every case receives a thorough and fair hearing.</p>
+              <p>You'll receive a response once the review is complete, which may include reinstatement, modification of the punishment, or upholding the original decision.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Important Notes Card -->
+      <div class="archive-card">
+        <div class="archive-header">
+          <i class="fas fa-exclamation-circle archive-icon"></i>
+          <h2 class="archive-title">Important Information</h2>
+        </div>
+        <div class="archive-body">
+          <div style="padding: 0 16px;">
+            <ul style="color: #57606a; margin-left: 20px; line-height: 2;">
+              <li><strong>Be Honest:</strong> Provide truthful information in your appeal. Lying or withholding details will hurt your case.</li>
+              <li><strong>Be Respectful:</strong> Treat staff members with respect during the appeal process. Hostility or harassment will not help your appeal.</li>
+              <li><strong>Be Patient:</strong> Appeals require time to review properly. Staff will respond as soon as they've thoroughly evaluated your case.</li>
+              <li><strong>Accept the Decision:</strong> Once a final decision is made, it should be respected. Repeated appeals of the same case may not be reviewed.</li>
+              <li><strong>Learn from It:</strong> Whether successful or not, use this as an opportunity to understand our rules better and improve your future conduct.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Box -->
+      <div class="cta-box">
+        <h3>Ready to Appeal?</h3>
+        <p>Join our Discord community and contact any staff member to start your appeal process.</p>
+        <a href="https://discord.saintcraft.us" target="_blank" class="cta-button">
+          <i class="fab fa-discord"></i>
+          Join Discord to Submit Appeal
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <hr class="footer-divider">
+      <p>© 2024–2025 Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved.<br>
+      All trademarks and names are the property of their respective owners.<br>
+      We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
