@@ -41,6 +41,10 @@
         <img src="sc_wm_tra_6.png" alt="Logo" id="navbar-logo">
     </nav>
     <div id="map"></div>
+    <footer id="footer">
+        <p>© <span id="copyright-year-start">2024</span>–<span id="copyright-year-end"></span> Crosswalk Networks | Catholic.gg — Home of the Saintcraft server. All rights reserved. All trademarks and names are the property of their respective owners. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other organization mentioned.</p>
+        <p id="footer-attribution">Powered by Unmined / Balázs Farkas ("megasys")</p>
+    </footer>
 
     <script type="text/javascript">
 
@@ -57,6 +61,9 @@
         const mapElement = document.getElementById('map');
         const unmined = new Unmined(mapElement, UnminedMapProperties, UnminedRegions);
 
+        // Set current year in footer
+        const currentYear = new Date().getFullYear();
+        document.getElementById('copyright-year-end').textContent = currentYear;
 
     </script>
 </body>
