@@ -1,0 +1,115 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;    
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;    
+    font-size: 16px;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 10000;
+}
+
+#navbar-logo {
+    height: 45px;
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+#navbar-logo:hover {
+    transform: scale(1.05);
+}
+
+#navbar-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    letter-spacing: -0.02em;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+}
+
+.mouseposition {
+    background-color: white;
+    padding: 3px;
+    text-align: right;
+}
+
+.mousepositioncoord {
+    min-width: 40px;
+    display: inline-block;
+}
+
+div.ol-mouse-position {
+    background-color: white;
+    padding: 6px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+.ol-ctx-menu-container {
+    font-size: 16px;
+}
+
+.ol-scale-step-text {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    text-shadow:
+        1px 0 0 black,
+        0 1px 0 black,
+        -1px 0 0 black,
+        0 -1px 0 black;
+    0px 0px 8px black;
+}
+
+.ol-scale-singlebar-odd {
+    background: #ddd;
+}
+
+.ol-scale-singlebar-even {
+    background: #444;
+}
+
+.toastify {
+    color: black;
+    background: yellow;
+}
+
+.ol-ctx-menu-container li {
+    padding-left: 20px;
+}
+
+.menuitem-checked::before {
+    content: '☑';
+    width: 20px;
+    display: inline-block;
+    margin-left: -20px;
+}
+
+.menuitem-unchecked::before {
+    content: '☐';
+    width: 20px;
+    display: inline-block;
+    margin-left: -20px;
+}
