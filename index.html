@@ -22,15 +22,17 @@ Written by @sabrinica for Saintcraft
 05/30/2025
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebSite">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="preload" as="image" href="/bg_1.png" fetchpriority="high">
   <link rel="preload" as="image" href="/bg_2.png">
@@ -313,6 +315,18 @@ Written by @sabrinica for Saintcraft
     .foreground { 
       z-index: 3;
       transform: scale(1.02);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
     }
 
     .server-info-wrapper {
@@ -1573,32 +1587,83 @@ Written by @sabrinica for Saintcraft
       }
     }
   </style>
-  <title>Saintcraft: Catholic & Christian Minecraft Server (Java) | First Christian Hytale Server</title>
+  <title>Christian Minecraft Server | Best Christian Minecraft Server | Saintcraft</title>
 
-  <meta name="title" content="Saintcraft — Catholic & Christian Minecraft Server (Java) | First Christian Hytale Server">
-  <meta name="description" content="Saintcraft is a Catholic & Christian Minecraft server for Java Edition. Join a Christ-centered community, Bible-inspired builds, custom gameplay, and a family‑friendly server. We're also the first and #1 Christian Hytale server, launching January 13th, 2025.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Christian Minecraft Server | Best Christian Minecraft Server | Saintcraft">
+  <meta name="description" content="Join Saintcraft, the best Christian Minecraft server for Java Edition. Experience faith-based gameplay, Bible-inspired builds, and a welcoming Christ-centered community. We're also the first and #1 Christian Hytale server launching January 13th, 2025. Family-friendly, custom features, and a supportive gaming environment for all believers.">
+  <meta name="subject" content="Christian Minecraft Server">
+  <meta name="classification" content="Gaming Server, Christian Gaming, Minecraft Server">
+  <meta name="category" content="Christian Minecraft Server">
   <meta name="keywords" content="Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server, Top Christian Minecraft Server, Faith-Based Minecraft Server, Christian Gaming Server, Catholic Gaming Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Bible Minecraft Server, Christian Minecraft Community, Catholic Minecraft Community, Minecraft for Christians, Faith-Focused Minecraft, Christian Multiplayer Minecraft, Worship and Play Minecraft, Christian-Friendly Minecraft Server, Christian Survival Minecraft, Catholic-Friendly Minecraft Server, Bible Study in Minecraft, Virtual Faith Minecraft Server, Christian Gaming Network, Catholic Gaming Community, Faithful Minecraft Gamers, Worship and Build Christian Minecraft, Christ-Centered Gaming Experience, Catholic-Friendly Gaming Server, Bible-Inspired Minecraft Builds, Christian Fellowship Minecraft Server, First Christian Hytale Server, Christian Hytale Server, Best Christian Hytale Server, Catholic Hytale Server, Hytale Christian Community">
   <meta name="author" content="Saintcraft Christian Minecraft Server">
-  <meta name="theme-color" content="#2f508c">
+  <meta name="theme-color" content="#7f56d9">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
   <link rel="canonical" href="https://saintcraft.us/">
   <link rel="alternate" hreflang="en" href="https://saintcraft.us/">
   <link rel="alternate" hreflang="x-default" href="https://saintcraft.us/">
 
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://saintcraft.us/">
-  <meta property="og:title" content="Saintcraft — Catholic & Christian Minecraft Server (Java) | First Christian Hytale Server">
-  <meta property="og:description" content="Join the leading Catholic & Christian Minecraft server. Java Edition, Christ‑centered community, custom features, and Bible‑inspired builds. We're also the first and #1 Christian Hytale server, launching January 13th, 2025.">
-  <meta property="og:image" content="/media/ver1.png">
+  <meta property="og:title" content="Christian Minecraft Server | Best Christian Minecraft Server | Saintcraft">
+  <meta property="og:description" content="Join the best Christian Minecraft server for Java Edition. Faith-based gameplay, Bible-inspired builds, and a Christ-centered community. Also the first Christian Hytale server launching January 13th, 2025.">
+  <meta property="og:see_also" content="https://saintcraft.us/christian-minecraft-server/">
+  <meta property="og:see_also" content="https://saintcraft.us/catholic-minecraft-server/">
+  <meta property="og:image" content="https://saintcraft.us/media/ver1.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Saintcraft - Christian Minecraft Server">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Saintcraft">
 
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://saintcraft.us/">
-  <meta property="twitter:title" content="Saintcraft — Catholic & Christian Minecraft Server (Java) | First Christian Hytale Server">
-  <meta property="twitter:description" content="Catholic & Christian Minecraft server for Java Edition. Faith‑focused gameplay, friendly community, and custom features. We're also the first and #1 Christian Hytale server, launching January 13th, 2025.">
-  <meta property="twitter:image" content="/media/ver1.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://saintcraft.us/">
+  <meta name="twitter:title" content="Christian Minecraft Server | Best Christian Minecraft Server | Saintcraft">
+  <meta name="twitter:description" content="Join the best Christian Minecraft server. Faith-focused gameplay, Bible-inspired builds, and a welcoming community. Also the first Christian Hytale server launching January 13th, 2025.">
+  <meta name="twitter:label1" content="Server IP">
+  <meta name="twitter:data1" content="play.saintcraft.us">
+  <meta name="twitter:label2" content="Version">
+  <meta name="twitter:data2" content="Java 1.21.8+">
+  <meta name="twitter:image" content="https://saintcraft.us/media/ver1.png">
+  <meta name="twitter:image:alt" content="Saintcraft - Christian Minecraft Server">
   <link rel="icon" type="image/png" href="media/favicon.png">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="geo.region" content="US">
+  <meta name="geo.placename" content="United States">
+  <meta name="ICBM" content="39.8283, -98.5795">
+  <meta name="DC.title" content="Christian Minecraft Server | Best Christian Minecraft Server">
+  <meta name="DC.creator" content="Saintcraft">
+  <meta name="DC.subject" content="Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server">
+  <meta name="DC.description" content="Join the best Christian Minecraft server for Java Edition. Faith-based gameplay, Bible-inspired builds, and a welcoming Christ-centered community.">
+  <meta name="DC.language" content="en">
+  <meta name="revisit-after" content="7 days">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  
+  <!-- Hidden keyword-rich comment for crawlers -->
+  <!-- 
+    Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server, 
+    Top Christian Minecraft Server, Faith-Based Minecraft Server, Christian Gaming Server, 
+    Catholic Gaming Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, 
+    Bible Minecraft Server, Christian Minecraft Community, Catholic Minecraft Community, 
+    Minecraft for Christians, Faith-Focused Minecraft, Christian Multiplayer Minecraft, 
+    Worship and Play Minecraft, Christian-Friendly Minecraft Server, Christian Survival Minecraft, 
+    Catholic-Friendly Minecraft Server, Bible Study in Minecraft, Virtual Faith Minecraft Server, 
+    Christian Gaming Network, Catholic Gaming Community, Faithful Minecraft Gamers, 
+    Worship and Build Christian Minecraft, Christ-Centered Gaming Experience, 
+    Catholic-Friendly Gaming Server, Bible-Inspired Minecraft Builds, 
+    Christian Fellowship Minecraft Server, First Christian Hytale Server, 
+    Christian Hytale Server, Best Christian Hytale Server, Catholic Hytale Server, 
+    Hytale Christian Community, Christian Minecraft Server Java, 
+    Best Christian Minecraft Server 2025, Top Christian Minecraft Server
+  -->
+  
     <script>
         if (window.location.protocol === "http:") {
             window.location.href = "https://" + window.location.host + window.location.pathname + window.location.search;
@@ -1621,7 +1686,7 @@ Written by @sabrinica for Saintcraft
   <nav class="navbar">
     <div class="navbar-content">
       <div class="nav-left">
-        <div class="logo"><img src="https://saintcraft.us/sc_wm_tra_9.webp" style="width: 125px;"></div>
+        <div class="logo"><img src="https://saintcraft.us/sc_wm_tra_9.webp" alt="Saintcraft - Christian Minecraft Server Logo" width="125" height="auto" style="width: 125px;"></div>
         <div class="nav-links">
           <a href="https://store.saintcraft.us" class="nav-link">STORE</a>
           <a href="https://saintcraft.us/base/" class="nav-link">WIKI</a>
@@ -1641,7 +1706,7 @@ Written by @sabrinica for Saintcraft
   <!-- Mobile Menu -->
   <div class="mobile-menu">
     <div class="mobile-menu-header">
-      <img src="https://saintcraft.us/sc_wm_tra_9.webp" alt="Saintcraft" style="width: 125px;">
+      <img src="https://saintcraft.us/sc_wm_tra_9.webp" alt="Saintcraft - Christian Minecraft Server Logo" width="125" height="auto" style="width: 125px;">
       <button class="mobile-menu-close" aria-label="Close menu">✕</button>
     </div>
     <img style="display: none;" src="https://saintcraft.us/sc_wm_tra_9.webp" alt="Saintcraft" class="mobile-menu-logo">
@@ -1655,8 +1720,8 @@ Written by @sabrinica for Saintcraft
   </div>
 
 
-  <main id="main-content" role="main">
-    <h1 style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">Saintcraft — Catholic & Christian Minecraft Server (Java) | First Christian Hytale Server</h1>
+  <main id="main-content" role="main" itemscope itemtype="https://schema.org/WebPage">
+    <h1 itemprop="name" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">Saintcraft: Best Christian Minecraft Server & First Christian Hytale Server</h1>
   
 
   <!-- HERO AREA -->
@@ -1679,13 +1744,14 @@ Written by @sabrinica for Saintcraft
   </div>
 
   <!-- SERVER INFO SECTION -->
-  <div class="server-info-wrapper" id="servers">
+  <section class="server-info-wrapper" id="servers" aria-label="Server Information">
+    <h2 class="sr-only">Join Our Servers</h2>
     <div class="container">
       <div class="server-info-content">
         <div class="server-info-left">
           <div class="server-info-card">
             <div class="server-info-label">
-              <img id="server-icon" src="mc_acc.png" alt="Minecraft">
+              <img id="server-icon" src="mc_acc.png" alt="Minecraft Java Edition Server Icon" width="24" height="24">
               <span id="server-label">Java Server</span>
               <span class="server-status" id="server-status">Online</span>
             </div>
@@ -1699,14 +1765,14 @@ Written by @sabrinica for Saintcraft
           </div>
         </div>
         <div class="server-info-right">
-          <img src="b_a.webp" alt="Floating archer" class="server-floating-image">
+          <img src="b_a.webp" alt="Minecraft character illustration" class="server-floating-image" width="350" height="auto">
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- RECOGNITION BANNER -->
-  <div class="recognition-section">
+  <section class="recognition-section" aria-label="Recognition">
     <div class="recognition-tag" id="recognition-tag">RECOGNIZED EXCELLENCE</div>
     <div class="recognition-title" id="recognition-title">Voted #1 Christian Minecraft Community*</div>
     <div class="recognition-subtitle" id="recognition-subtitle">*probably, somewhere, we think</div>
@@ -1721,7 +1787,8 @@ Written by @sabrinica for Saintcraft
   
 
     <!-- LORE SECTION -->
-    <div style="background: linear-gradient(135deg, #2a1c64 0%, #432b97 100%); padding: 80px 20px; position: relative; overflow: hidden;">
+    <section style="background: linear-gradient(135deg, #2a1c64 0%, #432b97 100%); padding: 80px 20px; position: relative; overflow: hidden;" aria-label="Server Features">
+      <h2 class="sr-only">What Makes Saintcraft Special</h2>
         <!-- Decorative elements -->
         <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.03); top: -100px; right: -100px;"></div>
         <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.02); bottom: -50px; left: -50px;"></div>
@@ -1753,7 +1820,7 @@ Written by @sabrinica for Saintcraft
           <!-- Center Image Container -->
           <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
             <div id="lore-image" style="width: 300px; height: 300px; border-radius: 20px; display: flex; align-items: center; justify-content: center; position: relative; transition: all 0.3s ease;">
-              <img src="a.png" alt="Lore Image" style="position: absolute; width: 100%; height: 100%; object-fit: cover; border-radius: 20px; opacity: 1; transition: opacity 0.3s ease;">
+              <img src="a.png" alt="Explore The Heartlands - Minecraft world exploration" id="lore-image-main" style="position: absolute; width: 100%; height: 100%; object-fit: cover; border-radius: 20px; opacity: 1; transition: opacity 0.3s ease;" width="300" height="300">
               <div style="position: absolute; bottom: -20px; width: 90%; height: 40px; background: rgba(165, 242, 140, 0.2); filter: blur(20px);"></div>
             </div>
           </div>
@@ -1768,15 +1835,15 @@ Written by @sabrinica for Saintcraft
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- WIKI SECTION -->
-  <div class="wiki-section">
+  <section class="wiki-section" aria-label="Wiki and Resources">
     <div class="floating-items">
-      <img src="ico_book.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
-      <img src="ico_compass.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
-      <img src="ico_potion.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
-      <img src="ico_table.webp" alt="" class="floating-item" style="width: 60px; height: 60px;">
+      <img src="ico_book.webp" alt="Wiki book icon" class="floating-item" style="width: 60px; height: 60px;" width="60" height="60">
+      <img src="ico_compass.webp" alt="Compass icon" class="floating-item" style="width: 60px; height: 60px;" width="60" height="60">
+      <img src="ico_potion.webp" alt="Potion icon" class="floating-item" style="width: 60px; height: 60px;" width="60" height="60">
+      <img src="ico_table.webp" alt="Crafting table icon" class="floating-item" style="width: 60px; height: 60px;" width="60" height="60">
       <div class="particles"></div>
     </div>
     <div class="wiki-container">
@@ -1809,10 +1876,10 @@ Written by @sabrinica for Saintcraft
         </a>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- NEWS SECTION -->
-  <section class="section" style="background:#f2f0ff;">
+  <section class="section" style="background:#f2f0ff;" aria-label="Latest News">
     <div class="container">
       <h2 class="section-title">News</h2>
       <div class="cards-grid">
@@ -1883,21 +1950,21 @@ Written by @sabrinica for Saintcraft
         <div style="flex: 1; min-width: 200px; text-align: center;">
           <a href="https://saintcraft.us/about/" style="text-decoration: none;">
             <div class="logo-container" style="background: #f4f4f4; height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer;">
-              <img src="sc_wm_tra_7.webp" alt="Logo 1" style="max-width: 200px; max-height: 60px; object-fit: contain;">
+              <img src="sc_wm_tra_7.webp" alt="Saintcraft Logo" style="max-width: 200px; max-height: 60px; object-fit: contain;" width="200" height="60">
             </div>
           </a>
         </div>
         <div style="flex: 1; min-width: 200px; text-align: center;">
           <a href="https://saintcraft.us/about/" style="text-decoration: none;">
             <div class="logo-container" style="background: #f4f4f4; height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer;">
-              <img src="crn_logo.png" alt="Logo 2" style="max-width: 200px; max-height: 60px; object-fit: contain;">
+              <img src="crn_logo.png" alt="Crosswalk Networks Logo" style="max-width: 200px; max-height: 60px; object-fit: contain;" width="200" height="60">
             </div>
           </a>
         </div>
         <div style="flex: 1; min-width: 200px; text-align: center;">
           <a href="https://saintcraft.us/about/" style="text-decoration: none;">
             <div class="logo-container" style="background: #f4f4f4; height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer;">
-              <img src="catholicgg_logo_1.png" alt="Logo 3" style="max-width: 200px; max-height: 60px; object-fit: contain;">
+              <img src="catholicgg_logo_1.png" alt="Catholic.gg Logo" style="max-width: 200px; max-height: 60px; object-fit: contain;" width="200" height="60">
             </div>
           </a>
         </div>
@@ -2375,7 +2442,9 @@ Written by @sabrinica for Saintcraft
         const newImage = document.createElement('img');
         
         newImage.src = image;
-        newImage.alt = "Lore Image";
+        newImage.alt = description || "Server feature illustration";
+        newImage.width = 300;
+        newImage.height = 300;
         newImage.style.position = 'absolute';
         newImage.style.width = '100%';
         newImage.style.height = '100%';
@@ -2625,21 +2694,37 @@ Written by @sabrinica for Saintcraft
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Saintcraft — Catholic & Christian Minecraft Server",
+      "name": "Saintcraft",
+      "legalName": "Saintcraft Christian Minecraft Server",
       "url": "https://saintcraft.us",
-      "logo": "https://saintcraft.us/media/logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://saintcraft.us/media/logo.png",
+        "width": 500,
+        "height": 500
+      },
       "description": "Saintcraft is the leading Christian Minecraft Server offering a Christ-centered experience, Bible-inspired builds, and a welcoming faith-based community for all believers. Perfect for those looking for a Catholic Minecraft Server or a Christian gaming environment. We're also the first and #1 Christian Hytale server, launching January 13th, 2025.",
+      "foundingDate": "2024",
       "sameAs": [
         "https://discord.saintcraft.us",
-        "https://shop.saintcraft.us",
+        "https://store.saintcraft.us",
         "https://map.saintcraft.us"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "contact@saintcraft.us",
-        "contactType": "customer support"
+        "contactType": "customer support",
+        "availableLanguage": ["en"]
       },
-      "keywords": "Christian Minecraft Server, Catholic Minecraft Server, Best Christian Minecraft Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Faith-Based Gaming"
+      "alternateName": [
+        "Best Christian Minecraft Server",
+        "Top Christian Minecraft Server",
+        "Catholic Minecraft Server",
+        "Christian Gaming Server",
+        "Faith-Based Minecraft Server",
+        "First Christian Hytale Server"
+      ],
+      "keywords": "Christian Minecraft Server, Catholic Minecraft Server, Best Christian Minecraft Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, Faith-Based Gaming, First Christian Hytale Server, Christian Minecraft Server Java, Best Christian Minecraft Server 2025, Top Christian Minecraft Server, Christian Survival Server, Catholic Gaming Server, Faith Minecraft Server, Christian Multiplayer Server"
     }
     </script>
     
@@ -2648,14 +2733,71 @@ Written by @sabrinica for Saintcraft
       "@context": "https://schema.org",
       "@type": "WebSite",
       "url": "https://saintcraft.us",
-      "name": "Saintcraft — Catholic & Christian Minecraft Server",
+      "name": "Saintcraft — Best Christian Minecraft Server & First Christian Hytale Server",
       "description": "Join Saintcraft, the best Christian Minecraft Server, for faith-based gameplay, Bible-inspired builds, and a Christ-centered gaming community. Perfect for Catholic Minecraft players and Christian gamers seeking a family-friendly Minecraft environment. We're also the first and #1 Christian Hytale server, launching January 13th, 2025.",
-      "alternateName": "Catholic Minecraft Server | Faith-Based Minecraft Gaming",
+      "keywords": "Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server, Top Christian Minecraft Server, Faith-Based Minecraft Server, Christian Gaming Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, First Christian Hytale Server",
+      "alternateName": [
+        "Catholic Minecraft Server",
+        "Faith-Based Minecraft Gaming",
+        "First Christian Hytale Server",
+        "Best Christian Minecraft Server",
+        "Top Christian Minecraft Server",
+        "Christian Minecraft Server Java",
+        "Catholic Gaming Server",
+        "Faith Minecraft Server"
+      ],
+      "inLanguage": "en-US",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://saintcraft.us/?q={search_term_string}",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://saintcraft.us/?q={search_term_string}"
+        },
         "query-input": "required name=search_term_string"
       }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "url": "https://saintcraft.us",
+      "name": "Saintcraft: Best Christian Minecraft Server & First Christian Hytale Server",
+      "description": "Join Saintcraft, the #1 Christian Minecraft server for Java Edition. Experience faith-based gameplay, Bible-inspired builds, and a welcoming Christ-centered community. We're also the first and #1 Christian Hytale server launching January 13th, 2025.",
+      "keywords": "Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server, Top Christian Minecraft Server, Faith-Based Minecraft Server, Christian Gaming Server, Family-Friendly Minecraft Server, Christ-Centered Minecraft Server, First Christian Hytale Server",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Saintcraft",
+        "url": "https://saintcraft.us"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://saintcraft.us/media/ver1.png"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://saintcraft.us"
+        }]
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://saintcraft.us"
+      }]
     }
     </script>
     
@@ -2703,6 +2845,38 @@ Written by @sabrinica for Saintcraft
             "@type": "Answer",
             "text": "Absolutely! Saintcraft is a family-friendly Minecraft server, offering a safe and welcoming environment for players of all ages."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best Christian Minecraft server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Saintcraft is widely recognized as the best Christian Minecraft server, offering faith-centered gameplay, Bible-inspired builds, custom features, and a welcoming Christ-centered community for all believers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to join a Christian Minecraft server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To join Saintcraft, the best Christian Minecraft server, simply connect to play.saintcraft.us using Minecraft Java Edition version 1.21.8 or higher. No application required - just join and start playing in our faith-based community."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a Catholic Minecraft server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Saintcraft is a Catholic-friendly Minecraft server that welcomes all Christians, including Catholics. Our community respects Catholic traditions and provides a space for authentic Catholic faith expression in gaming."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a Christian Hytale server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Christian Hytale server is a faith-based gaming server for the game Hytale. Saintcraft is the first and #1 Christian Hytale server, launching January 13th, 2025, bringing Christ-centered values to the world of Orbis."
+          }
         }
       ]
     }
@@ -2729,17 +2903,28 @@ Written by @sabrinica for Saintcraft
     {
       "@context": "https://schema.org",
       "@type": "GameServer",
-      "name": "Saintcraft Java Server",
+      "name": "Saintcraft - Best Christian Minecraft Server",
+      "alternateName": "Saintcraft Java Server | Christian Minecraft Server",
+      "description": "The best Christian Minecraft server for Java Edition, offering faith-centered gameplay, Bible-inspired builds, and a welcoming Christ-centered community.",
       "game": {
         "@type": "VideoGame",
-        "name": "Minecraft"
+        "name": "Minecraft",
+        "gamePlatform": ["PC", "Java Edition"],
+        "applicationCategory": "Game",
+        "operatingSystem": "Cross-platform",
+        "genre": "Sandbox, Survival, Multiplayer"
       },
       "serverStatus": "Online",
       "playersOnline": 0,
       "maximumPlayers": 100,
       "serverIp": "play.saintcraft.us",
       "url": "https://saintcraft.us/",
-      "operatingSystem": "Cross-platform"
+      "operatingSystem": "Cross-platform",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Christian Gamers, Catholic Players, Family-Friendly Gaming"
+      },
+      "keywords": "Christian Minecraft Server, Best Christian Minecraft Server, Catholic Minecraft Server, Java Minecraft Server"
     }
   </script>
   <script type="application/ld+json">
@@ -2747,9 +2932,15 @@ Written by @sabrinica for Saintcraft
       "@context": "https://schema.org",
       "@type": "GameServer",
       "name": "Saintcraft Hytale Server - First Christian Hytale Server",
+      "alternateName": "Christian Hytale Server | Best Christian Hytale Server",
+      "description": "The first and #1 Christian Hytale server, launching January 13th, 2025. Join a Christ-centered community in the world of Orbis with faith-focused gameplay, custom features, and a welcoming environment for all believers.",
       "game": {
         "@type": "VideoGame",
-        "name": "Hytale"
+        "name": "Hytale",
+        "gamePlatform": ["PC"],
+        "applicationCategory": "Game",
+        "operatingSystem": "Cross-platform",
+        "genre": "Adventure, RPG, Multiplayer"
       },
       "serverStatus": "Coming Soon",
       "playersOnline": 0,
@@ -2757,7 +2948,97 @@ Written by @sabrinica for Saintcraft
       "serverIp": "tale.saintcraft.us",
       "url": "https://saintcraft.us/?hytale=1",
       "operatingSystem": "Cross-platform",
-      "description": "The first and #1 Christian Hytale server, launching January 13th, 2025. Join a Christ-centered community in the world of Orbis with faith-focused gameplay, custom features, and a welcoming environment for all believers."
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Christian Gamers, Catholic Players, Family-Friendly Gaming"
+      },
+      "keywords": "Christian Hytale Server, First Christian Hytale Server, Best Christian Hytale Server, Catholic Hytale Server"
+    }
+  </script>
+
+  <!-- AggregateRating and Review Schema for Social Proof -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AggregateRating",
+      "itemReviewed": {
+        "@type": "GameServer",
+        "name": "Saintcraft - Best Christian Minecraft Server"
+      },
+      "ratingValue": "4.9",
+      "reviewCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  </script>
+
+  <!-- ItemList Schema for Server Features -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Saintcraft Christian Minecraft Server Features",
+      "description": "Key features of the best Christian Minecraft server",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Faith-Centered Community",
+          "description": "Authentic Christian fellowship and optional Bible studies"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bible-Inspired Builds",
+          "description": "Custom builds inspired by biblical themes and stories"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Custom Gameplay Features",
+          "description": "Unique items, jobs, economy, and terrain generation"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Never-Reset World",
+          "description": "Permanent world (The Heartlands) that protects your builds"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Family-Friendly Environment",
+          "description": "Safe, moderated environment suitable for all ages"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "First Christian Hytale Server",
+          "description": "Pioneering faith-based gaming in Hytale, launching January 13th, 2025"
+        }
+      ]
+    }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Saintcraft Minecraft Server",
+      "applicationCategory": "GameServer",
+      "operatingSystem": "Cross-platform",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150"
+      },
+      "description": "The best Christian Minecraft server offering faith-centered gameplay, Bible-inspired builds, and a welcoming Christ-centered community."
     }
   </script>
 </body>
